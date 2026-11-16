@@ -2,47 +2,246 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0; url=Mission_Renaissance_1500.html">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Geschichte – Mission Renaissance 1500</title>
+  <title>Geschichte – Interaktive Lerntools (1. Sek)</title>
   <style>
+    :root {
+      --parchment: #F6EFE2;
+      --ivory: #FFFDF9;
+      --lapis: #1D3557;
+      --lapis-light: #2B4C7E;
+      --gold: #D49B35;
+      --gold-bright: #F4C552;
+      --ink: #231B15;
+      --ink-muted: #5C5046;
+      --spice: #B8402C;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: Verdana, system-ui, sans-serif;
-      background-color: #F6EFE2;
-      color: #231B15;
+      font-family: Verdana, 'Trebuchet MS', system-ui, sans-serif;
+      background-color: var(--parchment);
+      background-image:
+        radial-gradient(circle at 15% 20%, rgba(212, 155, 53, 0.14) 0%, transparent 45%),
+        radial-gradient(circle at 85% 80%, rgba(29, 53, 87, 0.10) 0%, transparent 50%);
+      color: var(--ink);
+      margin: 0;
+      padding: 32px 20px 56px;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 920px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      background: var(--lapis);
+      color: var(--ivory);
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 5px 14px;
+      border-radius: 999px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 2rem;
+      color: var(--lapis);
+    }
+
+    .subtitle {
+      margin: 0;
+      color: var(--ink-muted);
+      font-size: 1.02rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 22px;
+    }
+
+    @media (min-width: 700px) {
+      .grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .topic-card {
+      background: var(--ivory);
+      border: 3px solid var(--ink);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 5px 5px 0 rgba(35, 27, 21, 0.18);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 16px;
+      transition: transform 0.14s ease;
+    }
+
+    .topic-card:hover {
+      transform: translateY(-3px);
+    }
+
+    .topic-card.featured {
+      border-color: var(--ink);
+      background: linear-gradient(180deg, #FFFDF8 0%, #FDF6E4 100%);
+    }
+
+    .badge-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .topic-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 16px;
+      background: var(--gold-bright);
+      border: 2.5px solid var(--ink);
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 100vh;
+      font-size: 28px;
+    }
+
+    .tag-new {
+      background: var(--spice);
+      color: #FFFDF8;
+      font-size: 0.78rem;
+      font-weight: 800;
+      padding: 4px 11px;
+      border-radius: 999px;
+      border: 2px solid var(--ink);
+    }
+
+    .tag-info {
+      background: #E8DEC8;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 4px 11px;
+      border-radius: 999px;
+    }
+
+    h2 {
+      margin: 10px 0 8px;
+      font-size: 1.38rem;
+      color: var(--lapis);
+    }
+
+    p {
       margin: 0;
-      padding: 24px;
-      text-align: center;
+      line-height: 1.55;
+      color: var(--ink-muted);
+      font-size: 0.96rem;
     }
-    .card {
-      background: #FFFDF9;
-      border: 2px solid #C8963E;
-      border-radius: 16px;
-      padding: 32px;
-      max-width: 480px;
-      box-shadow: 0 6px 20px rgba(35, 27, 21, 0.08);
+
+    .features {
+      margin: 12px 0 0;
+      padding-left: 18px;
+      font-size: 0.9rem;
+      color: var(--ink);
+      line-height: 1.65;
     }
-    a {
-      display: inline-block;
-      margin-top: 16px;
-      padding: 12px 24px;
-      background: #1D3557;
-      color: #FFFDF9;
+
+    .start-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 14px 20px;
+      min-height: 50px;
+      border-radius: 14px;
+      border: 2.5px solid var(--ink);
+      font-weight: 800;
+      font-size: 1rem;
       text-decoration: none;
-      font-weight: bold;
-      border-radius: 10px;
+      box-shadow: 3px 3px 0 var(--ink);
+      transition: transform 0.1s ease, background-color 0.15s ease;
+    }
+
+    .start-btn.gold {
+      background: var(--gold-bright);
+      color: var(--ink);
+    }
+    .start-btn.gold:hover {
+      background: #F7D170;
+    }
+
+    .start-btn.lapis {
+      background: var(--lapis);
+      color: var(--ivory);
+    }
+    .start-btn.lapis:hover {
+      background: var(--lapis-light);
     }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>Mission Renaissance 1500</h1>
-    <p>Du wirst automatisch zum interaktiven Lerntool weitergeleitet.</p>
-    <a href="Mission_Renaissance_1500.html">Jetzt starten ▶</a>
+  <div class="container">
+    <header>
+      <span class="eyebrow">Geschichte • 1. Sekundarschule</span>
+      <h1>Interaktive Lerntools für dein iPad</h1>
+      <p class="subtitle">Wähle dein aktuelles Thema und starte direkt im Browser.</p>
+    </header>
+
+    <main class="grid">
+      <article class="topic-card featured">
+        <div>
+          <div class="badge-row">
+            <div class="topic-icon" aria-hidden="true">⛵</div>
+            <span class="tag-new">NEU • Comic-Abenteuer</span>
+          </div>
+          <h2>Entdeckungen: Der Seeweg nach Indien</h2>
+          <p>
+            Begleite Schiffsjunge Timo und Papagei Koko auf eine animierte Comic-Reise von den teuren Gewürzen bis zu Vasco da Gama – mit Vorlese-Hilfe und allen drei OneNote-Aufträgen.
+          </p>
+          <ul class="features">
+            <li>🔊 Vorlesefunktion &amp; anklickbare Worterklärungen</li>
+            <li>🗺️ Interaktive Karte zum Einzeichnen (Auftrag B)</li>
+            <li>👑 Karavelle-Plakat-Baukasten &amp; OneNote-Export (Auftrag C)</li>
+          </ul>
+        </div>
+        <a href="Entdeckungen_Seeweg_Indien.html" class="start-btn gold">Abenteuer starten ▶</a>
+      </article>
+
+      <article class="topic-card">
+        <div>
+          <div class="badge-row">
+            <div class="topic-icon" aria-hidden="true">🏛️</div>
+            <span class="tag-info">Thema Renaissance</span>
+          </div>
+          <h2>Mission Renaissance 1500</h2>
+          <p>
+            Entdecke den Unterschied zwischen Mittelalter und Renaissance, erforsche das Weltbild-Labor und sammle deinen Meisterpass.
+          </p>
+          <ul class="features">
+            <li>🕰️ Zeitreise-Sortierer (Mittelalter vs. Renaissance)</li>
+            <li>🔭 Weltbild-Labor &amp; Begriffs-Baukasten</li>
+            <li>🏆 Meister-Quiz mit Vorlesefunktion</li>
+          </ul>
+        </div>
+        <a href="Mission_Renaissance_1500.html" class="start-btn lapis">Mission öffnen ▶</a>
+      </article>
+    </main>
   </div>
 </body>
 </html>
