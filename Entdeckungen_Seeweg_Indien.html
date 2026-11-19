@@ -1673,9 +1673,9 @@
         ],
         dialogues: [
           {
-            speaker: "Bartolomeo Diaz (1487)",
+            speaker: "Bartolomeo Diaz (1487/88)",
             style: "guest",
-            text: "Es ist das Jahr 1487. Ich habe es geschafft und mit meinen Schiffen die stürmische Südspitze Afrikas erreicht!"
+            text: "Ich bin 1487 losgesegelt und habe Anfang 1488 mit meinen Schiffen die stürmische Südspitze Afrikas erreicht!"
           },
           {
             speaker: "Timo (Schiffsjunge)",
@@ -1966,7 +1966,7 @@
       } else if (step === 6) {
         speakText("Auftrag B. Zeichne die Erkundungsfahrten von Bartolomeo Diaz in Blau und Vasco da Gama in Grün in die Karte ein.");
       } else if (step === 7) {
-        speakText("Auftrag C. Der Spanische König gibt dir den Auftrag, ein Werbeplakat für seinen neuen Schiffstypen, die Karavelle, zu gestalten. Wichtig sind ein Bild des Schiffs, der Name Karavelle und die neuen Vorteile.");
+        speakText("Auftrag C. Der Portugiesische König gibt dir den Auftrag, ein Werbeplakat für seinen neuen Schiffstypen, die Karavelle, zu gestalten. Wichtig sind ein Bild des Schiffs, der Name Karavelle und die neuen Vorteile.");
       } else {
         speakText("Super gemacht! Hier ist deine fertige OneNote-Abgabe. Du kannst sie als Bild speichern und in OneNote einfügen.");
       }
@@ -2746,7 +2746,7 @@
     }
 
     // =========================================================================
-    // 11. AUFTRAG C: WERBEPLAKAT-BAUKASTEN FÜR DEN SPANISCHEN KÖNIG
+    // 11. AUFTRAG C: WERBEPLAKAT-BAUKASTEN FÜR DEN PORTUGIESISCHEN KÖNIG
     // =========================================================================
     const POSTER_BACKGROUNDS = [
       { id: "ocean", label: "🌊 Blauer Ozean" },
@@ -2796,7 +2796,7 @@
           <div class="comic-stage" style="margin-bottom:16px;">
             <div class="stage-scene">
               <div class="cast-row">
-                <div class="char-box">${getCharSVG("king", "happy")}<span class="char-name-tag">Spanischer König</span></div>
+                <div class="char-box">${getCharSVG("king", "happy")}<span class="char-name-tag">Portugiesischer König</span></div>
               </div>
               <div class="dialogue-stack">
                 <div class="speech-bubble guest">
@@ -2892,7 +2892,7 @@
               </div>
               <div id="task-c-feedback" style="text-align:left;">
                 ${state.completed[7]
-                  ? `<div class="feedback-banner ok">👑 <strong>Der Spanische König jubelt:</strong> «Grossartiges Plakat! Du erhältst das goldene Entdecker-Siegel!»</div>`
+                  ? `<div class="feedback-banner ok">👑 <strong>Der Portugiesische König jubelt:</strong> «Grossartiges Plakat! Du erhältst das goldene Entdecker-Siegel!»</div>`
                   : ""}
               </div>
             </div>
@@ -3020,7 +3020,7 @@
       ctx.fillStyle = "#B8402C";
       ctx.font = "bold 20px Verdana, sans-serif";
       ctx.textAlign = "center";
-      ctx.fillText("NEUHEIT DES SPANISCHEN KÖNIGS", W / 2, 82);
+      ctx.fillText("NEUHEIT DES PORTUGIESISCHEN KÖNIGS", W / 2, 82);
 
       ctx.fillStyle = "#15324D";
       ctx.font = "bold 36px Verdana, sans-serif";

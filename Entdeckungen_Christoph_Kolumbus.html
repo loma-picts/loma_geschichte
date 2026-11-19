@@ -1210,7 +1210,7 @@
         chapterIdx: 1,
         badge: "Station 1 • Europa / 1490er Jahre",
         title: "Gewürze und Kolumbus' kühne Idee",
-        desc: "Alle wollen Gewürze aus Indien. Die meisten Seefahrer segeln um Afrika (rote Linie). Kolumbus will stattdessen nach Westen über die Erdkugel segeln!"
+        desc: "Alle wollen Gewürze aus Indien. Die meisten europäischen Seefahrer wollen um Afrika herum segeln (rote Linie, erst 1498 geschafft). Kolumbus will stattdessen nach Westen über die Erdkugel segeln!"
       },
       {
         id: 2,
@@ -1330,7 +1330,7 @@
           imgSrc: "./assets/la-navidad-1493.jpg",
           title: "Bau der ersten Festung «La Navidad» auf Haiti (1493)",
           credit: "Zeitgenössischer Holzschnitt aus dem Kolumbus-Brief, Basel 1493/94",
-          hint: "Eine der ältesten Darstellungen der ersten spanischen Kolonie auf Haiti! Oben steht «Insula Hyspana». Mit einem Kran bauen die Spanier eine feste Burg am Meer."
+          hint: "Eine der ältesten Darstellungen der ersten spanischen Kolonie auf Haiti! Oben steht «Insula Hyspana». Quellenkritik: In Wirklichkeit bauten die Spanier nur ein einfaches Holzfort aus den Planken der gestrandeten «Santa Maria» – der europäische Künstler zeichnete 1493 aus der Fantasie eine mittelalterliche Steinburg."
         },
         {
           imgSrc: "./assets/kolumbus-brief-1493-schiff.jpg",
@@ -1506,8 +1506,8 @@
         id: 4,
         x: "80%",
         y: "62%",
-        title: "4. Die Bewohner von Haiti",
-        text: "Rechts kommen Einheimische (Taíno) auf Kolumbus zu. Sie sind unbewaffnet und bringen goldene Geschenke."
+        title: "4. Die Bewohner von Haiti (Taíno)",
+        text: "Rechts kommen Einheimische (Taíno) auf Kolumbus zu. Sie sind unbewaffnet und bringen Geschenke (auf dem Bild Schalen und Ketten)."
       },
       {
         id: 5,
@@ -1672,13 +1672,13 @@
             type: "speech",
             style: "kolumbus",
             speaker: "🧭 Christoph Kolumbus",
-            text: "Ich nenne diese Insel ab heute «San Salvador» (Heiliger Erlöser)! Sie gehört jetzt der spanischen Königin!"
+            text: "Ich nenne diese Insel «San Salvador» (Heiliger Erlöser)! Sie gehört jetzt der spanischen Krone!"
           },
           {
             type: "speech",
             style: "taino",
-            speaker: "🏝️ Bewohner von Haiti",
-            text: "Fremde Männer mit grossen Schiffen und Waffen sind gelandet. Wir bringen ihnen Geschenke – aber warum stellen sie ein Kreuz auf und tun so, als gehöre ihnen unsere Insel?"
+            speaker: "🏝️ Bewohner (Taíno)",
+            text: "Fremde Männer mit grossen Schiffen und Waffen sind gelandet – erst auf Guanahani, später auch auf Kuba und Haiti. Wir bringen ihnen Geschenke – aber warum stellen sie ein Kreuz auf und tun so, als gehöre ihnen unsere Insel?"
           }
         ],
         originalText: "Am 12. Oktober 1492 landet Kolumbus mit drei Schiffen auf Guanahani, einer kleinen Insel der Bahamas. Kolumbus gibt ihr den Namen San Salvador (Heiliger Erlöser) und erklärt sie zum Besitz der spanischen Königin. Von San Salvador aus segeln Kolumbus und seine Männer weiter und entdecken Kuba und Haiti.",
@@ -2001,7 +2001,7 @@
                 </span>
                 ${state.showComparisonRoute ? `
                   <span class="legend-item">
-                    <span class="legend-line" style="border-top:3.5px dashed #B8402C; height:0;"></span> Weg um Afrika nach Indien
+                    <span class="legend-line" style="border-top:3.5px dashed #B8402C; height:0;"></span> Geplanter Weg um Afrika (ab 1498)
                   </span>
                 ` : ""}
               </div>
@@ -2058,14 +2058,14 @@
                   <path d="M 596 178 C 542 225, 515 320, 565 425 C 625 535, 650 662, 728 656 C 815 650, 865 535, 922 455 C 962 400, 990 370, 1012 346"
                     fill="none" stroke="#B8402C" stroke-width="4.5" stroke-dasharray="12 8" stroke-linecap="round"/>
                   <polygon points="1018,339 1001,344 1011,356" fill="#B8402C"/>
-                  <rect x="625" y="660" width="218" height="28" rx="14" fill="rgba(255,253,248,0.94)" stroke="#B8402C" stroke-width="2"/>
-                  <text x="734" y="679" text-anchor="middle" font-size="13" font-weight="800" fill="#B8402C">Weg um Afrika nach Indien</text>
+                  <rect x="598" y="660" width="268" height="28" rx="14" fill="rgba(255,253,248,0.94)" stroke="#B8402C" stroke-width="2"/>
+                  <text x="732" y="679" text-anchor="middle" font-size="13" font-weight="800" fill="#B8402C">Geplanter Weg um Afrika (ab 1498)</text>
                 ` : ""}
 
                 <!-- REISE 1498 & VESPUCCI 1499-1501 (TÜRKIS MIT WEISSEM HALO) -->
-                <path d="M 604 174 C 555 232, 465 302, 335 348 C 392 365, 442 405, 452 496"
+                <path d="M 604 174 C 555 232, 465 302, 335 348 C 385 352, 442 380, 472 428 C 482 452, 468 476, 452 496"
                   fill="none" stroke="rgba(255,253,248,0.8)" stroke-width="8" stroke-linecap="round"/>
-                <path d="M 604 174 C 555 232, 465 302, 335 348 C 392 365, 442 405, 452 496"
+                <path d="M 604 174 C 555 232, 465 302, 335 348 C 385 352, 442 380, 472 428 C 482 452, 468 476, 452 496"
                   fill="none" stroke="#0F766E" stroke-width="4" stroke-dasharray="8 7" stroke-linecap="round"/>
 
                 <!-- KOLUMBUS ROUTE 1492 (BLAU MIT WEISSEM HALO) -->
@@ -2237,6 +2237,7 @@
               <div style="font-size:0.88rem; color:var(--ink-muted);">
                 <em>Landung des Kolumbus auf Haiti, kolorierter Kupferstich von Theodor de Bry (1594).</em>
                 <strong>Tippe auf die Zahlen 1–5 im Bild!</strong>
+                <div style="margin-top:4px; font-size:0.82rem;">💡 <strong>Quellenkritik:</strong> Theodor de Bry stach das Bild über 100 Jahre nach 1492 in Europa und war nie selbst in Amerika (darum z. B. spätere Rüstungen).</div>
               </div>
             </div>
             <button type="button" class="btn btn-soft btn-sm" onclick="openEngravingLightbox()">🔍 Gross ansehen</button>
@@ -2274,7 +2275,7 @@
       const img = document.getElementById("source-dlg-img");
       img.src = "./assets/theodor-de-bry-1594.jpg";
       img.alt = "Landung des Kolumbus auf Haiti, kolorierter Kupferstich von Theodor de Bry (1594)";
-      document.getElementById("source-dlg-hint").textContent = "Ein berühmter Kupferstich aus dem Jahr 1594! Tippe auf die roten Zahlen 1–5 im Kapitel, um jedes Detail genau zu untersuchen.";
+      document.getElementById("source-dlg-hint").textContent = "Ein berühmter Kupferstich aus dem Jahr 1594! Tippe auf die roten Zahlen 1–5 im Kapitel, um jedes Detail zu untersuchen. Quellenkritik: Theodor de Bry stach dieses Bild über 100 Jahre nach 1492 in Europa und war nie selbst in Amerika.";
       document.getElementById("source-dlg-credit").textContent = "Quelle: Kolorierter Kupferstich von Theodor de Bry, 1594";
       const dlg = document.getElementById("source-dialog");
       if (typeof dlg.showModal === "function") dlg.showModal();
