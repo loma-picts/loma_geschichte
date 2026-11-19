@@ -170,6 +170,25 @@
       border-color: var(--terracotta);
       color: #6E2216;
     }
+    .header-link-btn {
+      background-color: rgba(255, 255, 255, 0.14);
+      color: var(--ivory);
+      border: 1.5px solid rgba(255, 255, 255, 0.45);
+      border-radius: 999px;
+      padding: 6px 13px;
+      min-height: 38px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: background-color 0.15s ease;
+    }
+    .header-link-btn:hover {
+      background-color: rgba(255, 255, 255, 0.24);
+    }
   </style>
 </head>
 <body class=" pb-12">
@@ -192,7 +211,13 @@
       </div>
 
       <!-- XP & Audio Controls -->
-      <div class="flex items-center gap-2 sm:gap-3">
+      <div class="flex flex-wrap items-center gap-2 sm:gap-3">
+        <a href="index.html" class="header-link-btn" aria-label="Zurück zur Themen-Übersicht">
+          <span>🏠</span> <span>Übersicht</span>
+        </a>
+        <button type="button" class="header-link-btn" onclick="resetProgress()" title="Fortschritt zurücksetzen">
+          <span>🔄</span> <span>Zurücksetzen</span>
+        </button>
         <button onclick="speakCurrentScreen()" title="Aufgabe laut vorlesen"
           class="btn-gold-outline px-3 py-1.5 text-xs sm:text-sm flex items-center gap-1.5">
           <span>🔊</span> <span id="tts-btn-label">Vorlesen</span>
@@ -944,11 +969,11 @@
         keywords: "3 Schlüsselwörter:  Wiedergeburt  •  Alte Griechen & Römer  •  Selbst denken & forschen",
         starter: "Satzstarter fürs OneNote: «Renaissance bedeutet Wiedergeburt. In dieser Zeit begannen die Menschen wieder selbst zu denken und interessierten sich für die alten Griechen und Römer.»",
         tiles: [
+          { text: "Man verbrannte alle Bücher und verbot den Menschen das Lesen.", correct: false, why: "Falsch! Im Gegenteil: Durch den Buchdruck wurden Bücher und Bildung viel wichtiger!" },
           { text: "Das Wort bedeutet «Wiedergeburt».", correct: true, why: "Stimmt! Französisch «Renaissance» = Wiedergeburt." },
+          { text: "Man erklärte Naturgesetze nur noch mit der Bibel und fragte nicht nach.", correct: false, why: "Falsch! Das war im Mittelalter so, nicht in der Renaissance." },
           { text: "Man interessierte sich wieder für die Ideen der alten Griechen und Römer (Antike).", correct: true, why: "Stimmt! Die Kultur der Antike war das grosse Vorbild." },
           { text: "Die Menschen begannen, selbst zu denken, zu beobachten und die Welt neu zu entdecken.", correct: true, why: "Stimmt! Man hinterfragte alte Regeln und forschte selbst." },
-          { text: "Man verbrannte alle Bücher und verbot den Menschen das Lesen.", correct: false, why: "Falsch! Im Gegenteil: Durch den Buchdruck wurden Bücher und Bildung viel wichtiger!" },
-          { text: "Man erklärte Naturgesetze nur noch mit der Bibel und fragte nicht nach.", correct: false, why: "Falsch! Das war im Mittelalter so, nicht in der Renaissance." },
           { text: "Die Menschen hörten komplett auf zu malen und zu bauen.", correct: false, why: "Falsch! In der Renaissance entstanden weltberühmte Kunstwerke und Bauten." }
         ]
       },
@@ -960,12 +985,12 @@
         keywords: "3 Schlüsselwörter:  Mensch im Mittelpunkt  •  Bildung & Wissen  •  Literatur, Philosophie & Geschichte",
         starter: "Satzstarter fürs OneNote: «Beim Humanismus steht der Mensch und sein Leben im Mittelpunkt. Die Menschen legten viel Wert auf Bildung, Wissen, Literatur und Geschichte.»",
         tiles: [
+          { text: "Nur der Papst und der König dürfen lesen und nachdenken.", correct: false, why: "Falsch! Beim Humanismus gilt jeder Mensch als Individuum, das lernen und denken soll." },
           { text: "Der Mensch und das menschliche Leben stehen im Mittelpunkt.", correct: true, why: "Genau! «Humanus» heisst menschlich – der Mensch steht im Zentrum." },
           { text: "Bildung, Wissen und eigenes Nachdenken werden sehr wichtig.", correct: true, why: "Richtig! Schulen und Bildung bekamen einen ganz neuen Wert." },
-          { text: "Man interessiert sich stark für Literatur, Philosophie und Geschichte.", correct: true, why: "Stimmt genau! Das steht auch so in deinem OneNote-Text." },
           { text: "🦆 Die Ente steht im Mittelpunkt des Universums!", correct: false, why: "Haha! Das war nur der Witz im YouTube-Video (bei Minute 4:22)! Nicht die Ente, sondern der MENSCH steht im Mittelpunkt!" },
-          { text: "Nur der Papst und der König dürfen lesen und nachdenken.", correct: false, why: "Falsch! Beim Humanismus gilt jeder Mensch als Individuum, das lernen und denken soll." },
-          { text: "Wissen und Schule sind völlig unwichtig für die Menschen.", correct: false, why: "Falsch! Bildung und Wissen waren im Humanismus extrem wichtig." }
+          { text: "Wissen und Schule sind völlig unwichtig für die Menschen.", correct: false, why: "Falsch! Bildung und Wissen waren im Humanismus extrem wichtig." },
+          { text: "Man interessiert sich stark für Literatur, Philosophie und Geschichte.", correct: true, why: "Stimmt genau! Das steht auch so in deinem OneNote-Text." }
         ]
       }
     ];
@@ -1255,6 +1280,13 @@
       if (allDone) {
         codeVal.innerText = '✨ DA-VINCI-1500 ✨';
         statusTxt.innerHTML = '<strong>Herzlichen Glückwunsch!</strong> Du hast alle 4 Missionen gemeistert und bist jetzt offizieller <strong>Renaissance-Meister</strong>!';
+      }
+    }
+
+    function resetProgress() {
+      if (confirm("Möchtest du deinen Fortschritt wirklich zurücksetzen und von vorne beginnen?")) {
+        if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+        location.reload();
       }
     }
 

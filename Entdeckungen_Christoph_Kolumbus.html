@@ -1,0 +1,2745 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Entdeckungen: Christoph Kolumbus – Comic-Lernpfad</title>
+  <style>
+    :root {
+      --ocean-deep: #15324D;
+      --ocean-mid: #1F4E78;
+      --ocean-light: #D9EEF8;
+      --parchment: #FBF4E4;
+      --parchment-card: #FFFDF8;
+      --parchment-dark: #EADBC0;
+      --gold: #D49B35;
+      --gold-bright: #F4C552;
+      --gold-soft: #FDF1CE;
+      --spice-red: #B8402C;
+      --spice-soft: #FDECE8;
+      --emerald: #237A4B;
+      --emerald-soft: #E2F5EA;
+      --ink: #221A14;
+      --ink-muted: #5C4E42;
+      --kolumbus-blue: #1D6FD8;
+      --vespucci-teal: #0F766E;
+      --border-comic: #2A2018;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --font-scale: 1;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      margin: 0;
+      padding: 0 0 56px 0;
+      background-color: var(--parchment);
+      background-image:
+        radial-gradient(circle at 12% 18%, rgba(212, 155, 53, 0.12) 0%, transparent 45%),
+        radial-gradient(circle at 88% 82%, rgba(31, 78, 120, 0.10) 0%, transparent 50%);
+      color: var(--ink);
+      font-family: Verdana, 'Trebuchet MS', system-ui, -apple-system, sans-serif;
+      font-size: calc(18px * var(--font-scale));
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    .font-title {
+      font-family: 'Trebuchet MS', Verdana, system-ui, sans-serif;
+      letter-spacing: 0.01em;
+    }
+
+    /* ================= TOP HEADER ================= */
+    .top-header {
+      background: linear-gradient(135deg, var(--ocean-deep) 0%, var(--ocean-mid) 100%);
+      color: #FFFDF8;
+      border-bottom: 4px solid var(--gold);
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      box-shadow: 0 4px 16px rgba(21, 50, 77, 0.22);
+    }
+
+    .header-inner {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 10px 16px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-badge {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: var(--gold-bright);
+      color: var(--ink);
+      border: 2.5px solid var(--border-comic);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      box-shadow: 2px 2px 0 var(--border-comic);
+      flex-shrink: 0;
+    }
+
+    .brand-title {
+      margin: 0;
+      font-size: 1.15rem;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .brand-sub {
+      font-size: 0.78rem;
+      color: var(--gold-soft);
+      opacity: 0.95;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .header-link-btn {
+      background: rgba(255, 255, 255, 0.14);
+      color: #FFFDF8;
+      border: 1.5px solid rgba(255, 255, 255, 0.45);
+      border-radius: 999px;
+      padding: 6px 13px;
+      min-height: 40px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background-color 0.15s ease;
+    }
+
+    .header-link-btn:hover {
+      background: rgba(255, 255, 255, 0.24);
+    }
+
+    .pill-stat {
+      background: rgba(255, 255, 255, 0.14);
+      border: 1.5px solid var(--gold-bright);
+      border-radius: 999px;
+      padding: 6px 12px;
+      min-height: 40px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* ================= PROGRESS STEPPER ================= */
+    .stepper-bar {
+      background: var(--parchment-dark);
+      border-top: 1px solid rgba(42, 32, 24, 0.15);
+    }
+
+    .stepper-scroll {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: thin;
+    }
+
+    .step-chip {
+      border: 2px solid var(--border-comic);
+      background: var(--parchment-card);
+      color: var(--ink);
+      border-radius: 999px;
+      padding: 6px 13px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: transform 0.12s ease, background-color 0.15s ease;
+      font-family: inherit;
+      min-height: 40px;
+    }
+
+    .step-chip:hover {
+      transform: translateY(-1px);
+      background: var(--gold-soft);
+    }
+
+    .step-chip.active {
+      background: var(--gold-bright);
+      color: var(--ink);
+      box-shadow: 2px 2px 0 var(--border-comic);
+    }
+
+    .step-chip.done {
+      background: var(--emerald-soft);
+      border-color: var(--emerald);
+      color: #164F30;
+    }
+
+    /* ================= MAIN LAYOUT ================= */
+    .main-wrap {
+      max-width: 940px;
+      margin: 20px auto 0;
+      padding: 0 16px;
+    }
+
+    .comic-panel {
+      background: var(--parchment-card);
+      border: 3px solid var(--border-comic);
+      border-radius: var(--radius-lg);
+      box-shadow: 5px 5px 0 rgba(42, 32, 24, 0.18);
+      padding: 20px;
+      margin-bottom: 18px;
+    }
+
+    @media (min-width: 640px) {
+      .comic-panel {
+        padding: 26px;
+      }
+    }
+
+    .chapter-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--ocean-mid);
+      color: #FFFDF8;
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 5px 12px;
+      border-radius: 999px;
+      border: 2px solid var(--border-comic);
+    }
+
+    .chapter-heading {
+      margin: 10px 0 6px;
+      font-size: 1.5rem;
+      line-height: 1.25;
+      color: var(--ocean-deep);
+    }
+
+    /* ================= BUTTONS ================= */
+    .btn {
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 0.96rem;
+      border-radius: var(--radius-md);
+      border: 2.5px solid var(--border-comic);
+      padding: 11px 17px;
+      min-height: 48px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.15s ease;
+      text-decoration: none;
+      touch-action: manipulation;
+    }
+
+    .btn:active:not(:disabled) {
+      transform: translate(2px, 2px);
+      box-shadow: none !important;
+    }
+
+    .btn:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    .btn-primary {
+      background: var(--ocean-mid);
+      color: #FFFDF8;
+      box-shadow: 3px 3px 0 var(--border-comic);
+    }
+
+    .btn-primary:hover:not(:disabled) {
+      background: var(--ocean-deep);
+    }
+
+    .btn-gold {
+      background: var(--gold-bright);
+      color: var(--ink);
+      box-shadow: 3px 3px 0 var(--border-comic);
+    }
+
+    .btn-gold:hover:not(:disabled) {
+      background: #F7D170;
+    }
+
+    .btn-soft {
+      background: var(--parchment);
+      color: var(--ink);
+      box-shadow: 2px 2px 0 rgba(42, 32, 24, 0.2);
+    }
+
+    .btn-soft:hover:not(:disabled) {
+      background: var(--parchment-dark);
+    }
+
+    .btn-sm {
+      min-height: 40px;
+      padding: 6px 12px;
+      font-size: 0.84rem;
+      border-radius: 10px;
+    }
+
+    .btn-speak {
+      background: var(--gold-soft);
+      color: var(--ink);
+      border: 2px solid var(--border-comic);
+      border-radius: 999px;
+      padding: 6px 13px;
+      min-height: 40px;
+      font-family: inherit;
+      font-size: 0.84rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+      touch-action: manipulation;
+    }
+
+    .btn-speak:hover {
+      background: var(--gold-bright);
+    }
+
+    .btn-speak.speaking-active {
+      background: var(--spice-red);
+      color: #FFFDF8;
+    }
+
+    button:focus-visible, a:focus-visible {
+      outline: 3px solid var(--gold);
+      outline-offset: 2px;
+    }
+
+    /* ================= OVERVIEW MAP (STEP 0) ================= */
+    .overview-hero {
+      background: linear-gradient(135deg, #FFFDF8 0%, #FDF4DC 100%);
+      border: 2.5px solid var(--border-comic);
+      border-radius: 16px;
+      padding: 16px 18px;
+      margin-bottom: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .map-frame {
+      background: linear-gradient(180deg, #E8F4FA 0%, #D9EEF8 100%);
+      border: 3px solid var(--border-comic);
+      border-radius: 18px;
+      padding: 12px;
+      box-shadow: inset 0 0 24px rgba(21, 50, 77, 0.10);
+      margin-bottom: 14px;
+    }
+
+    .map-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .map-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 253, 248, 0.9);
+      border: 1.5px solid var(--border-comic);
+      border-radius: 999px;
+      padding: 3px 10px;
+    }
+
+    .legend-line {
+      width: 20px;
+      height: 4px;
+      border-radius: 2px;
+      display: inline-block;
+    }
+
+    .overview-map-wrap {
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 2.5px solid var(--border-comic);
+      background: #B9DCF0;
+      box-shadow: 0 4px 14px rgba(21, 50, 77, 0.14);
+    }
+
+    .overview-map-wrap img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .overview-svg-overlay {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .map-pin-btn {
+      cursor: pointer;
+    }
+
+    .map-pin-btn circle.pin-bg {
+      transition: transform 0.15s ease, fill 0.15s ease;
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+
+    .map-pin-btn:hover circle.pin-bg {
+      transform: scale(1.14);
+    }
+
+    .pin-detail-card {
+      background: #FFFDF8;
+      border: 2.5px solid var(--border-comic);
+      border-radius: 16px;
+      padding: 15px 18px;
+      box-shadow: 3px 3px 0 rgba(42, 32, 24, 0.14);
+      margin-bottom: 16px;
+    }
+
+    .roadmap-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    @media (min-width: 680px) {
+      .roadmap-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .roadmap-card {
+      background: var(--parchment);
+      border: 2px solid var(--border-comic);
+      border-radius: 14px;
+      padding: 12px 14px;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      font-family: inherit;
+      transition: transform 0.12s ease, background-color 0.15s ease;
+    }
+
+    .roadmap-card:hover {
+      background: var(--gold-soft);
+      transform: translateY(-2px);
+    }
+
+    .roadmap-card.done {
+      background: var(--emerald-soft);
+      border-color: var(--emerald);
+    }
+
+    /* ================= COMIC STAGE & BUBBLES ================= */
+    .comic-stage {
+      background: linear-gradient(180deg, #E3F2FA 0%, #FBF4E4 100%);
+      border: 2.5px solid var(--border-comic);
+      border-radius: 16px;
+      padding: 14px;
+      margin: 14px 0 16px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .comic-stage.warm-bg {
+      background: linear-gradient(180deg, #FDF1CE 0%, #FBF4E4 100%);
+    }
+
+    .comic-stage.serious-bg {
+      background: linear-gradient(180deg, #FDECE8 0%, #FBF4E4 100%);
+    }
+
+    .stage-scene {
+      padding: 6px 4px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      align-items: center;
+    }
+
+    @media (min-width: 700px) {
+      .stage-scene {
+        grid-template-columns: 225px 1fr;
+        padding: 8px 6px;
+      }
+    }
+
+    .cast-row {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .char-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .char-box svg {
+      width: 92px;
+      height: 100px;
+      display: block;
+    }
+
+    .char-name-tag {
+      margin-top: 4px;
+      background: var(--ink);
+      color: #FFFDF8;
+      font-size: 0.74rem;
+      font-weight: 800;
+      padding: 2px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.02em;
+    }
+
+    .anim-bob-delay {
+      animation: floatBob 3.4s ease-in-out 0.7s infinite;
+    }
+
+    .dialogue-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .speech-bubble {
+      background: #FFFDF8;
+      border: 2.5px solid var(--border-comic);
+      border-radius: 16px;
+      padding: 12px 15px;
+      position: relative;
+      box-shadow: 3px 3px 0 rgba(42, 32, 24, 0.12);
+      transition: box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .speech-bubble.narrator {
+      background: var(--gold-soft);
+      border-style: dashed;
+    }
+
+    .speech-bubble.kolumbus {
+      border-left: 7px solid var(--kolumbus-blue);
+    }
+
+    .speech-bubble.seefahrer {
+      border-left: 7px solid var(--spice-red);
+    }
+
+    .speech-bubble.koenigspaar {
+      border-left: 7px solid var(--gold);
+    }
+
+    .speech-bubble.taino {
+      border-left: 7px solid var(--emerald);
+    }
+
+    .speech-bubble.vespucci {
+      border-left: 7px solid var(--vespucci-teal);
+    }
+
+    .speech-bubble.speaking {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 4px rgba(244, 197, 82, 0.55);
+    }
+
+    .speech-speaker {
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--ocean-mid);
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .speech-text {
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    .term-btn {
+      background: var(--gold-bright);
+      color: var(--ink);
+      border: 1.5px solid var(--border-comic);
+      border-radius: 7px;
+      padding: 1px 7px;
+      font-weight: 800;
+      font-family: inherit;
+      font-size: 0.94em;
+      cursor: pointer;
+      display: inline-block;
+      line-height: 1.35;
+    }
+
+    .term-btn:hover {
+      background: #FFE082;
+    }
+
+    /* ================= HISTORICAL SOURCES & LIGHTBOX ================= */
+    .sources-box {
+      background: linear-gradient(135deg, #FBF4E4 0%, #F5E9D0 100%);
+      border: 2.5px solid var(--border-comic);
+      border-radius: 16px;
+      padding: 14px 16px;
+      margin: 14px 0;
+    }
+
+    .sources-title {
+      font-weight: 800;
+      font-size: 0.95rem;
+      color: var(--ocean-deep);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .sources-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 12px;
+    }
+
+    .source-card {
+      background: var(--parchment-card);
+      border: 2px solid var(--border-comic);
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 3px 3px 0 rgba(42, 32, 24, 0.12);
+    }
+
+    .source-img-btn {
+      padding: 0;
+      border: none;
+      background: #221A14;
+      cursor: pointer;
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 190px;
+      overflow: hidden;
+    }
+
+    .source-img-btn img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 22%;
+      display: block;
+      transition: transform 0.2s ease;
+    }
+
+    .source-img-btn:hover img {
+      transform: scale(1.04);
+    }
+
+    .source-zoom-pill {
+      position: absolute;
+      right: 8px;
+      bottom: 8px;
+      background: rgba(255, 253, 248, 0.94);
+      color: var(--ink);
+      border: 1.5px solid var(--border-comic);
+      border-radius: 999px;
+      padding: 3px 10px;
+      font-size: 0.76rem;
+      font-weight: 800;
+      font-family: inherit;
+    }
+
+    .source-meta {
+      padding: 11px 13px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      flex: 1;
+    }
+
+    .source-caption {
+      font-weight: 800;
+      font-size: 0.92rem;
+      color: var(--ocean-deep);
+      line-height: 1.3;
+    }
+
+    .source-credit {
+      font-size: 0.76rem;
+      color: var(--ink-muted);
+    }
+
+    .source-hint {
+      margin: 4px 0 0;
+      font-size: 0.86rem;
+      line-height: 1.45;
+      color: var(--ink);
+    }
+
+    /* ================= INTERACTIVE ENGRAVING (CHAPTER 4) ================= */
+    .engraving-card {
+      border: 2.5px solid var(--border-comic);
+      border-radius: 16px;
+      padding: 15px;
+      background: linear-gradient(135deg, #FBF4E4 0%, #F5E9D0 100%);
+      margin: 14px 0;
+    }
+
+    .engraving-wrap {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 2.5px solid var(--border-comic);
+      margin-top: 10px;
+      background: #221A14;
+    }
+
+    .engraving-wrap img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .hotspot-btn {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      border: 3px solid #FFFDF8;
+      background: var(--spice-red);
+      color: #FFFDF8;
+      font-weight: 800;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: inherit;
+      transition: transform 0.15s ease, background-color 0.15s ease;
+    }
+
+    .hotspot-btn:hover {
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+
+    .hotspot-btn.active {
+      background: var(--gold-bright);
+      color: var(--ink);
+      border-color: var(--border-comic);
+      transform: translate(-50%, -50%) scale(1.16);
+    }
+
+    .hotspot-info {
+      margin-top: 12px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: var(--parchment-card);
+      border: 2px solid var(--gold);
+    }
+
+    /* ================= INTERACTION / QUIZ / DETAILS ================= */
+    .interaction-box {
+      background: var(--ocean-light);
+      border: 2.5px solid var(--border-comic);
+      border-radius: 16px;
+      padding: 16px;
+      margin: 14px 0;
+    }
+
+    .quiz-option {
+      width: 100%;
+      text-align: left;
+      background: var(--parchment-card);
+      border: 2px solid var(--border-comic);
+      border-radius: 12px;
+      padding: 12px 15px;
+      min-height: 48px;
+      font-family: inherit;
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: background-color 0.15s ease, transform 0.1s ease;
+    }
+
+    .quiz-option:hover {
+      background: var(--gold-soft);
+      transform: translateY(-1px);
+    }
+
+    .quiz-option.correct {
+      background: var(--emerald-soft);
+      border-color: var(--emerald);
+      color: #124026;
+    }
+
+    .quiz-option.wrong {
+      background: var(--spice-soft);
+      border-color: var(--spice-red);
+      color: #7D1F11;
+    }
+
+    .feedback-banner {
+      border-radius: 12px;
+      padding: 12px 14px;
+      font-weight: 700;
+      margin-top: 10px;
+      border: 2px solid;
+    }
+
+    .feedback-banner.ok {
+      background: var(--emerald-soft);
+      border-color: var(--emerald);
+      color: #124026;
+    }
+
+    .feedback-banner.retry {
+      background: var(--spice-soft);
+      border-color: var(--spice-red);
+      color: #7D1F11;
+    }
+
+    details.onenote-ref {
+      background: var(--parchment);
+      border: 2px solid var(--border-comic);
+      border-radius: 14px;
+      padding: 10px 14px;
+      margin: 14px 0;
+    }
+
+    details.onenote-ref summary {
+      cursor: pointer;
+      font-weight: 800;
+      color: var(--ocean-deep);
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      min-height: 36px;
+    }
+
+    details.onenote-ref summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .onenote-original-text {
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1.5px dashed rgba(42, 32, 24, 0.25);
+      font-size: 0.94rem;
+      color: var(--ink);
+    }
+
+    /* ================= ONENOTE ASSIGNMENTS A-D ================= */
+    .onenote-card {
+      border: 2.5px solid var(--border-comic);
+      border-radius: 16px;
+      padding: 16px;
+      background: var(--parchment-card);
+      margin-bottom: 14px;
+      box-shadow: 3px 3px 0 rgba(42, 32, 24, 0.12);
+    }
+
+    .onenote-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .letter-badge {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: var(--ocean-mid);
+      color: #FFFDF8;
+      border: 2px solid var(--border-comic);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 1.15rem;
+      flex-shrink: 0;
+    }
+
+    .helper-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .helper-panel {
+      display: none;
+      margin-top: 10px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: var(--gold-soft);
+      border: 2px solid var(--gold);
+    }
+
+    .helper-panel.open {
+      display: block;
+    }
+
+    .word-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 6px;
+    }
+
+    .word-chip {
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--parchment-card);
+      border: 1.5px solid var(--border-comic);
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+
+    .checklist-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 0;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 0.94rem;
+    }
+
+    .checklist-item input {
+      width: 22px;
+      height: 22px;
+      accent-color: var(--emerald);
+      cursor: pointer;
+    }
+
+    /* ================= DIALOGS ================= */
+    dialog.edu-dialog {
+      border: 3px solid var(--border-comic);
+      border-radius: 20px;
+      padding: 0;
+      max-width: 720px;
+      width: calc(100% - 28px);
+      background: var(--parchment-card);
+      color: var(--ink);
+      box-shadow: 0 20px 50px rgba(21, 50, 77, 0.42);
+    }
+
+    dialog.edu-dialog::backdrop {
+      background: rgba(21, 50, 77, 0.65);
+      backdrop-filter: blur(2px);
+    }
+
+    .dialog-head {
+      background: var(--ocean-deep);
+      color: #FFFDF8;
+      padding: 13px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      border-bottom: 3px solid var(--gold);
+    }
+
+    .dialog-body {
+      padding: 18px;
+      max-height: 76vh;
+      overflow-y: auto;
+    }
+
+    .source-dialog-img {
+      width: 100%;
+      max-height: 58vh;
+      object-fit: contain;
+      background: #1C1611;
+      border-radius: 12px;
+      border: 2px solid var(--border-comic);
+      display: block;
+    }
+
+    .nav-footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 2px dashed rgba(42, 32, 24, 0.2);
+    }
+
+    /* ================= ANIMATIONS ================= */
+    @keyframes floatBob {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+
+    @keyframes shipRock {
+      0%, 100% { transform: rotate(-1.5deg) translateY(0); }
+      50% { transform: rotate(2deg) translateY(-3px); }
+    }
+
+    .anim-bob {
+      animation: floatBob 3s ease-in-out infinite;
+    }
+
+    .anim-ship {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: shipRock 3.6s ease-in-out infinite;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .anim-bob, .anim-bob-delay, .anim-ship {
+        animation: none !important;
+      }
+      * {
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP HEADER -->
+  <header class="top-header">
+    <div class="header-inner">
+      <div class="brand-group">
+        <div class="brand-badge" aria-hidden="true">🧭</div>
+        <div>
+          <h1 class="brand-title font-title">Entdeckungen: Christoph Kolumbus</h1>
+          <div class="brand-sub">Comic-Lernpfad • 1. Sekundarschule Niveau BC</div>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <a href="index.html" class="header-link-btn" aria-label="Zurück zur Themen-Übersicht">
+          <span>🏠</span> <span>Übersicht</span>
+        </a>
+        <button type="button" class="header-link-btn" onclick="toggleFontSize()" title="Schriftgrösse ändern">
+          <span>🔠</span> <span id="fontLabel">A+</span>
+        </button>
+        <button type="button" class="header-link-btn" onclick="openGlossaryModal()">
+          <span>📖</span> <span>Wörter</span>
+        </button>
+        <button type="button" class="header-link-btn" onclick="resetAllProgress()" title="Fortschritt zurücksetzen">
+          <span>🔄</span> <span>Zurücksetzen</span>
+        </button>
+        <button type="button" class="btn-speak" id="global-speak-btn" onclick="speakCurrentSection()">
+          <span>🔊</span> <span id="speak-label">Vorlesen</span>
+        </button>
+        <div class="pill-stat" title="Deine gesammelten Entdecker-Sterne">
+          <span>⭐</span> <span id="stars-count">0</span> / 6
+        </div>
+      </div>
+    </div>
+
+    <!-- STEPPER NAVIGATION -->
+    <nav class="stepper-bar" aria-label="Kapitel und Aufträge">
+      <div class="stepper-scroll" id="stepper-nav"></div>
+    </nav>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-wrap" id="app-main"></main>
+
+  <!-- GLOSSARY DIALOG -->
+  <dialog id="glossary-dialog" class="edu-dialog" aria-labelledby="gloss-title">
+    <div class="dialog-head">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <span style="font-size:1.4rem;" aria-hidden="true">📖</span>
+        <strong id="gloss-title" style="font-size:1.05rem;">Wichtige Wörter</strong>
+      </div>
+      <button type="button" class="btn btn-soft btn-sm" onclick="closeGlossary()" aria-label="Schliessen">✕</button>
+    </div>
+    <div class="dialog-body" id="gloss-body"></div>
+  </dialog>
+
+  <!-- HISTORICAL IMAGE SOURCE LIGHTBOX -->
+  <dialog id="source-dialog" class="edu-dialog" aria-labelledby="source-dlg-title">
+    <div class="dialog-head">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <span style="font-size:1.35rem;" aria-hidden="true">🖼️</span>
+        <strong id="source-dlg-title" style="font-size:1.02rem;">Historische Bildquelle</strong>
+      </div>
+      <button type="button" class="btn btn-soft btn-sm" onclick="closeSourceModal()" aria-label="Schliessen">✕</button>
+    </div>
+    <div class="dialog-body">
+      <img id="source-dlg-img" class="source-dialog-img" src="" alt="">
+      <p id="source-dlg-hint" style="margin:12px 0 6px; font-size:0.98rem; font-weight:600;"></p>
+      <div id="source-dlg-credit" style="font-size:0.82rem; color:var(--ink-muted); margin-bottom:14px;"></div>
+      <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:space-between;">
+        <button type="button" class="btn-speak" onclick="speakText(document.getElementById('source-dlg-title').innerText + '. ' + document.getElementById('source-dlg-hint').innerText)">
+          🔊 Vorlesen
+        </button>
+        <button type="button" class="btn btn-primary btn-sm" onclick="closeSourceModal()">Schliessen</button>
+      </div>
+    </div>
+  </dialog>
+
+  <script>
+    // =========================================================================
+    // 1. WÖRTERBUCH / GLOSSAR
+    // =========================================================================
+    const GLOSSARY = {
+      investor: {
+        word: "Investor",
+        short: "Geldgeber für eine Idee",
+        text: "Jemand, der Geld ausleiht, um später mehr Geld zurückzubekommen."
+      },
+      meuterei: {
+        word: "Meuterei",
+        short: "Aufstand auf dem Schiff",
+        text: "Die Mannschaft eines Schiffes ist unzufrieden und wendet sich gegen ihren Kapitän."
+      },
+      kolonie: {
+        word: "Kolonie",
+        short: "Erobertes & beherrschtes Land",
+        text: "Land, das Europäer in Amerika und Ostasien ab Ende des 15. Jahrhunderts unter ihre Herrschaft stellen und besiedeln."
+      },
+      gewuerze: {
+        word: "Gewürze",
+        short: "Pfeffer, Zimt, Nelken …",
+        text: "Damals in Europa extrem wertvoll! Man brauchte sie, um Essen haltbar zu machen und feiner zu würzen. Sie kamen vor allem aus Asien (Indien)."
+      },
+      christentum: {
+        word: "Christentum bekehren",
+        short: "Neue Religion aufzwingen",
+        text: "Kolumbus wollte erreichen, dass die Menschen in den neuen Ländern an den christlichen Gott glauben."
+      },
+      kontinent: {
+        word: "Kontinent",
+        short: "Riesiger Erdteil",
+        text: "Eine sehr grosse Landmasse auf der Erde – zum Beispiel Europa, Afrika, Asien oder Amerika."
+      }
+    };
+
+    // =========================================================================
+    // 2. SCHRITTE / NAVIGATION
+    // =========================================================================
+    const STEPS = [
+      { id: 0, label: "🗺️ Übersicht" },
+      { id: 1, label: "1. Die Idee" },
+      { id: 2, label: "2. Geldgeber" },
+      { id: 3, label: "3. Überfahrt" },
+      { id: 4, label: "4. Landung" },
+      { id: 5, label: "5. Kolonie" },
+      { id: 6, label: "6. «Amerika»" },
+      { id: 7, label: "📝 Aufträge A–D" }
+    ];
+
+    // =========================================================================
+    // 3. STATIONEN DER ÜBERSICHTSKARTE (STEP 0)
+    // =========================================================================
+    const MAP_STATIONS = [
+      {
+        id: 1,
+        x: 655,
+        y: 132,
+        chapterIdx: 1,
+        badge: "Station 1 • Europa / 1490er Jahre",
+        title: "Gewürze und Kolumbus' kühne Idee",
+        desc: "Alle wollen Gewürze aus Indien. Die meisten Seefahrer segeln um Afrika (rote Linie). Kolumbus will stattdessen nach Westen über die Erdkugel segeln!"
+      },
+      {
+        id: 2,
+        x: 604,
+        y: 174,
+        chapterIdx: 2,
+        badge: "Station 2 • Spanien / 1492",
+        title: "Königin Isabella & König Ferdinand helfen",
+        desc: "Nach jahrelanger Suche bekommt Kolumbus 1492 in Spanien Geld und drei Schiffe: die Santa Maria, die Pinta und die Niña."
+      },
+      {
+        id: 3,
+        x: 435,
+        y: 245,
+        chapterIdx: 3,
+        badge: "Station 3 • Atlantik / Aug–Okt 1492",
+        title: "Angst auf dem weiten Ozean",
+        desc: "Kolumbus rechnet mit 3 Wochen – doch die Reise dauert schon über 2 Monate! Essen und Wasser werden knapp, fast gibt es eine Meuterei."
+      },
+      {
+        id: 4,
+        x: 272,
+        y: 244,
+        chapterIdx: 4,
+        badge: "Station 4 • Guanahani (Bahamas) / 12.10.1492",
+        title: "Land in Sicht – «San Salvador»",
+        desc: "Am 12. Oktober 1492 landet Kolumbus auf den Bahamas. Er glaubt, er sei in Asien, und nimmt das Land für Spanien in Besitz."
+      },
+      {
+        id: 5,
+        x: 302,
+        y: 286,
+        chapterIdx: 5,
+        badge: "Station 5 • Kuba & Haiti / Weihnachten 1492",
+        title: "Erste spanische Kolonie auf Haiti",
+        desc: "Auf Haiti gründet Kolumbus die erste Kolonie. Er nimmt unbekannte Früchte, Tiere und auch verschleppte Einheimische mit nach Spanien."
+      },
+      {
+        id: 6,
+        x: 335,
+        y: 348,
+        chapterIdx: 6,
+        badge: "Station 6 • Venezuela & Südamerika / 1498–1506",
+        title: "Kolumbus' Irrtum & der Name «Amerika»",
+        desc: "1498 betritt Kolumbus das Festland (Venezuela), glaubt aber bis 1506, er sei in Asien. Erst Amerigo Vespucci erkennt: Es ist ein eigener Kontinent!"
+      }
+    ];
+
+    // =========================================================================
+    // 4. HISTORISCHE BILDQUELLEN PRO KAPITEL (IN ASSETS/)
+    // =========================================================================
+    const HIST_SOURCES = {
+      1: [
+        {
+          imgSrc: "./assets/pfefferernte-1410.jpg",
+          title: "Pfefferernte in Indien (um 1410)",
+          credit: "Buchmalerei aus dem «Livre des merveilles», Bibliothèque nationale de France",
+          hint: "Schau genau hin: Arbeiter pflücken in Indien die wertvollen Pfefferkörner, rechts prüft ein Händler das volle Fass. Wegen solcher Gewürze suchten Europäer einen schnellen Seeweg!"
+        },
+        {
+          imgSrc: "./assets/toscanelli-karte-1474.jpg",
+          title: "Seekarte nach Paolo Toscanelli (1474)",
+          credit: "Historische Rekonstruktion nach Toscanellis Briefwechsel mit Kolumbus",
+          hint: "Rechts liegt Europa («Lisbona»), links schon Japan («Cippangu») und China («Cathay»). Weil Amerika fehlt, dachte Kolumbus, der Weg nach Westen sei viel kürzer! Die helle Linie zeigt das echte Nordamerika."
+        },
+        {
+          imgSrc: "./assets/behaim-erdapfel-1492.jpg",
+          title: "Martin Behaims «Erdapfel» (1492)",
+          credit: "Germanisches Nationalmuseum, Nürnberg (ältester erhaltener Globus der Welt)",
+          hint: "Dieser Globus entstand genau im Jahr 1492! Man wusste schon, dass die Erde eine Kugel ist – aber zwischen Europa und Asien war auf dem Globus noch kein Amerika eingezeichnet."
+        }
+      ],
+      2: [
+        {
+          imgSrc: "./assets/kolumbus-portraet-1519.jpg",
+          title: "Porträt von Christoph Kolumbus (um 1519)",
+          credit: "Gemälde von Sebastiano del Piombo, Metropolitan Museum of Art",
+          hint: "Eines der bekanntesten historischen Porträts von Kolumbus. Oben steht auf Latein, er sei der Seefahrer aus Ligurien gewesen, der bis zu den fernen Küsten vorgedrungen ist."
+        },
+        {
+          imgSrc: "./assets/kolumbus-isabella-brozik.jpg",
+          title: "Kolumbus vor Königin Isabella von Spanien (1884)",
+          credit: "Historienbild nach Václav Brožík (Druck um 1900)",
+          hint: "Kolumbus zeigt auf die Karte und erklärt seinen Plan. Nach langem Zögern bezahlt ihm das spanische Königspaar die Ausrüstung und drei Schiffe."
+        },
+        {
+          imgSrc: "./assets/drei-schiffe-kolumbus.jpg",
+          title: "Die drei Schiffe: Santa Maria, Pinta und Niña",
+          credit: "Historischer Holzstich des 19. Jahrhunderts",
+          hint: "In der Mitte segelt das grosse Flaggschiff «Santa Maria» mit viereckigen Segeln, begleitet von den zwei kleineren, wendigen Karavellen «Pinta» und «Niña»."
+        }
+      ],
+      3: [
+        {
+          imgSrc: "./assets/insula-hyspana-1493.jpg",
+          title: "Segelschiff aus dem Kolumbus-Brief (Basel 1493)",
+          credit: "Zeitgenössischer Holzschnitt aus dem gedruckten Bericht des Kolumbus, 1493",
+          hint: "So stellten sich die Menschen in Europa 1493 Kolumbus' Schiff vor! Du siehst das grosse Segel mit Kreuz, den Ausguck oben am Mast und die hohe Bordwand."
+        },
+        {
+          imgSrc: "./assets/meuterei-auf-see-gregori.jpg",
+          title: "Drohende Meuterei auf hoher See",
+          credit: "Historisches Wandgemälde von Luigi Gregori (ca. 1882)",
+          hint: "Die Matrosen sind nach über zwei Monaten auf dem offenen Atlantik verzweifelt und wütend – mit geballter Faust fordern sie Kolumbus auf umzukehren."
+        }
+      ],
+      4: [
+        {
+          imgSrc: "./assets/landung-vanderlyn-1847.jpg",
+          title: "Landung des Kolumbus am 12. Oktober 1492",
+          credit: "Gemälde von John Vanderlyn (1847), Kapitol in Washington",
+          hint: "Vergleiche dieses Gemälde mit dem Kupferstich oben: Kolumbus hält die königliche Fahne von Spanien und ein Schwert; im Hintergrund siehst du die drei Schiffe."
+        }
+      ],
+      5: [
+        {
+          imgSrc: "./assets/la-navidad-1493.jpg",
+          title: "Bau der ersten Festung «La Navidad» auf Haiti (1493)",
+          credit: "Zeitgenössischer Holzschnitt aus dem Kolumbus-Brief, Basel 1493/94",
+          hint: "Eine der ältesten Darstellungen der ersten spanischen Kolonie auf Haiti! Oben steht «Insula Hyspana». Mit einem Kran bauen die Spanier eine feste Burg am Meer."
+        },
+        {
+          imgSrc: "./assets/kolumbus-brief-1493-schiff.jpg",
+          title: "Begegnung auf Hispaniola / Haiti (Basel 1493)",
+          credit: "Holzschnitt aus dem Kolumbus-Brief, gedruckt in Basel 1493",
+          hint: "Dieser über 500 Jahre alte Holzschnitt zeigt das Ankern vor Haiti: Im Ruderboot kommen Spanier zum Strand, am Ufer stehen die Bewohner der Insel."
+        },
+        {
+          imgSrc: "./assets/rueckkehr-spanien-1493.jpg",
+          title: "Rückkehr des Kolumbus nach Spanien (1493)",
+          credit: "Gemälde von Ricardo Balaca (1874) / Historienbild",
+          hint: "Schau genau hin: Vor dem spanischen Königspaar knien verschleppte Bewohner aus der Karibik, links liegen Schätze, Waffen und Pflanzen aus der Neuen Welt."
+        }
+      ],
+      6: [
+        {
+          imgSrc: "./assets/cantino-karte-1502.jpg",
+          title: "Cantino-Weltkarte (1502)",
+          credit: "Biblioteca Estense, Modena (portugiesische Seekarte von 1502)",
+          hint: "Nur 10 Jahre nach Kolumbus' erster Fahrt entstand diese berühmte Seekarte! Links sind schon die Inseln der Karibik und die Küste Südamerikas mit roten Papageien eingezeichnet."
+        },
+        {
+          imgSrc: "./assets/amerigo-vespucci.jpg",
+          title: "Porträt von Amerigo Vespucci (16. Jh.)",
+          credit: "Cristofano dell'Altissimo, Uffizien Florenz",
+          hint: "Amerigo Vespucci hält eine Seekarte in der Hand. Er erkundete 1499–1501 die Küste Südamerikas und erkannte, dass dies ein eigener Kontinent ist."
+        },
+        {
+          imgSrc: "./assets/waldseemuller-1507-america.jpg",
+          title: "Waldseemüller-Weltkarte (1507) – erstes «AMERICA»",
+          credit: "Martin Waldseemüller, 1507 (Library of Congress)",
+          hint: "Historische Sensation: Auf dieser Karte von 1507 steht zum allerersten Mal überhaupt das Wort «AMERICA» auf Südamerika – zu Ehren von Amerigo Vespucci!"
+        }
+      ]
+    };
+
+    // =========================================================================
+    // 5. ANIMIERTE COMIC-CHARAKTERE (SVG – KONFORM ZU DEN ANDEREN LERNPFADEN)
+    // =========================================================================
+    function getAvatarSVG(who, mood = "normal", delay = false) {
+      const animCls = delay ? "anim-bob-delay" : "anim-bob";
+      if (who === "kolumbus") {
+        const mouth = mood === "proud"
+          ? '<path d="M35 61 Q44 68 53 61" fill="none" stroke="#1e293b" stroke-width="2.8" stroke-linecap="round"/>'
+          : mood === "worried"
+          ? '<path d="M36 64 Q44 59 52 64" fill="none" stroke="#1e293b" stroke-width="2.8" stroke-linecap="round"/>'
+          : '<path d="M36 62 Q44 66 52 62" fill="none" stroke="#1e293b" stroke-width="2.8" stroke-linecap="round"/>';
+        return `
+          <svg viewBox="0 0 88 96" aria-hidden="true">
+            <g class="${animCls}">
+              <path d="M18 94 C18 75 70 75 70 94 Z" fill="#1e3a8a" stroke="#0f172a" stroke-width="2.5"/>
+              <path d="M34 77 L44 88 L54 77" fill="#fef3c7" stroke="#0f172a" stroke-width="2"/>
+              <circle cx="44" cy="52" r="22" fill="#fed7aa" stroke="#0f172a" stroke-width="2.5"/>
+              <path d="M22 48 C19 60 22 68 27 70 L28 52 Z" fill="#92400e" stroke="#0f172a" stroke-width="2"/>
+              <path d="M66 48 C69 60 66 68 61 70 L60 52 Z" fill="#92400e" stroke="#0f172a" stroke-width="2"/>
+              <circle cx="36" cy="50" r="3" fill="#0f172a"/>
+              <circle cx="52" cy="50" r="3" fill="#0f172a"/>
+              <path d="M31 44 L40 45" stroke="#78350f" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M48 45 L57 44" stroke="#78350f" stroke-width="2.5" stroke-linecap="round"/>
+              ${mouth}
+              <path d="M16 36 Q44 28 72 36 Q66 15 44 16 Q22 15 16 36 Z" fill="#1e293b" stroke="#0f172a" stroke-width="2.5"/>
+              <rect x="24" y="30" width="40" height="5" rx="2" fill="#f59e0b" stroke="#0f172a" stroke-width="1.5"/>
+            </g>
+          </svg>`;
+      }
+
+      if (who === "seefahrer") {
+        const brow = mood === "angry"
+          ? '<path d="M30 42 L40 46" stroke="#0f172a" stroke-width="3" stroke-linecap="round"/><path d="M58 42 L48 46" stroke="#0f172a" stroke-width="3" stroke-linecap="round"/>'
+          : '<path d="M31 43 L40 43" stroke="#0f172a" stroke-width="2.5" stroke-linecap="round"/><path d="M48 43 L57 43" stroke="#0f172a" stroke-width="2.5" stroke-linecap="round"/>';
+        const mouth = mood === "angry"
+          ? '<path d="M36 64 Q44 58 52 64" fill="none" stroke="#0f172a" stroke-width="3" stroke-linecap="round"/>'
+          : '<path d="M37 61 Q44 66 51 61" fill="none" stroke="#0f172a" stroke-width="2.8" stroke-linecap="round"/>';
+        return `
+          <svg viewBox="0 0 88 96" aria-hidden="true">
+            <g class="${animCls}">
+              <path d="M18 94 C18 75 70 75 70 94 Z" fill="#ffffff" stroke="#0f172a" stroke-width="2.5"/>
+              <path d="M24 85 H64" stroke="#dc2626" stroke-width="4"/>
+              <circle cx="44" cy="52" r="21" fill="#fdba74" stroke="#0f172a" stroke-width="2.5"/>
+              <path d="M26 57 Q44 74 62 57 Q60 72 44 73 Q28 72 26 57 Z" fill="#78350f" opacity="0.35"/>
+              <circle cx="36" cy="50" r="3" fill="#0f172a"/>
+              <circle cx="52" cy="50" r="3" fill="#0f172a"/>
+              ${brow}
+              ${mouth}
+              <path d="M23 41 C23 20 65 20 65 41 Z" fill="#dc2626" stroke="#0f172a" stroke-width="2.5"/>
+              <rect x="21" y="37" width="46" height="6" rx="3" fill="#991b1b" stroke="#0f172a" stroke-width="2"/>
+            </g>
+          </svg>`;
+      }
+
+      if (who === "koenigspaar") {
+        return `
+          <svg viewBox="0 0 88 96" aria-hidden="true">
+            <g class="${animCls}">
+              <path d="M16 94 C16 74 72 74 72 94 Z" fill="#7e22ce" stroke="#0f172a" stroke-width="2.5"/>
+              <path d="M36 76 L44 88 L52 76" fill="#fde047" stroke="#0f172a" stroke-width="2"/>
+              <circle cx="44" cy="54" r="21" fill="#fed7aa" stroke="#0f172a" stroke-width="2.5"/>
+              <path d="M23 50 C20 66 25 74 31 75 L30 52 Z" fill="#451a03" stroke="#0f172a" stroke-width="2"/>
+              <path d="M65 50 C68 66 63 74 57 75 L58 52 Z" fill="#451a03" stroke="#0f172a" stroke-width="2"/>
+              <circle cx="36" cy="52" r="3" fill="#0f172a"/>
+              <circle cx="52" cy="52" r="3" fill="#0f172a"/>
+              <path d="M37 62 Q44 67 51 62" fill="none" stroke="#0f172a" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M24 36 L27 18 L36 27 L44 14 L52 27 L61 18 L64 36 Z" fill="#facc15" stroke="#0f172a" stroke-width="2.5" stroke-linejoin="round"/>
+              <circle cx="44" cy="29" r="3" fill="#dc2626"/>
+            </g>
+          </svg>`;
+      }
+
+      if (who === "taino") {
+        const mouth = mood === "sad"
+          ? '<path d="M37 64 Q44 59 51 64" fill="none" stroke="#0f172a" stroke-width="2.8" stroke-linecap="round"/>'
+          : '<path d="M37 62 Q44 65 51 62" fill="none" stroke="#0f172a" stroke-width="2.5" stroke-linecap="round"/>';
+        return `
+          <svg viewBox="0 0 88 96" aria-hidden="true">
+            <g class="${animCls}">
+              <path d="M18 94 C18 75 70 75 70 94 Z" fill="#d97706" stroke="#0f172a" stroke-width="2.5"/>
+              <path d="M32 79 Q44 87 56 79" fill="none" stroke="#fef08a" stroke-width="3.5" stroke-linecap="round"/>
+              <circle cx="44" cy="52" r="21" fill="#d97706" stroke="#0f172a" stroke-width="2.5"/>
+              <path d="M22 48 C22 25 66 25 66 48 C58 37 30 37 22 48 Z" fill="#1e293b" stroke="#0f172a" stroke-width="2"/>
+              <path d="M22 48 L20 68 L28 66 Z" fill="#1e293b" stroke="#0f172a" stroke-width="2"/>
+              <path d="M66 48 L68 68 L60 66 Z" fill="#1e293b" stroke="#0f172a" stroke-width="2"/>
+              <path d="M56 29 Q68 12 72 22 Q64 32 56 29 Z" fill="#16a34a" stroke="#0f172a" stroke-width="2"/>
+              <circle cx="36" cy="51" r="3" fill="#0f172a"/>
+              <circle cx="52" cy="51" r="3" fill="#0f172a"/>
+              ${mouth}
+            </g>
+          </svg>`;
+      }
+
+      if (who === "vespucci") {
+        return `
+          <svg viewBox="0 0 88 96" aria-hidden="true">
+            <g class="${animCls}">
+              <path d="M18 94 C18 75 70 75 70 94 Z" fill="#0f766e" stroke="#0f172a" stroke-width="2.5"/>
+              <circle cx="44" cy="52" r="21" fill="#fed7aa" stroke="#0f172a" stroke-width="2.5"/>
+              <path d="M32 61 Q44 78 56 61 L44 74 Z" fill="#475569" stroke="#0f172a" stroke-width="2"/>
+              <circle cx="36" cy="49" r="3" fill="#0f172a"/>
+              <circle cx="52" cy="49" r="3" fill="#0f172a"/>
+              <path d="M38 59 Q44 63 50 59" fill="none" stroke="#0f172a" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M22 39 C20 20 68 20 66 39 Z" fill="#991b1b" stroke="#0f172a" stroke-width="2.5"/>
+            </g>
+          </svg>`;
+      }
+      return "";
+    }
+
+    // =========================================================================
+    // 6. HOTSPOTS FÜR DEN KUPFERSTICH VON THEODOR DE BRY (1594)
+    // =========================================================================
+    const ENGRAVING_HOTSPOTS = [
+      {
+        id: 1,
+        x: "36%",
+        y: "20%",
+        title: "1. Die drei spanischen Schiffe",
+        text: "Im Meer ankern die drei Schiffe von Kolumbus. Kleine Ruderboote bringen bewaffnete Spanier an den Strand."
+      },
+      {
+        id: 2,
+        x: "10%",
+        y: "47%",
+        title: "2. Das grosse Kreuz",
+        text: "Links stellen Spanier ein christliches Kreuz auf. Kolumbus hat versprochen, die Menschen zum Christentum zu bekehren und das Land für Spanien zu nehmen."
+      },
+      {
+        id: 3,
+        x: "48%",
+        y: "58%",
+        title: "3. Christoph Kolumbus und Soldaten",
+        text: "In der Mitte steht Kolumbus in Rüstung mit einer langen Lanze. Hinter ihm stehen Soldaten mit Helmen, Schwertern und Gewehren."
+      },
+      {
+        id: 4,
+        x: "80%",
+        y: "62%",
+        title: "4. Die Bewohner von Haiti",
+        text: "Rechts kommen Einheimische (Taíno) auf Kolumbus zu. Sie sind unbewaffnet und bringen goldene Geschenke."
+      },
+      {
+        id: 5,
+        x: "92%",
+        y: "38%",
+        title: "5. Flucht am Strand",
+        text: "Ganz rechts im Hintergrund siehst du Menschen wegrennen. Manche Einheimische haben Angst vor den fremden Männern mit Waffen."
+      }
+    ];
+
+    // =========================================================================
+    // 7. ALLE 6 STORY-KAPITEL (SCHRITTE 1–6)
+    // =========================================================================
+    const STORY_CHAPTERS = {
+      1: {
+        id: 1,
+        badge: "Kapitel 1 • 1490er Jahre",
+        title: "Gewürze und eine gewagte Idee",
+        scene: "map1",
+        stageClass: "",
+        cast: [
+          { who: "seefahrer", mood: "normal", name: "Seefahrer" },
+          { who: "kolumbus", mood: "proud", name: "Kolumbus" }
+        ],
+        panels: [
+          {
+            type: "narrator",
+            style: "narrator",
+            speaker: "📖 Erzähler",
+            text: "In den 1490er Jahren wollen europäische Seefahrer unbedingt wertvolle {{gewuerze}} aus Indien holen."
+          },
+          {
+            type: "speech",
+            style: "seefahrer",
+            speaker: "⛵ Seefahrer",
+            text: "Der beste Weg nach Indien führt im Süden um ganz Afrika herum nach Osten!"
+          },
+          {
+            type: "speech",
+            style: "kolumbus",
+            speaker: "🧭 Christoph Kolumbus",
+            text: "Nein, das dauert viel zu lange! Ich weiss, dass die Erde eine Kugel ist. Wenn ich nach Westen segle, komme ich auch in Indien an!"
+          }
+        ],
+        originalText: "Um an die begehrten Gewürze zu gelangen, nahmen sich die meisten Seefahrer in den 1490er Jahren vor, Afrika in Richtung Osten zu umrunden. Der erfahrene Kapitän Christoph Kolumbus wusste, dass die Erde eine Kugel ist, und er hatte eine andere Idee: «Ich kann Indien auch erreichen, wenn ich statt um Afrika herum einfach westwärts um die Erdkugel herumsegle!»",
+        quiz: {
+          question: "Mini-Check: In welche Richtung wollte Christoph Kolumbus von Europa aus segeln?",
+          options: [
+            "➡️ Nach Osten (um Afrika herum)",
+            "⬅️ Nach Westen (quer über das Meer)"
+          ],
+          correct: 1,
+          okMsg: "Richtig! Kolumbus wusste, dass die Erde eine Kugel ist. Darum wollte er westwärts nach Indien segeln.",
+          retryMsg: "Fast! Um Afrika herum war der Plan der meisten anderen Seefahrer. Kolumbus wollte genau in die andere Richtung."
+        }
+      },
+      2: {
+        id: 2,
+        badge: "Kapitel 2 • 1492",
+        title: "Die Suche nach Geld und drei Versprechen",
+        scene: "spain3ships",
+        stageClass: "warm-bg",
+        cast: [
+          { who: "kolumbus", mood: "normal", name: "Kolumbus" },
+          { who: "koenigspaar", mood: "normal", name: "Königspaar" }
+        ],
+        panels: [
+          {
+            type: "narrator",
+            style: "narrator",
+            speaker: "📖 Erzähler",
+            text: "Die Reise kostet sehr viel Geld. Jahrelang sucht Kolumbus in Portugal und Spanien nach einem {{investor}}."
+          },
+          {
+            type: "speech",
+            style: "kolumbus",
+            speaker: "🧭 Christoph Kolumbus",
+            text: "Majestäten, bezahlt mir meine Reise! Ich entdecke für euch neue Länder, bekehre die Menschen zum {{christentum}} und bringe euch grosse Reichtümer!"
+          },
+          {
+            type: "speech",
+            style: "koenigspaar",
+            speaker: "👑 Königin Isabella & König Ferdinand",
+            text: "Das klingt mutig! Im Jahr 1492 helfen wir dir. Du bekommst von uns Geld und drei Schiffe."
+          }
+        ],
+        originalText: "Diese Idee war sehr gewagt und kostete viel Geld. Kolumbus bemühte sich jahrelang in Portugal und Spanien darum, Investoren für seine Reise zu finden. Im Jahr 1492 konnte er endlich das spanische Königspaar überzeugen, seine Reise zu finanzieren. Königin Isabella und König Ferdinand gaben ihm Geld und drei Schiffe für seine weite Reise. Kolumbus versprach der Königin und dem König, dass er neue Länder für das spanische Reich entdecken würde, die dort lebenden Menschen zum Christentum bekehren und grosse Reichtümer erwerben würde.",
+        quiz: {
+          question: "Mini-Check: Was ist ein Investor?",
+          options: [
+            "Ein Steuermann auf einem Segelschiff",
+            "Ein wertvolles Gewürz aus Indien",
+            "Jemand, der Geld ausleiht, um später mehr Geld zurückzubekommen"
+          ],
+          correct: 2,
+          okMsg: "Genau richtig! Das spanische Königspaar gab Kolumbus Geld und hoffte auf grosse Reichtümer.",
+          retryMsg: "Nicht ganz. Tippe oben im Text auf das gelbe Wort «Investor» für eine Erklärung!"
+        }
+      },
+      3: {
+        id: 3,
+        badge: "Kapitel 3 • 3. August 1492",
+        title: "Angst auf dem Meer – fast eine Meuterei!",
+        scene: "santamaria",
+        stageClass: "",
+        cast: [
+          { who: "seefahrer", mood: "angry", name: "Matrose" },
+          { who: "kolumbus", mood: "worried", name: "Kolumbus" }
+        ],
+        panels: [
+          {
+            type: "narrator",
+            style: "narrator",
+            speaker: "📖 Erzähler",
+            text: "Am 3. August 1492 segelt Kolumbus mit seinem Schiff «Santa Maria» aus Spanien los. Er rechnet mit nur 3 Wochen Fahrt."
+          },
+          {
+            type: "speech",
+            style: "seefahrer",
+            speaker: "⚓ Matrose",
+            text: "Kapitän! Wir sind schon im dritten Monat auf dem Meer! Essen und Trinkwasser werden knapp. Wir wollen sofort umkehren!"
+          },
+          {
+            type: "speech",
+            style: "kolumbus",
+            speaker: "🧭 Christoph Kolumbus",
+            text: "Haltet durch, Männer! Bald sehen wir Land! (Oh je, nur knapp kann ich eine {{meuterei}} verhindern ...)"
+          }
+        ],
+        originalText: "Am 3. August 1492 verliess Kolumbus an Bord der «Santa Maria» Spanien. Er rechnet mit einer Fahrt von drei Wochen. Doch schliesslich bricht der dritte Monat an. Essen und Trinkwasser werden knapp. Die Mannschaft verliert langsam das Vertrauen in ihren Kapitän. Nur knapp kann Kolumbus eine Meuterei verhindern.",
+        quiz: {
+          question: "Mini-Check: Warum drohte auf der «Santa Maria» eine Meuterei?",
+          options: [
+            "Weil die Mannschaft in Indien zu viel Geld ausgab",
+            "Weil die Reise viel länger dauerte als geplant und Essen und Wasser knapp wurden",
+            "Weil Kolumbus die Schiffe in Spanien vergessen hatte"
+          ],
+          correct: 1,
+          okMsg: "Stimmt! Statt 3 Wochen dauerte die Fahrt schon über 2 Monate. Die Mannschaft verlor das Vertrauen.",
+          retryMsg: "Schau nochmals kurz in die Sprechblasen oben: Warum waren die Matrosen so wütend?"
+        }
+      },
+      4: {
+        id: 4,
+        badge: "Kapitel 4 • 12. Oktober 1492",
+        title: "Land in Sicht – und ein Blick auf das alte Bild",
+        scene: "landing",
+        stageClass: "",
+        hasEngraving: true,
+        cast: [
+          { who: "kolumbus", mood: "proud", name: "Kolumbus" },
+          { who: "taino", mood: "normal", name: "Bewohner (Taíno)" }
+        ],
+        panels: [
+          {
+            type: "narrator",
+            style: "narrator",
+            speaker: "📖 Erzähler",
+            text: "Am 12. Oktober 1492 erreicht Kolumbus die kleine Insel Guanahani (Bahamas). Danach segelt er weiter nach Kuba und Haiti."
+          },
+          {
+            type: "speech",
+            style: "kolumbus",
+            speaker: "🧭 Christoph Kolumbus",
+            text: "Ich nenne diese Insel ab heute «San Salvador» (Heiliger Erlöser)! Sie gehört jetzt der spanischen Königin!"
+          },
+          {
+            type: "speech",
+            style: "taino",
+            speaker: "🏝️ Bewohner von Haiti",
+            text: "Fremde Männer mit grossen Schiffen und Waffen sind gelandet. Wir bringen ihnen Geschenke – aber warum stellen sie ein Kreuz auf und tun so, als gehöre ihnen unsere Insel?"
+          }
+        ],
+        originalText: "Am 12. Oktober 1492 landet Kolumbus mit drei Schiffen auf Guanahani, einer kleinen Insel der Bahamas. Kolumbus gibt ihr den Namen San Salvador (Heiliger Erlöser) und erklärt sie zum Besitz der spanischen Königin. Von San Salvador aus segeln Kolumbus und seine Männer weiter und entdecken Kuba und Haiti.",
+        quiz: {
+          question: "Bild-Check: Was hält Christoph Kolumbus auf dem Kupferstich (Nr. 3) in der Hand?",
+          options: [
+            "Eine lange Lanze – und hinter ihm stehen Soldaten mit Waffen",
+            "Einen Korb voller Äpfel als Geschenk",
+            "Eine Weltkarte mit dem Namen «Amerika»"
+          ],
+          correct: 0,
+          okMsg: "Sehr gut beobachtet! Die Spanier traten bewaffnet und mächtig auf.",
+          retryMsg: "Schau nochmals genau auf Punkt 3 und Punkt 4 im Kupferstich oben!"
+        }
+      },
+      5: {
+        id: 5,
+        badge: "Kapitel 5 • Weihnachten 1492",
+        title: "Die erste Kolonie und die Verschleppung",
+        scene: "colony",
+        stageClass: "serious-bg",
+        cast: [
+          { who: "kolumbus", mood: "normal", name: "Kolumbus" },
+          { who: "taino", mood: "sad", name: "Bewohner (Taíno)" }
+        ],
+        panels: [
+          {
+            type: "narrator",
+            style: "narrator",
+            speaker: "📖 Erzähler",
+            text: "Weihnachten 1492: Kolumbus gründet auf Haiti die erste spanische {{kolonie}}."
+          },
+          {
+            type: "speech",
+            style: "kolumbus",
+            speaker: "🧭 Christoph Kolumbus",
+            text: "Wir segeln nach Spanien zurück! Ladet unbekannte Früchte, Pflanzen und Tiere auf das Schiff. Und nehmt auch einige Männer und Frauen aus Haiti mit, damit wir sie in Spanien zeigen können!"
+          },
+          {
+            type: "speech",
+            style: "taino",
+            speaker: "🏝️ Bewohner von Haiti",
+            text: "Das ist schrecklich! Sie nehmen uns unser Land weg und verschleppen unsere Leute gegen ihren Willen über das Meer."
+          }
+        ],
+        originalText: "Weihnachten 1492: Kolumbus gründet auf Haiti die erste spanische Kolonie. Dann segelt er zurück und nimmt Früchte, Pflanzen und Tiere mit an Bord, die den Europäern unbekannt sind. Auch einige Männer und Frauen aus Haiti verschleppt er, um sie in Spanien zu zeigen.",
+        quiz: {
+          question: "Mini-Check: Was bedeutet das Wort «Kolonie»?",
+          options: [
+            "Ein freundschaftliches Fest an Weihnachten",
+            "Eine tropische Frucht, die nach Europa gebracht wurde",
+            "Ein Land, das Europäer unter ihre Herrschaft stellen und besiedeln"
+          ],
+          correct: 2,
+          okMsg: "Richtig! Auf Haiti nahmen die Spanier das Land der Einheimischen einfach in Besitz.",
+          retryMsg: "Nicht ganz. Tippe im Text auf das gelbe Wort «Kolonie», falls du unsicher bist."
+        }
+      },
+      6: {
+        id: 6,
+        badge: "Kapitel 6 • 1498–1506",
+        title: "Kolumbus' Irrtum und der Name «Amerika»",
+        scene: "america",
+        stageClass: "warm-bg",
+        cast: [
+          { who: "kolumbus", mood: "proud", name: "Kolumbus" },
+          { who: "vespucci", mood: "normal", name: "Vespucci" }
+        ],
+        panels: [
+          {
+            type: "narrator",
+            style: "narrator",
+            speaker: "📖 Erzähler",
+            text: "Kolumbus segelt noch dreimal über den Atlantik. 1498 betritt er in Venezuela das Festland. Doch bis zu seinem Tod 1506 glaubt er einen grossen Irrtum."
+          },
+          {
+            type: "speech",
+            style: "kolumbus",
+            speaker: "🧭 Christoph Kolumbus",
+            text: "Ich bin ganz sicher: Ich habe Asien erreicht!"
+          },
+          {
+            type: "speech",
+            style: "vespucci",
+            speaker: "🗺️ Amerigo Vespucci (1499–1501)",
+            text: "Nein, Kolumbus hat sich geirrt! Ich habe die südliche Küste erkundet. Das ist gar nicht Asien – sondern ein riesiger, für Europa unbekannter {{kontinent}}!"
+          },
+          {
+            type: "narrator",
+            style: "narrator",
+            speaker: "📖 Erzähler",
+            text: "Weil Amerigo Vespucci das erkannte, erhielt der Kontinent später nach seinem Vornamen den Namen «Amerika»."
+          }
+        ],
+        originalText: "Kolumbus überquerte in den folgenden Jahren noch dreimal den Atlantik. 1498 betrat er im heutigen Venezuela das Festland. Bis zu seinem Tod 1506 glaubte er jedoch, dass er in Asien gelandet war. Erst später wurde den Forschern klar, dass Kolumbus einen riesigen Kontinent entdeckt hatte. 1499 bis 1501 erkundete der Forscher Amerigo Vespucci die südliche Küste dieses Kontinents. Nach ihm erhielt der Kontinent später auch seinen Namen: «Amerika».",
+        quiz: {
+          question: "Mini-Check: Warum heisst der Kontinent «Amerika» und nicht «Kolumbusland»?",
+          options: [
+            "Weil Kolumbus eigentlich mit Vornamen Amerigo hiess",
+            "Weil Amerigo Vespucci die Küste erkundete und man merkte, dass es ein eigener Kontinent ist",
+            "Weil die Königin von Spanien Amerigo hiess"
+          ],
+          correct: 1,
+          okMsg: "Perfekt! Und genau das hilft dir gleich bei Auftrag B in deinem OneNote!",
+          retryMsg: "Fast! Schau nochmals in die Sprechblase von Amerigo Vespucci."
+        }
+      }
+    };
+
+    // =========================================================================
+    // 8. AUFTRÄGE A–D FÜR ONENOTE (SCHRITT 7)
+    // =========================================================================
+    const ASSIGNMENTS = [
+      {
+        letter: "A",
+        question: "Erkläre in deinen eigenen Worten, was Christoph Kolumbus wollte.",
+        tip: "Denke an Kapitel 1 und 2: Welches Ziel hatte er (Gewürze/Indien)? In welche Richtung wollte er segeln und warum? Und was wollte er für Spanien erreichen?",
+        starters: [
+          "Christoph Kolumbus wollte nach … segeln, um dort … zu holen.",
+          "Statt um Afrika herum wollte er nach … segeln, weil die Erde …",
+          "Er versprach dem Königspaar, neue … zu entdecken und …"
+        ],
+        words: ["Indien", "Gewürze", "westwärts", "Erdkugel", "Reichtümer", "Christentum"],
+        readText: "Auftrag A: Erkläre in deinen eigenen Worten, was Christoph Kolumbus wollte."
+      },
+      {
+        letter: "B",
+        question: "Wusste Christoph Kolumbus, dass er einen bisher unbekannten Kontinent entdeckt hat? Warum nennen wir diesen Kontinent nicht «Kolumbusland»?",
+        tip: "Achtung, das sind zwei Fragen! Beantworte beide in deinem OneNote. Schau nochmals in Kapitel 6: Was glaubte Kolumbus bis zu seinem Tod 1506? Und wer hat die Küste später erkundet?",
+        starters: [
+          "Nein, Kolumbus wusste das nicht. Bis zu seinem Tod glaubte er, dass er …",
+          "Der Kontinent heisst heute Amerika, weil der Forscher …"
+        ],
+        words: ["Asien", "1506", "Irrtum", "Amerigo Vespucci", "südliche Küste", "Kontinent"],
+        readText: "Auftrag B: Wusste Christoph Kolumbus, dass er einen bisher unbekannten Kontinent entdeckt hat? Warum nennen wir diesen Kontinent nicht Kolumbusland?"
+      },
+      {
+        letter: "C",
+        question: "Erzähle aus der Sicht eines Haitianers von der Landung der Spanier. Schreibe dazu mindestens 3 Sätze.",
+        tip: "Schreibe in der «Ich»-Form oder «Wir»-Form! Schau dir das alte Bild aus Kapitel 4 an: Was siehst du auf dem Meer und am Strand? Wie fühlst du dich?",
+        starters: [
+          "1. Satz (Was passiert?): Plötzlich sahen wir am Meer drei grosse …",
+          "2. Satz (Wie wirken die Spanier?): Fremde Männer kamen mit … an unseren Strand.",
+          "3. Satz (Gefühl / was passiert danach?): Ich hatte Angst / war erstaunt, weil …"
+        ],
+        words: ["Schiffe", "fremde Männer", "Waffen", "Kreuz", "Geschenke", "Angst", "verschleppt"],
+        hasChecklist: true,
+        readText: "Auftrag C: Erzähle aus der Sicht eines Haitianers von der Landung der Spanier. Schreibe dazu mindestens 3 Sätze."
+      },
+      {
+        letter: "D",
+        question: "Bewerte, wie sich die Spanier auf Haiti verhalten haben.",
+        tip: "«Bewerten» heisst: Sag deine eigene Meinung und begründe sie! Was genau haben die Spanier gemacht (Land weggenommen, Kreuz aufgestellt, Menschen verschleppt)? Findest du das fair oder ungerecht? Warum?",
+        starters: [
+          "Ich finde das Verhalten der Spanier … (z. B. ungerecht / grausam / respektlos), weil …",
+          "Sie haben einfach behauptet, dass die Insel …",
+          "Besonders schlimm finde ich, dass sie …"
+        ],
+        words: ["ungerecht", "respektlos", "Land weggenommen", "Kolonie", "verschleppt", "Gewalt"],
+        readText: "Auftrag D: Bewerte, wie sich die Spanier auf Haiti verhalten haben."
+      }
+    ];
+
+    // =========================================================================
+    // 9. ZUSTAND & PERSISTENZ (LOCALSTORAGE)
+    // =========================================================================
+    const STORAGE_KEY = "entdeckungen_kolumbus_v1";
+
+    let state = {
+      currentStep: 0,
+      selectedPin: 1,
+      showComparisonRoute: true,
+      completed: {},
+      quizAnswers: {},
+      activeHotspotId: 1,
+      fontScale: 1,
+      checklistC: [false, false, false]
+    };
+
+    let voyageAnimFrame = null;
+    let activeSpeakBtn = null;
+    let readingSequenceCancelled = false;
+
+    function loadState() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          state = { ...state, ...parsed };
+        }
+      } catch (_) {}
+      document.documentElement.style.setProperty("--font-scale", String(state.fontScale || 1));
+      updateFontLabel();
+    }
+
+    function saveState() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      } catch (_) {}
+    }
+
+    function resetAllProgress() {
+      if (confirm("Möchtest du deinen Fortschritt wirklich zurücksetzen?")) {
+        state = {
+          currentStep: 0,
+          selectedPin: 1,
+          showComparisonRoute: true,
+          completed: {},
+          quizAnswers: {},
+          activeHotspotId: 1,
+          fontScale: state.fontScale,
+          checklistC: [false, false, false]
+        };
+        saveState();
+        render();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    }
+
+    // =========================================================================
+    // 10. HILFSFUNKTIONEN
+    // =========================================================================
+    function escapeHtml(str) {
+      return String(str)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    function formatRichText(raw) {
+      return escapeHtml(raw).replace(/\{\{(\w+)\}\}/g, (_, key) => {
+        const entry = GLOSSARY[key];
+        if (!entry) return key;
+        return `<button type="button" class="term-btn" onclick="openSingleTerm('${key}')">${entry.word}</button>`;
+      });
+    }
+
+    function stripTokensForSpeech(raw) {
+      return raw.replace(/\{\{(\w+)\}\}/g, (_, key) => GLOSSARY[key] ? GLOSSARY[key].word : key);
+    }
+
+    function updateFontLabel() {
+      const el = document.getElementById("fontLabel");
+      if (!el) return;
+      el.textContent = state.fontScale === 1 ? "A+" : state.fontScale === 1.15 ? "A++" : "Normal";
+    }
+
+    function toggleFontSize() {
+      state.fontScale = state.fontScale === 1 ? 1.15 : state.fontScale === 1.15 ? 1.3 : 1;
+      document.documentElement.style.setProperty("--font-scale", String(state.fontScale));
+      updateFontLabel();
+      saveState();
+    }
+
+    function goToStep(stepIdx) {
+      stopSpeech();
+      if (voyageAnimFrame) {
+        cancelAnimationFrame(voyageAnimFrame);
+        voyageAnimFrame = null;
+      }
+      state.currentStep = Math.max(0, Math.min(STEPS.length - 1, stepIdx));
+      saveState();
+      render();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    // =========================================================================
+    // 11. HEADER & STEPPER RENDERN
+    // =========================================================================
+    function renderHeaderStats() {
+      const doneCount = [1, 2, 3, 4, 5, 6].filter(id => !!state.completed[id]).length;
+      document.getElementById("stars-count").textContent = String(doneCount);
+    }
+
+    function renderStepper() {
+      const nav = document.getElementById("stepper-nav");
+      nav.innerHTML = STEPS.map((s, idx) => {
+        const isActive = idx === state.currentStep;
+        const isDone = !!state.completed[idx];
+        const cls = ["step-chip", isActive ? "active" : "", isDone && !isActive ? "done" : ""].join(" ");
+        const mark = isDone && !isActive ? "✅ " : "";
+        return `<button type="button" class="${cls}" onclick="goToStep(${idx})">${mark}${s.label}</button>`;
+      }).join("");
+    }
+
+    // =========================================================================
+    // 12. SCHRITT 0: SCHÖNE ÜBERSICHTSKARTE & STARTSEITE
+    // =========================================================================
+    function renderOverviewScreen() {
+      const activeStation = MAP_STATIONS.find(s => s.id === state.selectedPin) || MAP_STATIONS[0];
+      const doneCount = [1, 2, 3, 4, 5, 6].filter(id => !!state.completed[id]).length;
+
+      return `
+        <section class="comic-panel">
+          <div class="overview-hero">
+            <div>
+              <span class="chapter-badge">🧭 Willkommen zum Comic-Lernpfad</span>
+              <h2 class="chapter-heading font-title" style="margin-bottom:4px;">Christoph Kolumbus &amp; die Entdeckung Amerikas</h2>
+              <p style="margin:0; font-size:0.94rem; color:var(--ink-muted);">
+                Entdecke zuerst auf der Übersichtskarte, wohin Kolumbus 1492 gesegelt ist. Tippe auf die Zahlen <strong>1–6</strong> auf der Karte oder starte direkt mit Kapitel 1!
+              </p>
+            </div>
+            <div style="display:flex; gap:8px; flex-wrap:wrap;">
+              <button type="button" class="btn btn-gold" onclick="goToStep(1)">
+                ⛵ ${doneCount > 0 ? "Weiterlernen" : "Reise starten"} ▶
+              </button>
+            </div>
+          </div>
+
+          <!-- INTERAKTIVE ÜBERSICHTSKARTE -->
+          <div class="map-frame">
+            <div class="map-toolbar">
+              <div class="map-legend">
+                <span class="legend-item">
+                  <span class="legend-line" style="background:#1D6FD8;"></span> Kolumbus 1492 (Westwärts)
+                </span>
+                <span class="legend-item">
+                  <span class="legend-line" style="background:#0F766E;"></span> 1498–1501 (Festland / Vespucci)
+                </span>
+                ${state.showComparisonRoute ? `
+                  <span class="legend-item">
+                    <span class="legend-line" style="border-top:3.5px dashed #B8402C; height:0;"></span> Weg um Afrika nach Indien
+                  </span>
+                ` : ""}
+              </div>
+              <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                <button type="button" class="btn btn-soft btn-sm" onclick="toggleComparisonRoute()">
+                  ${state.showComparisonRoute ? "👁️ Afrika-Route ausblenden" : "👁️ Afrika-Route zeigen"}
+                </button>
+                <button type="button" class="btn btn-primary btn-sm" onclick="animateOverviewShip()">
+                  ⛵ Fahrt abspielen
+                </button>
+              </div>
+            </div>
+
+            <div class="overview-map-wrap">
+              <img src="./assets/weltkarte-kolumbus.jpg" alt="Physische Weltkarte von Amerika über den Atlantik, Europa und Afrika bis nach Indien">
+              <svg id="overview-map-svg" class="overview-svg-overlay" viewBox="0 0 1180 700" role="img" aria-label="Interaktive Übersichtskarte der Entdeckungsreisen von Kolumbus">
+                <!-- KONTINENT- UND OZEAN-LABELS (sauber & gut lesbar) -->
+                <g font-family="Verdana, sans-serif" font-weight="800" text-anchor="middle">
+                  <rect x="122" y="108" width="148" height="28" rx="14" fill="rgba(255,253,248,0.88)" stroke="#5C4E42" stroke-width="1.5"/>
+                  <text x="196" y="127" font-size="14" fill="#221A14">Nordamerika</text>
+
+                  <rect x="282" y="492" width="142" height="28" rx="14" fill="rgba(255,253,248,0.88)" stroke="#237A4B" stroke-width="1.5"/>
+                  <text x="353" y="511" font-size="14" fill="#164F30">Südamerika</text>
+
+                  <rect x="654" y="80" width="96" height="28" rx="14" fill="rgba(255,253,248,0.88)" stroke="#5C4E42" stroke-width="1.5"/>
+                  <text x="702" y="99" font-size="14" fill="#221A14">Europa</text>
+
+                  <rect x="698" y="346" width="94" height="28" rx="14" fill="rgba(255,253,248,0.88)" stroke="#5C4E42" stroke-width="1.5"/>
+                  <text x="745" y="365" font-size="14" fill="#221A14">Afrika</text>
+
+                  <rect x="965" y="324" width="114" height="30" rx="15" fill="rgba(253,241,206,0.94)" stroke="#B8402C" stroke-width="2"/>
+                  <text x="1022" y="344" font-size="15" fill="#B8402C">🌶️ Indien</text>
+
+                  <text x="435" y="176" font-size="15" font-style="italic" fill="#15324D" opacity="0.78">Atlantischer Ozean</text>
+                </g>
+
+                <!-- KOMPASSROSE (unten links im ruhigen Pazifik) -->
+                <g transform="translate(88, 608)">
+                  <circle cx="0" cy="0" r="42" fill="rgba(255,253,248,0.9)" stroke="#2A2018" stroke-width="2.2"/>
+                  <polygon points="0,-32 7,-7 0,-13 -7,-7" fill="#B8402C"/>
+                  <polygon points="0,32 7,7 0,13 -7,7" fill="#15324D"/>
+                  <polygon points="-32,0 -7,-7 -13,0 -7,7" fill="#15324D"/>
+                  <polygon points="32,0 7,-7 13,0 7,7" fill="#15324D"/>
+                  <text x="0" y="-46" text-anchor="middle" font-size="13" font-weight="900" fill="#B8402C">N</text>
+                  <text x="0" y="57" text-anchor="middle" font-size="12" font-weight="800" fill="#15324D">S</text>
+                  <text x="-50" y="4" text-anchor="middle" font-size="12" font-weight="800" fill="#15324D">W</text>
+                  <text x="50" y="4" text-anchor="middle" font-size="12" font-weight="800" fill="#15324D">O</text>
+                </g>
+
+                <!-- VERGLEICHSROUTE UM AFRIKA (ROT GESTRICHELT MIT WEISSEM HALO) -->
+                ${state.showComparisonRoute ? `
+                  <path d="M 596 178 C 542 225, 515 320, 565 425 C 625 535, 650 662, 728 656 C 815 650, 865 535, 922 455 C 962 400, 990 370, 1012 346"
+                    fill="none" stroke="rgba(255,253,248,0.85)" stroke-width="9" stroke-linecap="round"/>
+                  <path d="M 596 178 C 542 225, 515 320, 565 425 C 625 535, 650 662, 728 656 C 815 650, 865 535, 922 455 C 962 400, 990 370, 1012 346"
+                    fill="none" stroke="#B8402C" stroke-width="4.5" stroke-dasharray="12 8" stroke-linecap="round"/>
+                  <polygon points="1018,339 1001,344 1011,356" fill="#B8402C"/>
+                  <rect x="625" y="660" width="218" height="28" rx="14" fill="rgba(255,253,248,0.94)" stroke="#B8402C" stroke-width="2"/>
+                  <text x="734" y="679" text-anchor="middle" font-size="13" font-weight="800" fill="#B8402C">Weg um Afrika nach Indien</text>
+                ` : ""}
+
+                <!-- REISE 1498 & VESPUCCI 1499-1501 (TÜRKIS MIT WEISSEM HALO) -->
+                <path d="M 604 174 C 555 232, 465 302, 335 348 C 392 365, 442 405, 452 496"
+                  fill="none" stroke="rgba(255,253,248,0.8)" stroke-width="8" stroke-linecap="round"/>
+                <path d="M 604 174 C 555 232, 465 302, 335 348 C 392 365, 442 405, 452 496"
+                  fill="none" stroke="#0F766E" stroke-width="4" stroke-dasharray="8 7" stroke-linecap="round"/>
+
+                <!-- KOLUMBUS ROUTE 1492 (BLAU MIT WEISSEM HALO) -->
+                <path d="M 604 174 C 588 202, 576 218, 566 226 C 520 238, 475 244, 435 245 C 375 246, 315 244, 272 244 C 282 262, 294 276, 302 286"
+                  fill="none" stroke="rgba(255,253,248,0.9)" stroke-width="10" stroke-linecap="round"/>
+                <path id="kolumbus-route-path"
+                  d="M 604 174 C 588 202, 576 218, 566 226 C 520 238, 475 244, 435 245 C 375 246, 315 244, 272 244 C 282 262, 294 276, 302 286"
+                  fill="none" stroke="#1D6FD8" stroke-width="5.5" stroke-linecap="round"/>
+
+                <!-- ANIMIERTES SCHIFF FÜR ÜBERSICHTSKARTE -->
+                <g id="overview-ship" transform="translate(604, 174)">
+                  <circle cx="0" cy="0" r="18" fill="#F4C552" stroke="#221A14" stroke-width="2.5"/>
+                  <text x="0" y="6" text-anchor="middle" font-size="20">⛵</text>
+                </g>
+
+                <!-- KLICKBARE STATIONEN 1–6 -->
+                ${MAP_STATIONS.map(st => {
+                  const isSel = st.id === state.selectedPin;
+                  const fill = isSel ? "#F4C552" : "#B8402C";
+                  const textFill = isSel ? "#221A14" : "#FFFDF8";
+                  const r = isSel ? 21 : 17;
+                  return `
+                    <g class="map-pin-btn" tabindex="0" role="button" aria-label="Station ${st.id}: ${escapeHtml(st.title)}"
+                      onclick="selectMapPin(${st.id})" onkeydown="if(event.key==='Enter'||event.key===' ')selectMapPin(${st.id})">
+                      <circle class="pin-bg" cx="${st.x}" cy="${st.y}" r="${r}" fill="${fill}" stroke="#FFFDF8" stroke-width="3.5"/>
+                      <text x="${st.x}" y="${st.y + 6}" text-anchor="middle" font-size="16" font-weight="900" fill="${textFill}">${st.id}</text>
+                    </g>
+                  `;
+                }).join("")}
+              </svg>
+            </div>
+          </div>
+
+          <!-- INFOKARTE ZUR GEWÄHLTEN STATION -->
+          <div class="pin-detail-card">
+            <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px;">
+              <div>
+                <span class="chapter-badge" style="background:var(--spice-red);">${activeStation.badge}</span>
+                <h3 style="margin:6px 0 4px; font-size:1.18rem; color:var(--ocean-deep);">${activeStation.title}</h3>
+              </div>
+              <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                <button type="button" class="btn-speak" data-speech="${escapeHtml(activeStation.title + ". " + activeStation.desc)}" onclick="speakFromBtn(this)">
+                  🔊 Vorlesen
+                </button>
+                <button type="button" class="btn btn-primary btn-sm" onclick="goToStep(${activeStation.chapterIdx})">
+                  Zu Kapitel ${activeStation.chapterIdx} ▶
+                </button>
+              </div>
+            </div>
+            <p style="margin:6px 0 0; font-size:0.96rem;">${activeStation.desc}</p>
+          </div>
+
+          <!-- ALLE KAPITEL IM ÜBERBLICK -->
+          <div style="margin-top:16px;">
+            <strong style="color:var(--ocean-deep); font-size:0.98rem;">🧭 Alle Stationen dieses Lernpfads:</strong>
+            <div class="roadmap-grid">
+              ${STEPS.slice(1).map(s => {
+                const isDone = !!state.completed[s.id];
+                const title = STORY_CHAPTERS[s.id] ? STORY_CHAPTERS[s.id].title : "Aufträge A bis D für dein OneNote";
+                return `
+                  <button type="button" class="roadmap-card ${isDone ? "done" : ""}" onclick="goToStep(${s.id})">
+                    <div>
+                      <div style="font-size:0.78rem; font-weight:800; color:var(--ocean-mid);">${s.label}</div>
+                      <div style="font-weight:800; font-size:0.94rem; color:var(--ink);">${title}</div>
+                    </div>
+                    <span style="font-size:1.2rem;">${isDone ? "✅" : "▶"}</span>
+                  </button>
+                `;
+              }).join("")}
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    function selectMapPin(pinId) {
+      state.selectedPin = pinId;
+      saveState();
+      render();
+    }
+
+    function toggleComparisonRoute() {
+      state.showComparisonRoute = !state.showComparisonRoute;
+      saveState();
+      render();
+    }
+
+    function animateOverviewShip() {
+      const shipEl = document.getElementById("overview-ship");
+      const pathEl = document.getElementById("kolumbus-route-path");
+      if (!shipEl || !pathEl) return;
+
+      if (voyageAnimFrame) cancelAnimationFrame(voyageAnimFrame);
+      const totalLen = pathEl.getTotalLength();
+      const duration = 3400;
+      const start = performance.now();
+
+      function frame(now) {
+        const elapsed = now - start;
+        const t = Math.min(1, elapsed / duration);
+        const pt = pathEl.getPointAtLength(t * totalLen);
+        shipEl.setAttribute("transform", `translate(${pt.x.toFixed(1)}, ${pt.y.toFixed(1)})`);
+        if (t < 1) {
+          voyageAnimFrame = requestAnimationFrame(frame);
+        } else {
+          voyageAnimFrame = null;
+        }
+      }
+      voyageAnimFrame = requestAnimationFrame(frame);
+    }
+
+    // =========================================================================
+    // 13. HISTORISCHE BILDQUELLEN & LIGHTBOX
+    // =========================================================================
+    function renderSourcesSection(chapterId, heading = "📜 Historische Bildquellen ansehen (tippen zum Vergrössern)") {
+      const list = HIST_SOURCES[chapterId] || [];
+      if (!list.length) return "";
+      return `
+        <div class="sources-box">
+          <div class="sources-title">${heading}</div>
+          <div class="sources-grid">
+            ${list.map((src, sIdx) => `
+              <article class="source-card">
+                <button type="button" class="source-img-btn" onclick="openSourceModal(${chapterId}, ${sIdx})" aria-label="Bildquelle vergrössern: ${escapeHtml(src.title)}">
+                  <img src="${src.imgSrc}" alt="${escapeHtml(src.title)}">
+                  <span class="source-zoom-pill">🔍 Gross ansehen</span>
+                </button>
+                <div class="source-meta">
+                  <div class="source-caption">${src.title}</div>
+                  <div class="source-credit">${src.credit}</div>
+                  <p class="source-hint">${src.hint}</p>
+                </div>
+              </article>
+            `).join("")}
+          </div>
+        </div>
+      `;
+    }
+
+    function openSourceModal(chId, sIdx) {
+      const src = (HIST_SOURCES[chId] || [])[sIdx];
+      if (!src) return;
+      document.getElementById("source-dlg-title").textContent = src.title;
+      const img = document.getElementById("source-dlg-img");
+      img.src = src.imgSrc;
+      img.alt = src.title;
+      document.getElementById("source-dlg-hint").textContent = src.hint;
+      document.getElementById("source-dlg-credit").textContent = "Quelle: " + src.credit;
+      const dlg = document.getElementById("source-dialog");
+      if (typeof dlg.showModal === "function") dlg.showModal();
+    }
+
+    function closeSourceModal() {
+      stopSpeech();
+      const dlg = document.getElementById("source-dialog");
+      if (dlg && dlg.open) dlg.close();
+    }
+
+    // =========================================================================
+    // 14. KUPFERSTICH HOTSPOTS (KAPITEL 4)
+    // =========================================================================
+    function renderEngravingSection() {
+      const activeSpot = ENGRAVING_HOTSPOTS.find(h => h.id === state.activeHotspotId) || ENGRAVING_HOTSPOTS[0];
+      return `
+        <div class="engraving-card">
+          <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:8px;">
+            <div>
+              <div style="font-weight:900; font-size:1.05rem; color:var(--ocean-deep);">🖼️ Historisches Bild erforschen (1594)</div>
+              <div style="font-size:0.88rem; color:var(--ink-muted);">
+                <em>Landung des Kolumbus auf Haiti, kolorierter Kupferstich von Theodor de Bry (1594).</em>
+                <strong>Tippe auf die Zahlen 1–5 im Bild!</strong>
+              </div>
+            </div>
+            <button type="button" class="btn btn-soft btn-sm" onclick="openEngravingLightbox()">🔍 Gross ansehen</button>
+          </div>
+
+          <div class="engraving-wrap">
+            <img src="./assets/theodor-de-bry-1594.jpg" alt="Landung des Kolumbus auf Haiti, kolorierter Kupferstich von Theodor de Bry (1594)">
+            ${ENGRAVING_HOTSPOTS.map(h => `
+              <button
+                type="button"
+                class="hotspot-btn ${h.id === state.activeHotspotId ? "active" : ""}"
+                style="left:${h.x}; top:${h.y};"
+                onclick="selectHotspot(${h.id})"
+                aria-label="Bilddetail ${h.id}: ${escapeHtml(h.title)}">
+                ${h.id}
+              </button>
+            `).join("")}
+          </div>
+
+          <div id="hotspotInfo" class="hotspot-info">
+            <div style="display:flex; justify-content:space-between; align-items:center; gap:8px; flex-wrap:wrap;">
+              <strong style="font-size:1rem; color:var(--ocean-deep);">${activeSpot.title}</strong>
+              <button type="button" class="btn-speak" data-speech="${escapeHtml(activeSpot.title + ". " + activeSpot.text)}" onclick="speakFromBtn(this)">
+                🔊 Vorlesen
+              </button>
+            </div>
+            <p style="margin:6px 0 0 0; font-size:0.95rem;">${activeSpot.text}</p>
+          </div>
+        </div>
+      `;
+    }
+
+    function openEngravingLightbox() {
+      document.getElementById("source-dlg-title").textContent = "Landung des Kolumbus auf Haiti (1594)";
+      const img = document.getElementById("source-dlg-img");
+      img.src = "./assets/theodor-de-bry-1594.jpg";
+      img.alt = "Landung des Kolumbus auf Haiti, kolorierter Kupferstich von Theodor de Bry (1594)";
+      document.getElementById("source-dlg-hint").textContent = "Ein berühmter Kupferstich aus dem Jahr 1594! Tippe auf die roten Zahlen 1–5 im Kapitel, um jedes Detail genau zu untersuchen.";
+      document.getElementById("source-dlg-credit").textContent = "Quelle: Kolorierter Kupferstich von Theodor de Bry, 1594";
+      const dlg = document.getElementById("source-dialog");
+      if (typeof dlg.showModal === "function") dlg.showModal();
+    }
+
+    function selectHotspot(id) {
+      state.activeHotspotId = id;
+      saveState();
+      const spot = ENGRAVING_HOTSPOTS.find(h => h.id === id);
+      document.querySelectorAll(".hotspot-btn").forEach((btn, idx) => {
+        btn.classList.toggle("active", idx + 1 === id);
+      });
+      const infoEl = document.getElementById("hotspotInfo");
+      if (infoEl && spot) {
+        infoEl.innerHTML = `
+          <div style="display:flex; justify-content:space-between; align-items:center; gap:8px; flex-wrap:wrap;">
+            <strong style="font-size:1rem; color:var(--ocean-deep);">${spot.title}</strong>
+            <button type="button" class="btn-speak" data-speech="${escapeHtml(spot.title + ". " + spot.text)}" onclick="speakFromBtn(this)">
+              🔊 Vorlesen
+            </button>
+          </div>
+          <p style="margin:6px 0 0 0; font-size:0.95rem;">${spot.text}</p>
+        `;
+      }
+    }
+
+    // =========================================================================
+    // 15. STORY-KAPITEL RENDERN (SCHRITTE 1–6)
+    // =========================================================================
+    function renderStoryChapter(chId) {
+      const ch = STORY_CHAPTERS[chId];
+      const answered = state.quizAnswers[chId];
+      const isDone = !!state.completed[chId];
+
+      const castHtml = (ch.cast || []).map((c, idx) => `
+        <div class="char-box">
+          ${getAvatarSVG(c.who, c.mood, idx % 2 === 1)}
+          <span class="char-name-tag">${c.name}</span>
+        </div>
+      `).join("");
+
+      const bubblesHtml = ch.panels.map((p, pIdx) => `
+        <div id="panel-${pIdx}" class="speech-bubble ${p.style}">
+          <div class="speech-speaker">
+            <span>${p.speaker}</span>
+            <button type="button" class="btn-speak" style="min-height:34px; padding:4px 10px; font-size:0.78rem;"
+              onclick="speakPanel(${chId}, ${pIdx}, this)">🔊</button>
+          </div>
+          <p class="speech-text">${formatRichText(p.text)}</p>
+        </div>
+      `).join("");
+
+      const optionsHtml = ch.quiz.options.map((opt, oIdx) => {
+        let cls = "quiz-option";
+        if (answered !== undefined) {
+          if (oIdx === ch.quiz.correct) cls += " correct";
+          else if (oIdx === answered) cls += " wrong";
+        }
+        const icon = answered !== undefined
+          ? (oIdx === ch.quiz.correct ? "✅" : (oIdx === answered ? "❌" : "⚪"))
+          : "👉";
+        return `<button type="button" class="${cls}" onclick="answerChapterQuiz(${chId}, ${oIdx})"><span>${icon}</span> <span>${opt}</span></button>`;
+      }).join("");
+
+      let feedbackHtml = "";
+      if (answered !== undefined) {
+        if (answered === ch.quiz.correct) {
+          feedbackHtml = `<div class="feedback-banner ok">⭐ ${ch.quiz.okMsg}</div>`;
+        } else {
+          feedbackHtml = `<div class="feedback-banner retry">💡 ${ch.quiz.retryMsg}</div>`;
+        }
+      }
+
+      const nextLabel = chId < 6 ? `Weiter zu Kapitel ${chId + 1} ▶` : "Weiter zu den Aufträgen A–D ▶";
+
+      return `
+        <section class="comic-panel">
+          <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:8px;">
+            <span class="chapter-badge">${ch.badge}</span>
+            <span style="font-size:0.84rem; color:var(--ink-muted); font-weight:700;">💡 Tippe auf gelbe Wörter für Hilfe!</span>
+          </div>
+          <h2 class="chapter-heading font-title">${ch.title}</h2>
+
+          <div class="comic-stage ${ch.stageClass}">
+            <div class="stage-scene">
+              <div class="cast-row">${castHtml}</div>
+              <div class="dialogue-stack">${bubblesHtml}</div>
+            </div>
+          </div>
+
+          ${ch.hasEngraving ? renderEngravingSection() + renderSourcesSection(chId, "📜 Weitere historische Bildquelle zum Vergleichen (tippen zum Vergrössern)") : renderSourcesSection(chId)}
+
+          <div class="interaction-box" style="background:#FFF9EC;">
+            <p style="margin:0 0 10px; font-weight:800; color:var(--ocean-deep);">${ch.quiz.question}</p>
+            <div style="display:flex; flex-direction:column; gap:8px;">${optionsHtml}</div>
+            ${feedbackHtml}
+          </div>
+
+          <details class="onenote-ref">
+            <summary>
+              <span>📄 Originaltext aus deinem OneNote aufklappen</span>
+              <span>▼</span>
+            </summary>
+            <div class="onenote-original-text">
+              <p style="margin:0 0 10px;">${ch.originalText}</p>
+              <button type="button" class="btn-speak" onclick="speakText(STORY_CHAPTERS[${chId}].originalText, this)">
+                🔊 Originaltext vorlesen
+              </button>
+            </div>
+          </details>
+
+          <div class="nav-footer">
+            <button type="button" class="btn btn-soft" onclick="goToStep(${chId - 1})">
+              ◀ ${chId === 1 ? "Zur Übersichtskarte" : "Zurück"}
+            </button>
+            <button type="button" class="btn ${isDone ? "btn-gold" : "btn-primary"}" onclick="goToStep(${chId + 1})">
+              ${nextLabel}
+            </button>
+          </div>
+        </section>
+      `;
+    }
+
+    function answerChapterQuiz(chId, optIdx) {
+      state.quizAnswers[chId] = optIdx;
+      if (optIdx === STORY_CHAPTERS[chId].quiz.correct) {
+        state.completed[chId] = true;
+      }
+      saveState();
+      render();
+    }
+
+    // =========================================================================
+    // 16. AUFTRÄGE A–D FÜR ONENOTE (SCHRITT 7)
+    // =========================================================================
+    function renderAssignmentsScreen() {
+      const doneCount = [1, 2, 3, 4, 5, 6].filter(id => !!state.completed[id]).length;
+
+      const cardsHtml = ASSIGNMENTS.map(a => `
+        <article class="onenote-card">
+          <div class="onenote-head">
+            <div style="display:flex; align-items:flex-start; gap:12px; flex:1;">
+              <span class="letter-badge">${a.letter}</span>
+              <h3 style="margin:0; font-size:1.08rem; font-weight:800; color:var(--ocean-deep);">${a.question}</h3>
+            </div>
+            <button type="button" class="btn-speak" data-speech="${escapeHtml(a.readText)}" onclick="speakFromBtn(this)">
+              🔊 Vorlesen
+            </button>
+          </div>
+
+          <div class="helper-row">
+            <button type="button" class="btn btn-gold btn-sm" onclick="toggleHelper('tip-${a.letter}', this)" aria-expanded="false">
+              💡 Tipp anzeigen
+            </button>
+            <button type="button" class="btn btn-soft btn-sm" onclick="toggleHelper('starter-${a.letter}', this)" aria-expanded="false">
+              ✍️ Satzstarter &amp; Wörter
+            </button>
+          </div>
+
+          <div id="tip-${a.letter}" class="helper-panel">
+            <strong>💡 Tipp für deinen Text in OneNote:</strong>
+            <p style="margin:6px 0 0 0; font-size:0.94rem;">${a.tip}</p>
+          </div>
+
+          <div id="starter-${a.letter}" class="helper-panel" style="background:var(--ocean-light); border-color:var(--ocean-mid);">
+            <strong>✍️ So kannst du deine Sätze anfangen:</strong>
+            <ul style="margin:6px 0 10px 1.2rem; padding:0; font-size:0.94rem;">
+              ${a.starters.map(s => `<li style="margin-bottom:4px;">${s}</li>`).join("")}
+            </ul>
+            <strong>🧩 Nützliche Wörter:</strong>
+            <div class="word-chips">
+              ${a.words.map(w => `<span class="word-chip">${w}</span>`).join("")}
+            </div>
+          </div>
+
+          ${a.hasChecklist ? `
+            <div style="margin-top:12px; padding:12px 14px; border-radius:12px; background:var(--gold-soft); border:2px solid var(--gold);">
+              <strong>✅ Checkliste für Auftrag C (in OneNote geschrieben?):</strong>
+              <label class="checklist-item">
+                <input type="checkbox" ${state.checklistC[0] ? "checked" : ""} onchange="toggleChecklist(0, this.checked)">
+                <span>1. Beschrieben, was am Strand/Meer passiert?</span>
+              </label>
+              <label class="checklist-item">
+                <input type="checkbox" ${state.checklistC[1] ? "checked" : ""} onchange="toggleChecklist(1, this.checked)">
+                <span>2. Aus der Sicht eines Haitianers («Ich» / «Wir») erzählt?</span>
+              </label>
+              <label class="checklist-item">
+                <input type="checkbox" ${state.checklistC[2] ? "checked" : ""} onchange="toggleChecklist(2, this.checked)">
+                <span>3. Mindestens 3 ganze Sätze geschrieben?</span>
+              </label>
+            </div>` : ""}
+        </article>
+      `).join("");
+
+      return `
+        <section class="comic-panel">
+          <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:8px;">
+            <span class="chapter-badge">Abschluss • Dein OneNote-Auftrag</span>
+            <span style="font-weight:800; color:var(--emerald);">⭐ ${doneCount} / 6 Mini-Checks gelöst</span>
+          </div>
+          <h2 class="chapter-heading font-title">Aufträge A bis D für dein OneNote</h2>
+
+          <div class="interaction-box" style="background:var(--gold-soft);">
+            <strong>📱 So arbeitest du jetzt weiter:</strong>
+            <p style="margin:4px 0 0 0; font-size:0.95rem;">
+              Öffne <strong>OneNote</strong> auf deinem iPad (am besten im geteilten Bildschirm neben dieser Seite) und schreibe dort deine Antworten zu <strong>A, B, C und D</strong>. Nutze hier die <strong>Tipps</strong> und <strong>Satzstarter</strong>, wenn du Hilfe brauchst!
+            </p>
+          </div>
+
+          ${cardsHtml}
+
+          <div class="nav-footer">
+            <button type="button" class="btn btn-soft" onclick="goToStep(6)">
+              ◀ Zurück zu Kapitel 6
+            </button>
+            <div style="display:flex; gap:8px; flex-wrap:wrap;">
+              <button type="button" class="btn btn-soft" onclick="resetAllProgress()">
+                🔄 Zurücksetzen
+              </button>
+              <button type="button" class="btn btn-gold" onclick="goToStep(0)">
+                🗺️ Zur Übersichtskarte
+              </button>
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    function toggleHelper(id, btn) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const open = el.classList.toggle("open");
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+    }
+
+    function toggleChecklist(idx, val) {
+      state.checklistC[idx] = val;
+      saveState();
+    }
+
+    // =========================================================================
+    // 17. GLOSSAR-DIALOG
+    // =========================================================================
+    const glossaryDialog = document.getElementById("glossary-dialog");
+    const glossTitle = document.getElementById("gloss-title");
+    const glossBody = document.getElementById("gloss-body");
+
+    function openSingleTerm(key) {
+      const item = GLOSSARY[key];
+      if (!item) return;
+      glossTitle.textContent = `📖 Begriff: ${item.word}`;
+      glossBody.innerHTML = `
+        <div style="font-size:0.9rem; font-weight:800; color:var(--spice-red); margin-bottom:4px;">${item.short}</div>
+        <p style="font-size:1.08rem; margin:0 0 14px 0;">${item.text}</p>
+        <div style="display:flex; gap:8px; flex-wrap:wrap; justify-content:space-between;">
+          <button type="button" class="btn-speak" data-speech="${escapeHtml(item.word + ": " + item.text)}" onclick="speakFromBtn(this)">
+            🔊 Erklärung vorlesen
+          </button>
+          <button type="button" class="btn btn-soft btn-sm" onclick="openGlossaryModal()">
+            Alle Wörter ansehen
+          </button>
+        </div>
+      `;
+      if (!glossaryDialog.open) glossaryDialog.showModal();
+    }
+
+    function openGlossaryModal() {
+      glossTitle.textContent = "📖 Alle wichtigen Wörter";
+      glossBody.innerHTML = Object.values(GLOSSARY).map(item => `
+        <div style="border-bottom:1.5px solid rgba(42,32,24,0.18); padding:10px 0;">
+          <div style="display:flex; justify-content:space-between; align-items:center; gap:8px;">
+            <strong style="font-size:1.05rem;">${item.word}</strong>
+            <button type="button" class="btn-speak" style="min-height:34px; padding:4px 10px;" data-speech="${escapeHtml(item.word + ": " + item.text)}" onclick="speakFromBtn(this)">🔊</button>
+          </div>
+          <div style="font-size:0.85rem; color:var(--spice-red); font-weight:700;">${item.short}</div>
+          <p style="margin:4px 0 0 0; font-size:0.95rem;">${item.text}</p>
+        </div>
+      `).join("");
+      if (!glossaryDialog.open) glossaryDialog.showModal();
+    }
+
+    function closeGlossary() {
+      stopSpeech();
+      if (glossaryDialog.open) glossaryDialog.close();
+    }
+
+    glossaryDialog.addEventListener("click", e => {
+      if (e.target === glossaryDialog) closeGlossary();
+    });
+
+    document.getElementById("source-dialog").addEventListener("click", e => {
+      if (e.target === document.getElementById("source-dialog")) closeSourceModal();
+    });
+
+    // =========================================================================
+    // 18. VORLESEFUNKTION (WEB SPEECH API)
+    // =========================================================================
+    let cachedVoice = null;
+
+    function pickGermanVoice() {
+      if (!("speechSynthesis" in window)) return null;
+      const voices = window.speechSynthesis.getVoices();
+      if (!voices.length) return null;
+      return (
+        voices.find(v => v.lang.toLowerCase().startsWith("de-ch")) ||
+        voices.find(v => v.lang.toLowerCase().startsWith("de")) ||
+        null
+      );
+    }
+
+    if ("speechSynthesis" in window) {
+      cachedVoice = pickGermanVoice();
+      window.speechSynthesis.onvoiceschanged = () => {
+        cachedVoice = pickGermanVoice();
+      };
+    }
+
+    function clearSpeechUI() {
+      document.querySelectorAll(".speaking").forEach(el => el.classList.remove("speaking"));
+      if (activeSpeakBtn) {
+        activeSpeakBtn.classList.remove("speaking-active");
+        if (activeSpeakBtn.dataset.origLabel) {
+          activeSpeakBtn.textContent = activeSpeakBtn.dataset.origLabel;
+        }
+      }
+      activeSpeakBtn = null;
+      const globalBtn = document.getElementById("global-speak-btn");
+      const globalLabel = document.getElementById("speak-label");
+      if (globalBtn) globalBtn.classList.remove("speaking-active");
+      if (globalLabel) globalLabel.textContent = "Vorlesen";
+    }
+
+    function stopSpeech() {
+      readingSequenceCancelled = true;
+      if ("speechSynthesis" in window) {
+        window.speechSynthesis.cancel();
+      }
+      clearSpeechUI();
+    }
+
+    function speakText(text, btnEl = null, highlightEl = null) {
+      if (!("speechSynthesis" in window)) {
+        alert("Dein Browser unterstützt leider keine Sprachausgabe.");
+        return;
+      }
+      const isSameBtn = btnEl && activeSpeakBtn === btnEl && window.speechSynthesis.speaking;
+      stopSpeech();
+      if (isSameBtn) return;
+
+      readingSequenceCancelled = false;
+      const utter = new SpeechSynthesisUtterance(text);
+      utter.lang = "de-CH";
+      utter.rate = 0.94;
+      if (cachedVoice) utter.voice = cachedVoice;
+
+      if (highlightEl) highlightEl.classList.add("speaking");
+      if (btnEl) {
+        btnEl.dataset.origLabel = btnEl.textContent.trim();
+        btnEl.classList.add("speaking-active");
+        btnEl.textContent = "⏹ Stopp";
+        activeSpeakBtn = btnEl;
+      }
+
+      utter.onend = clearSpeechUI;
+      utter.onerror = clearSpeechUI;
+      window.speechSynthesis.speak(utter);
+    }
+
+    function speakFromBtn(btnEl) {
+      speakText(btnEl.dataset.speech || "", btnEl);
+    }
+
+    function speakPanel(chId, panelIdx, btnEl) {
+      const ch = STORY_CHAPTERS[chId];
+      if (!ch || !ch.panels[panelIdx]) return;
+      const box = document.getElementById(`panel-${panelIdx}`);
+      const text = stripTokensForSpeech(ch.panels[panelIdx].text);
+      speakText(text, btnEl, box);
+    }
+
+    function speakCurrentSection() {
+      if (!("speechSynthesis" in window)) {
+        alert("Dein Browser unterstützt leider keine Sprachausgabe.");
+        return;
+      }
+      const globalBtn = document.getElementById("global-speak-btn");
+      const globalLabel = document.getElementById("speak-label");
+      if (window.speechSynthesis.speaking && !readingSequenceCancelled && globalBtn.classList.contains("speaking-active")) {
+        stopSpeech();
+        return;
+      }
+
+      stopSpeech();
+
+      if (state.currentStep === 0) {
+        const st = MAP_STATIONS.find(s => s.id === state.selectedPin) || MAP_STATIONS[0];
+        globalBtn.classList.add("speaking-active");
+        globalLabel.textContent = "Stopp";
+        speakText(`Übersichtskarte zu Christoph Kolumbus. ${st.title}. ${st.desc}`);
+        globalBtn.classList.add("speaking-active");
+        globalLabel.textContent = "Stopp";
+        return;
+      }
+
+      if (state.currentStep === 7) {
+        globalBtn.classList.add("speaking-active");
+        globalLabel.textContent = "Stopp";
+        speakText("Aufträge A bis D für dein OneNote. Öffne OneNote im geteilten Bildschirm und nutze die Tipps und Satzstarter bei jedem Auftrag.");
+        globalBtn.classList.add("speaking-active");
+        globalLabel.textContent = "Stopp";
+        return;
+      }
+
+      const ch = STORY_CHAPTERS[state.currentStep];
+      if (!ch) return;
+
+      readingSequenceCancelled = false;
+      globalBtn.classList.add("speaking-active");
+      globalLabel.textContent = "Stopp";
+
+      let idx = 0;
+      function nextPanel() {
+        if (readingSequenceCancelled || idx >= ch.panels.length) {
+          clearSpeechUI();
+          return;
+        }
+        const panel = ch.panels[idx];
+        const box = document.getElementById(`panel-${idx}`);
+        document.querySelectorAll(".speaking").forEach(el => el.classList.remove("speaking"));
+        if (box) box.classList.add("speaking");
+
+        const utter = new SpeechSynthesisUtterance(stripTokensForSpeech(panel.text));
+        utter.lang = "de-CH";
+        utter.rate = 0.94;
+        if (cachedVoice) utter.voice = cachedVoice;
+
+        utter.onend = () => {
+          idx++;
+          nextPanel();
+        };
+        utter.onerror = clearSpeechUI;
+        window.speechSynthesis.speak(utter);
+      }
+
+      nextPanel();
+    }
+
+    // =========================================================================
+    // 19. HAUPT-RENDER
+    // =========================================================================
+    function render() {
+      renderHeaderStats();
+      renderStepper();
+      const main = document.getElementById("app-main");
+      if (state.currentStep === 0) {
+        main.innerHTML = renderOverviewScreen();
+      } else if (state.currentStep === 7) {
+        main.innerHTML = renderAssignmentsScreen();
+      } else {
+        main.innerHTML = renderStoryChapter(state.currentStep);
+      }
+    }
+
+    loadState();
+    render();
+  </script>
+</body>
+</html>

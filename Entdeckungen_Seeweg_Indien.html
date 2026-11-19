@@ -115,6 +115,28 @@
       flex-wrap: wrap;
     }
 
+    .header-link-btn {
+      background: rgba(255, 255, 255, 0.14);
+      color: #FFFDF8;
+      border: 1.5px solid rgba(255, 255, 255, 0.45);
+      border-radius: 999px;
+      padding: 6px 13px;
+      min-height: 40px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background-color 0.15s ease;
+    }
+
+    .header-link-btn:hover {
+      background: rgba(255, 255, 255, 0.24);
+    }
+
     .pill-stat {
       background: rgba(255, 255, 255, 0.14);
       border: 1.5px solid var(--gold-bright);
@@ -1194,6 +1216,12 @@
       </div>
 
       <div class="header-actions">
+        <a href="index.html" class="header-link-btn" aria-label="Zurück zur Themen-Übersicht">
+          <span>🏠</span> <span>Übersicht</span>
+        </a>
+        <button type="button" class="header-link-btn" onclick="resetProgress()" title="Fortschritt zurücksetzen">
+          <span>🔄</span> <span>Zurücksetzen</span>
+        </button>
         <button type="button" class="btn-speak" id="global-speak-btn" onclick="speakCurrentSection()">
           <span>🔊</span> <span id="speak-label">Vorlesen</span>
         </button>
@@ -1558,11 +1586,11 @@
         quiz: {
           question: "Mini-Check: Woher kamen die kostbaren Gewürze im Mittelalter?",
           options: [
-            "Aus Indien und China (über Konstantinopel nach Europa)",
             "Direkt aus den Wäldern in der Schweiz",
+            "Aus Indien und China (über Konstantinopel nach Europa)",
             "Aus Amerika über den Nordpol"
           ],
-          correct: 0,
+          correct: 1,
           okMsg: "Genau! Die Gewürze kamen aus Indien oder China über Konstantinopel nach Europa."
         },
         onenote: "Gewürze, die kostbaren Schätze des Orients, waren von unschätzbarem Wert in der Welt des Mittelalters. Es wurden immer mehr Gewürze benötigt, da die reichen Menschen diese unbedingt im Essen haben wollten. Um diese Gewürze zu bekommen transportierte man diese von Indien oder China über Konstantinopel nach Europa."
@@ -1595,11 +1623,11 @@
         quiz: {
           question: "Mini-Check: Warum suchten die europäischen Händler ab 1453 einen neuen Weg nach Indien?",
           options: [
-            "Weil die Osmanen in Konstantinopel hohe Zölle verlangten und Gewürze zu teuer wurden",
             "Weil niemand mehr Gewürze essen wollte",
-            "Weil in Europa zu viele Schiffe im Hafen standen"
+            "Weil in Europa zu viele Schiffe im Hafen standen",
+            "Weil die Osmanen in Konstantinopel hohe Zölle verlangten und Gewürze zu teuer wurden"
           ],
-          correct: 0,
+          correct: 2,
           okMsg: "Super erkannt! Die Osmanen verlangten hohe Steuern (Zoll) in Konstantinopel. Deshalb wollten die Händler direkt nach Indien segeln."
         },
         onenote: "Als die Osmanen im Jahr 1453 Konstantinopel eroberten, wurde der Handel mit diesen exotischen Waren aber besteuert, was die Preise in die Höhe trieb und die Händler und reichen Bürger unzufrieden machte. Deshalb suchten die europäischen Händler nun nach anderen Wegen, um die Gewürze günstiger zu bekommen. Wäre es nicht möglich, Indien direkt mit dem Schiff zu erreichen, ohne Zoll zu bezahlen?"
@@ -1663,11 +1691,11 @@
         quiz: {
           question: "Mini-Check: Warum erreichte Bartolomeo Diaz 1487 Indien noch nicht?",
           options: [
-            "Seine Mannschaft war unzufrieden und weigerte sich weiterzufahren",
             "Sein Kompass fiel in Konstantinopel ins Wasser",
+            "Seine Mannschaft war unzufrieden und weigerte sich weiterzufahren",
             "Er wollte gar nicht nach Indien, sondern nach China laufen"
           ],
-          correct: 0,
+          correct: 1,
           okMsg: "Genau! Diaz kam 1487 bis zur Südspitze Afrikas, musste aber wegen seiner unzufriedenen Mannschaft umkehren."
         },
         onenote: "1487 erreichte Bartolomeo Diaz die Südspitze Afrikas. Seine Mannschaft war aber unzufrieden und weigerte sich weiterzufahren, also musste er umkehren."
@@ -1694,11 +1722,11 @@
         quiz: {
           question: "Mini-Check: Welche Jahreszahl gehört zu Vasco da Gama?",
           options: [
-            "1498 – Er umrundete Afrika und fuhr als erster Europäer per Schiff nach Indien",
             "1453 – Er eroberte Konstantinopel",
-            "1487 – Er kehrte an der Südspitze Afrikas um"
+            "1487 – Er kehrte an der Südspitze Afrikas um",
+            "1498 – Er umrundete Afrika und fuhr als erster Europäer per Schiff nach Indien"
           ],
-          correct: 0,
+          correct: 2,
           okMsg: "Stark! Merke dir: 1453 Osmanen, 1487 Diaz (Südspitze), 1498 Vasco da Gama (Indien)!"
         },
         onenote: "1498 gelang es Vasco da Gama die Südspitze Afrikas zu umrunden und als erstem Europäer mit dem Schiff direkt nach Indien zu fahren. Dies markierte den Beginn einer neuen Ära des Handels und der Entdeckung, die die Welt für immer verändern sollte. Nun war es möglich, von Europa mit dem Schiff nach Indien zu fahren und Gewürze direkt zu kaufen."
