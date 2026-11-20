@@ -1,0 +1,3321 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Entdeckungen: Azteken, Inkas &amp; die Spanier – Comic-Abenteuer</title>
+  <style>
+    :root {
+      --ocean-deep: #15324D;
+      --ocean-mid: #1F4E78;
+      --ocean-light: #D9EEF8;
+      --parchment: #FBF4E4;
+      --parchment-card: #FFFDF8;
+      --parchment-dark: #EADBC0;
+      --gold: #D49B35;
+      --gold-bright: #F4C552;
+      --gold-soft: #FDF1CE;
+      --spice-red: #B8402C;
+      --spice-soft: #FDECE8;
+      --emerald: #237A4B;
+      --emerald-soft: #E2F5EA;
+      --ink: #221A14;
+      --ink-muted: #5C4E42;
+      --aztec-blue: #1D6FD8;
+      --inca-green: #1B8A4B;
+      --border-comic: #2A2018;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --font-scale: 1;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      margin: 0;
+      padding: 0 0 56px 0;
+      background-color: var(--parchment);
+      background-image:
+        radial-gradient(circle at 12% 18%, rgba(212, 155, 53, 0.12) 0%, transparent 45%),
+        radial-gradient(circle at 88% 82%, rgba(31, 78, 120, 0.10) 0%, transparent 50%);
+      color: var(--ink);
+      font-family: Verdana, 'Trebuchet MS', system-ui, -apple-system, sans-serif;
+      font-size: calc(18px * var(--font-scale));
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    .font-title {
+      font-family: 'Trebuchet MS', Verdana, system-ui, sans-serif;
+      letter-spacing: 0.01em;
+    }
+
+    /* ================= TOP HEADER ================= */
+    .top-header {
+      background: linear-gradient(135deg, var(--ocean-deep) 0%, var(--ocean-mid) 100%);
+      color: #FFFDF8;
+      border-bottom: 4px solid var(--gold);
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      box-shadow: 0 4px 16px rgba(21, 50, 77, 0.22);
+    }
+
+    .header-inner {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 10px 16px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-badge {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: var(--gold-bright);
+      color: var(--ink);
+      border: 2.5px solid var(--border-comic);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      box-shadow: 2px 2px 0 var(--border-comic);
+      flex-shrink: 0;
+    }
+
+    .brand-title {
+      margin: 0;
+      font-size: 1.12rem;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .brand-sub {
+      font-size: 0.78rem;
+      color: var(--gold-soft);
+      opacity: 0.95;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .header-link-btn {
+      background: rgba(255, 255, 255, 0.14);
+      color: #FFFDF8;
+      border: 1.5px solid rgba(255, 255, 255, 0.45);
+      border-radius: 999px;
+      padding: 6px 13px;
+      min-height: 40px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      font-family: inherit;
+      touch-action: manipulation;
+      transition: background-color 0.15s ease;
+    }
+
+    .header-link-btn:hover {
+      background: rgba(255, 255, 255, 0.24);
+    }
+
+    .pill-stat {
+      background: rgba(255, 255, 255, 0.14);
+      border: 1.5px solid var(--gold-bright);
+      border-radius: 999px;
+      padding: 6px 12px;
+      min-height: 40px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* ================= PROGRESS STEPPER ================= */
+    .stepper-bar {
+      background: var(--parchment-dark);
+      border-top: 1px solid rgba(42, 32, 24, 0.15);
+    }
+
+    .stepper-scroll {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: thin;
+    }
+
+    .step-chip {
+      border: 2px solid var(--border-comic);
+      background: var(--parchment-card);
+      color: var(--ink);
+      border-radius: 999px;
+      padding: 6px 13px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: transform 0.12s ease, background-color 0.15s ease;
+      font-family: inherit;
+      min-height: 40px;
+      touch-action: manipulation;
+    }
+
+    .step-chip:hover:not(:disabled) {
+      transform: translateY(-1px);
+      background: var(--gold-soft);
+    }
+
+    .step-chip.active {
+      background: var(--gold-bright);
+      color: var(--ink);
+      box-shadow: 2px 2px 0 var(--border-comic);
+    }
+
+    .step-chip.done {
+      background: var(--emerald-soft);
+      border-color: var(--emerald);
+      color: #164F30;
+    }
+
+    .step-chip:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      border-style: dashed;
+    }
+
+    /* ================= MAIN LAYOUT ================= */
+    .main-wrap {
+      max-width: 940px;
+      margin: 20px auto 0;
+      padding: 0 16px;
+    }
+
+    .comic-panel {
+      background: var(--parchment-card);
+      border: 3px solid var(--border-comic);
+      border-radius: var(--radius-lg);
+      box-shadow: 5px 5px 0 rgba(42, 32, 24, 0.18);
+      padding: 20px;
+      margin-bottom: 18px;
+    }
+
+    @media (min-width: 640px) {
+      .comic-panel {
+        padding: 26px;
+      }
+    }
+
+    .chapter-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--ocean-mid);
+      color: #FFFDF8;
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 5px 12px;
+      border-radius: 999px;
+      border: 2px solid var(--border-comic);
+    }
+
+    .chapter-heading {
+      margin: 10px 0 6px;
+      font-size: 1.48rem;
+      line-height: 1.25;
+      color: var(--ocean-deep);
+    }
+
+    /* ================= BUTTONS ================= */
+    .btn {
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 0.96rem;
+      border-radius: var(--radius-md);
+      border: 2.5px solid var(--border-comic);
+      padding: 11px 17px;
+      min-height: 48px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.15s ease;
+      text-decoration: none;
+      touch-action: manipulation;
+    }
+
+    .btn:active:not(:disabled) {
+      transform: translate(2px, 2px);
+      box-shadow: none !important;
+    }
+
+    .btn:disabled {
+      opacity: 0.48;
+      cursor: not-allowed;
+    }
+
+    .btn-primary {
+      background: var(--ocean-mid);
+      color: #FFFDF8;
+      box-shadow: 3px 3px 0 var(--border-comic);
+    }
+    .btn-primary:hover:not(:disabled) {
+      background: var(--ocean-deep);
+    }
+
+    .btn-gold {
+      background: var(--gold-bright);
+      color: var(--ink);
+      box-shadow: 3px 3px 0 var(--border-comic);
+    }
+    .btn-gold:hover:not(:disabled) {
+      background: #F7D170;
+    }
+
+    .btn-emerald {
+      background: var(--emerald);
+      color: #FFFDF8;
+      box-shadow: 3px 3px 0 var(--border-comic);
+    }
+    .btn-emerald:hover:not(:disabled) {
+      background: #1B623B;
+    }
+
+    .btn-soft {
+      background: var(--parchment);
+      color: var(--ink);
+      box-shadow: 2px 2px 0 rgba(42, 32, 24, 0.2);
+    }
+    .btn-soft:hover:not(:disabled) {
+      background: var(--parchment-dark);
+    }
+
+    .btn-sm {
+      min-height: 40px;
+      padding: 6px 12px;
+      font-size: 0.84rem;
+      border-radius: 10px;
+    }
+
+    .btn-speak {
+      background: var(--gold-soft);
+      color: var(--ink);
+      border: 2px solid var(--border-comic);
+      border-radius: 999px;
+      padding: 6px 13px;
+      min-height: 40px;
+      font-family: inherit;
+      font-size: 0.84rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+      touch-action: manipulation;
+    }
+
+    .btn-speak:hover {
+      background: var(--gold-bright);
+    }
+
+    .btn-speak.speaking-active {
+      background: var(--spice-red);
+      color: #FFFDF8;
+    }
+
+    button:focus-visible, a:focus-visible {
+      outline: 3px solid var(--gold);
+      outline-offset: 2px;
+    }
+
+    /* ================= OVERVIEW MAP (STEP 0) ================= */
+    .overview-hero {
+      background: linear-gradient(135deg, #FFFDF8 0%, #FDF4DC 100%);
+      border: 2.5px solid var(--border-comic);
+      border-radius: 16px;
+      padding: 16px 18px;
+      margin-bottom: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .map-frame {
+      background: linear-gradient(180deg, #E8F4FA 0%, #D9EEF8 100%);
+      border: 3px solid var(--border-comic);
+      border-radius: 18px;
+      padding: 12px;
+      box-shadow: inset 0 0 24px rgba(21, 50, 77, 0.10);
+      margin-bottom: 14px;
+    }
+
+    .map-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .map-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 253, 248, 0.94);
+      border: 1.5px solid var(--border-comic);
+      border-radius: 999px;
+      padding: 3px 10px;
+    }
+
+    .legend-swatch {
+      width: 14px;
+      height: 14px;
+      border-radius: 4px;
+      border: 1.5px solid var(--border-comic);
+      display: inline-block;
+    }
+
+    .legend-line {
+      width: 20px;
+      height: 4px;
+      border-radius: 2px;
+      display: inline-block;
+    }
+
+    .overview-map-wrap {
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 2.5px solid var(--border-comic);
+      background: #B9DCF0;
+      box-shadow: 0 4px 14px rgba(21, 50, 77, 0.14);
+    }
+
+    .overview-map-wrap img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .overview-svg-overlay {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .map-pin-btn {
+      cursor: pointer;
+    }
+
+    .map-pin-btn circle.pin-bg {
+      transition: transform 0.15s ease, fill 0.15s ease;
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+
+    .map-pin-btn:hover circle.pin-bg {
+      transform: scale(1.14);
+    }
+
+    /* Schweiz Grössenvergleich */
+    .swiss-compare-box {
+      background: #FFFDF8;
+      border: 2.5px solid var(--border-comic);
+      border-radius: 16px;
+      padding: 15px 18px;
+      margin-bottom: 16px;
+      box-shadow: 3px 3px 0 rgba(42, 32, 24, 0.12);
+    }
+
+    .size-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    @media (min-width: 640px) {
+      .size-row {
+        grid-template-columns: 220px 1fr;
+        align-items: center;
+        gap: 12px;
+      }
+    }
+
+    .size-track {
+      background: var(--parchment);
+      border: 2px solid var(--border-comic);
+      border-radius: 999px;
+      height: 26px;
+      padding: 3px;
+      display: flex;
+      align-items: center;
+    }
+
+    .size-fill {
+      height: 100%;
+      border-radius: 999px;
+      transition: width 0.3s ease;
+    }
+
+    .pin-detail-card {
+      background: #FFFDF8;
+      border: 2.5px solid var(--border-comic);
+      border-radius: 16px;
+      padding: 15px 18px;
+      box-shadow: 3px 3px 0 rgba(42, 32, 24, 0.14);
+      margin-bottom: 16px;
+    }
+
+    .roadmap-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    @media (min-width: 680px) {
+      .roadmap-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .roadmap-card {
+      background: var(--parchment);
+      border: 2px solid var(--border-comic);
+      border-radius: 14px;
+      padding: 12px 14px;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      font-family: inherit;
+      touch-action: manipulation;
+      transition: transform 0.12s ease, background-color 0.15s ease;
+    }
+
+    .roadmap-card:hover:not(:disabled) {
+      background: var(--gold-soft);
+      transform: translateY(-2px);
+    }
+
+    .roadmap-card.done {
+      background: var(--emerald-soft);
+      border-color: var(--emerald);
+    }
+
+    .roadmap-card:disabled {
+      opacity: 0.56;
+      cursor: not-allowed;
+      border-style: dashed;
+    }
+
+    /* ================= COMIC STAGE & BUBBLES ================= */
+    .comic-stage {
+      background: linear-gradient(180deg, #E3F2FA 0%, #FBF4E4 100%);
+      border: 2.5px solid var(--border-comic);
+      border-radius: 16px;
+      padding: 14px;
+      margin: 14px 0 16px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .comic-stage.warm-bg {
+      background: linear-gradient(180deg, #FDF1CE 0%, #FBF4E4 100%);
+    }
+
+    .comic-stage.andes-bg {
+      background: linear-gradient(180deg, #E2F5EA 0%, #FBF4E4 100%);
+    }
+
+    .comic-stage.serious-bg {
+      background: linear-gradient(180deg, #FDECE8 0%, #FBF4E4 100%);
+    }
+
+    .stage-scene {
+      padding: 6px 4px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      align-items: center;
+    }
+
+    @media (min-width: 720px) {
+      .stage-scene {
+        grid-template-columns: 260px 1fr;
+        padding: 8px 6px;
+      }
+    }
+
+    .cast-row {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .char-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .char-box svg {
+      display: block;
+    }
+
+    .char-name-tag {
+      margin-top: 4px;
+      background: var(--ink);
+      color: #FFFDF8;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 2px 9px;
+      border-radius: 999px;
+      letter-spacing: 0.02em;
+    }
+
+    .dialogue-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .speech-bubble {
+      background: #FFFDF8;
+      border: 2.5px solid var(--border-comic);
+      border-radius: 16px;
+      padding: 12px 15px;
+      position: relative;
+      box-shadow: 3px 3px 0 rgba(42, 32, 24, 0.12);
+      transition: box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .speech-bubble.timo {
+      background: #F4FAFF;
+      border-left: 7px solid var(--ocean-mid);
+    }
+
+    .speech-bubble.koko {
+      background: #FFF9E6;
+      border-left: 7px solid var(--gold);
+    }
+
+    .speech-bubble.aztekin,
+    .speech-bubble.moctezuma {
+      border-left: 7px solid var(--aztec-blue);
+    }
+
+    .speech-bubble.inka,
+    .speech-bubble.atahualpa {
+      border-left: 7px solid var(--inca-green);
+    }
+
+    .speech-bubble.cortes,
+    .speech-bubble.pizarro {
+      border-left: 7px solid var(--spice-red);
+    }
+
+    .speech-bubble.narrator {
+      background: var(--gold-soft);
+      border-style: dashed;
+    }
+
+    .speech-bubble.speaking {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 4px rgba(244, 197, 82, 0.55);
+    }
+
+    .speech-speaker {
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--ocean-mid);
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .speech-text {
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    .term-btn {
+      background: var(--gold-bright);
+      color: var(--ink);
+      border: 1.5px solid var(--border-comic);
+      border-radius: 7px;
+      padding: 1px 7px;
+      font-weight: 800;
+      font-family: inherit;
+      font-size: 0.94em;
+      cursor: pointer;
+      display: inline-block;
+      line-height: 1.35;
+      touch-action: manipulation;
+    }
+
+    .term-btn:hover {
+      background: #FFE082;
+    }
+
+    /* ================= HISTORICAL IMAGE SOURCE (1 PER CHAPTER) ================= */
+    .sources-box {
+      background: linear-gradient(135deg, #FBF4E4 0%, #F5E9D0 100%);
+      border: 2.5px solid var(--border-comic);
+      border-radius: 16px;
+      padding: 14px 16px;
+      margin: 14px 0;
+    }
+
+    .sources-title {
+      font-weight: 800;
+      font-size: 0.95rem;
+      color: var(--ocean-deep);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .source-card-single {
+      background: var(--parchment-card);
+      border: 2px solid var(--border-comic);
+      border-radius: 14px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr;
+      box-shadow: 3px 3px 0 rgba(42, 32, 24, 0.12);
+    }
+
+    @media (min-width: 680px) {
+      .source-card-single {
+        grid-template-columns: 320px 1fr;
+      }
+    }
+
+    .source-img-btn {
+      padding: 0;
+      border: none;
+      background: #221A14;
+      cursor: pointer;
+      position: relative;
+      display: block;
+      width: 100%;
+      min-height: 210px;
+      max-height: 260px;
+      overflow: hidden;
+    }
+
+    .source-img-btn img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 22%;
+      display: block;
+      transition: transform 0.2s ease;
+    }
+
+    .source-img-btn:hover img {
+      transform: scale(1.04);
+    }
+
+    .source-zoom-pill {
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      background: rgba(255, 253, 248, 0.95);
+      color: var(--ink);
+      border: 1.5px solid var(--border-comic);
+      border-radius: 999px;
+      padding: 4px 11px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      font-family: inherit;
+    }
+
+    .source-meta {
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .source-caption {
+      font-weight: 800;
+      font-size: 0.98rem;
+      color: var(--ocean-deep);
+      line-height: 1.3;
+    }
+
+    .source-credit {
+      font-size: 0.78rem;
+      color: var(--ink-muted);
+    }
+
+    .source-hint {
+      margin: 4px 0 0;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: var(--ink);
+    }
+
+    /* ================= INTERACTION / QUIZ / DETAILS ================= */
+    .interaction-box {
+      background: var(--ocean-light);
+      border: 2.5px solid var(--border-comic);
+      border-radius: 16px;
+      padding: 16px;
+      margin: 14px 0;
+    }
+
+    .quiz-option {
+      width: 100%;
+      text-align: left;
+      background: var(--parchment-card);
+      border: 2px solid var(--border-comic);
+      border-radius: 12px;
+      padding: 12px 15px;
+      min-height: 48px;
+      font-family: inherit;
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      touch-action: manipulation;
+      transition: background-color 0.15s ease, transform 0.1s ease;
+    }
+
+    .quiz-option:hover {
+      background: var(--gold-soft);
+      transform: translateY(-1px);
+    }
+
+    .quiz-option.correct {
+      background: var(--emerald-soft);
+      border-color: var(--emerald);
+      color: #124026;
+    }
+
+    .quiz-option.wrong {
+      background: var(--spice-soft);
+      border-color: var(--spice-red);
+      color: #7D1F11;
+    }
+
+    .feedback-banner {
+      border-radius: 12px;
+      padding: 12px 14px;
+      font-weight: 700;
+      margin-top: 10px;
+      border: 2px solid;
+    }
+
+    .feedback-banner.ok {
+      background: var(--emerald-soft);
+      border-color: var(--emerald);
+      color: #124026;
+    }
+
+    .feedback-banner.retry {
+      background: var(--spice-soft);
+      border-color: var(--spice-red);
+      color: #7D1F11;
+    }
+
+    details.onenote-ref {
+      background: var(--parchment);
+      border: 2px solid var(--border-comic);
+      border-radius: 14px;
+      padding: 10px 14px;
+      margin: 14px 0;
+    }
+
+    details.onenote-ref summary {
+      cursor: pointer;
+      font-weight: 800;
+      color: var(--ocean-deep);
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      min-height: 36px;
+    }
+
+    details.onenote-ref summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .onenote-original-text {
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1.5px dashed rgba(42, 32, 24, 0.25);
+      font-size: 0.94rem;
+      color: var(--ink);
+    }
+
+    /* ================= TASKS A–D (TEXT & SCAFFOLDING) ================= */
+    .choice-pair {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin: 12px 0 16px;
+    }
+
+    @media (min-width: 600px) {
+      .choice-pair {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .choice-card-btn {
+      background: var(--parchment);
+      border: 2.5px solid var(--border-comic);
+      border-radius: 14px;
+      padding: 12px 15px;
+      font-family: inherit;
+      font-size: 0.96rem;
+      font-weight: 800;
+      cursor: pointer;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      touch-action: manipulation;
+      box-shadow: 3px 3px 0 rgba(42, 32, 24, 0.14);
+      transition: transform 0.1s ease, background-color 0.15s ease;
+    }
+
+    .choice-card-btn:hover {
+      background: var(--gold-soft);
+      transform: translateY(-1px);
+    }
+
+    .choice-card-btn.selected-aztec {
+      background: #E2EEFD;
+      border-color: var(--aztec-blue);
+      box-shadow: 0 0 0 2px var(--aztec-blue);
+    }
+
+    .choice-card-btn.selected-inca {
+      background: var(--emerald-soft);
+      border-color: var(--inca-green);
+      box-shadow: 0 0 0 2px var(--inca-green);
+    }
+
+    .chip-pool {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 8px 0 14px;
+    }
+
+    .helper-chip {
+      background: var(--gold-soft);
+      border: 2px solid var(--gold);
+      border-radius: 999px;
+      padding: 7px 13px;
+      min-height: 42px;
+      font-family: inherit;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--ink);
+      cursor: pointer;
+      touch-action: manipulation;
+      text-align: left;
+    }
+
+    .helper-chip:hover {
+      background: var(--gold-bright);
+    }
+
+    .helper-chip.word-variant {
+      background: #FFFDF8;
+      border-color: var(--border-comic);
+    }
+
+    .ipad-textarea {
+      width: 100%;
+      min-height: 155px;
+      border: 2.5px solid var(--border-comic);
+      border-radius: 14px;
+      padding: 14px;
+      font-family: inherit;
+      font-size: 1rem;
+      line-height: 1.55;
+      color: var(--ink);
+      background: #FFFFFF;
+      resize: vertical;
+    }
+
+    .ipad-textarea:focus {
+      outline: 3px solid var(--gold-bright);
+      border-color: var(--ocean-mid);
+    }
+
+    .ipad-input {
+      width: 100%;
+      border: 2px solid var(--border-comic);
+      border-radius: 10px;
+      padding: 10px 12px;
+      min-height: 46px;
+      font-family: inherit;
+      font-size: 0.98rem;
+      color: var(--ink);
+      background: #FFFFFF;
+    }
+
+    .checklist-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .check-item {
+      background: var(--parchment);
+      border: 1.5px solid #CBB999;
+      border-radius: 10px;
+      padding: 8px 11px;
+      font-size: 0.86rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .check-item.met {
+      background: var(--emerald-soft);
+      border-color: var(--emerald);
+      font-weight: 700;
+      color: #124026;
+    }
+
+    /* ================= SUMMARY / ONENOTE EXPORT ================= */
+    .summary-card-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .summary-card {
+      background: #FFFFFF;
+      border: 2.5px solid var(--border-comic);
+      border-radius: 16px;
+      padding: 16px;
+      box-shadow: 3px 3px 0 rgba(42, 32, 24, 0.10);
+    }
+
+    .summary-card-head {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .summary-answer-box {
+      margin: 0;
+      white-space: pre-wrap;
+      background: var(--parchment);
+      border: 1.5px solid #D8C7A8;
+      padding: 12px 14px;
+      border-radius: 12px;
+      font-size: 0.96rem;
+    }
+
+    /* ================= DIALOGS ================= */
+    dialog.edu-dialog {
+      border: 3px solid var(--border-comic);
+      border-radius: 20px;
+      padding: 0;
+      max-width: 720px;
+      width: calc(100% - 28px);
+      background: var(--parchment-card);
+      color: var(--ink);
+      box-shadow: 0 20px 50px rgba(21, 50, 77, 0.42);
+    }
+
+    dialog.edu-dialog::backdrop {
+      background: rgba(21, 50, 77, 0.65);
+      backdrop-filter: blur(2px);
+    }
+
+    .dialog-head {
+      background: var(--ocean-deep);
+      color: #FFFDF8;
+      padding: 13px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      border-bottom: 3px solid var(--gold);
+    }
+
+    .dialog-body {
+      padding: 18px;
+      max-height: 76vh;
+      overflow-y: auto;
+    }
+
+    .source-dialog-img {
+      width: 100%;
+      max-height: 58vh;
+      object-fit: contain;
+      background: #1C1611;
+      border-radius: 12px;
+      border: 2px solid var(--border-comic);
+      display: block;
+    }
+
+    .nav-footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 2px dashed rgba(42, 32, 24, 0.2);
+    }
+
+    /* ================= ANIMATIONS ================= */
+    @keyframes comicBob {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-5px) rotate(1deg); }
+    }
+
+    @keyframes parrotHop {
+      0%, 100% { transform: translateY(0) rotate(-2deg); }
+      45% { transform: translateY(-7px) rotate(3deg); }
+      65% { transform: translateY(-2px) rotate(-1deg); }
+    }
+
+    .anim-bob {
+      animation: comicBob 3.2s ease-in-out infinite;
+      transform-origin: center bottom;
+    }
+
+    .anim-bob-delay {
+      animation: comicBob 3.4s ease-in-out 0.7s infinite;
+      transform-origin: center bottom;
+    }
+
+    .anim-parrot {
+      animation: parrotHop 2.6s ease-in-out infinite;
+      transform-origin: center bottom;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .anim-bob, .anim-bob-delay, .anim-parrot {
+        animation: none !important;
+      }
+      * {
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP HEADER -->
+  <header class="top-header">
+    <div class="header-inner">
+      <div class="brand-group">
+        <div class="brand-badge" aria-hidden="true">☀️</div>
+        <div>
+          <h1 class="brand-title font-title">Entdeckungen: Azteken, Inkas &amp; die Spanier</h1>
+          <div class="brand-sub">Comic-Abenteuer • 1. Sekundarschule Niveau BC</div>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <a href="index.html" class="header-link-btn" aria-label="Zurück zur Themen-Übersicht">
+          <span>🏠</span> <span>Übersicht</span>
+        </a>
+        <button type="button" class="header-link-btn" onclick="toggleFontSize()" title="Schriftgrösse ändern">
+          <span>🔠</span> <span id="fontLabel">A+</span>
+        </button>
+        <button type="button" class="header-link-btn" onclick="openGlossaryModal()">
+          <span>📖</span> <span>Wörter</span>
+        </button>
+        <button type="button" class="header-link-btn" onclick="resetProgress()" title="Fortschritt zurücksetzen">
+          <span>🔄</span> <span>Zurücksetzen</span>
+        </button>
+        <button type="button" class="btn-speak" id="global-speak-btn" onclick="speakCurrentSection()">
+          <span>🔊</span> <span id="speak-label">Vorlesen</span>
+        </button>
+        <div class="pill-stat" title="Deine gesammelten Entdecker-Sterne">
+          <span>⭐</span> <span id="stars-count">0</span> / 10
+        </div>
+      </div>
+    </div>
+
+    <!-- STEPPER NAVIGATION -->
+    <nav class="stepper-bar" aria-label="Kapitel und Aufträge">
+      <div class="stepper-scroll" id="stepper-nav"></div>
+    </nav>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-wrap" id="app-main"></main>
+
+  <!-- GLOSSARY DIALOG -->
+  <dialog id="glossary-dialog" class="edu-dialog" aria-labelledby="gloss-title">
+    <div class="dialog-head">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <span style="font-size:1.4rem;" aria-hidden="true">📖</span>
+        <strong id="gloss-title" style="font-size:1.05rem;">Wichtige Wörter</strong>
+      </div>
+      <button type="button" class="btn btn-soft btn-sm" onclick="closeGlossary()" aria-label="Schliessen">✕</button>
+    </div>
+    <div class="dialog-body" id="gloss-body"></div>
+  </dialog>
+
+  <!-- HISTORICAL IMAGE SOURCE LIGHTBOX -->
+  <dialog id="source-dialog" class="edu-dialog" aria-labelledby="source-dlg-title">
+    <div class="dialog-head">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <span style="font-size:1.35rem;" aria-hidden="true">🖼️</span>
+        <strong id="source-dlg-title" style="font-size:1.02rem;">Historische Bildquelle</strong>
+      </div>
+      <button type="button" class="btn btn-soft btn-sm" onclick="closeSourceModal()" aria-label="Schliessen">✕</button>
+    </div>
+    <div class="dialog-body">
+      <img id="source-dlg-img" class="source-dialog-img" src="" alt="">
+      <p id="source-dlg-hint" style="margin:12px 0 6px; font-size:0.98rem; font-weight:600;"></p>
+      <div id="source-dlg-credit" style="font-size:0.82rem; color:var(--ink-muted); margin-bottom:14px;"></div>
+      <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:space-between;">
+        <button type="button" class="btn-speak" onclick="speakText(document.getElementById('source-dlg-title').innerText + '. ' + document.getElementById('source-dlg-hint').innerText)">
+          🔊 Vorlesen
+        </button>
+        <button type="button" class="btn btn-primary btn-sm" onclick="closeSourceModal()">Schliessen</button>
+      </div>
+    </div>
+  </dialog>
+
+  <script>
+    // Fallback for older iPadOS Safari versions without ctx.roundRect
+    if (typeof CanvasRenderingContext2D !== "undefined" && !CanvasRenderingContext2D.prototype.roundRect) {
+      CanvasRenderingContext2D.prototype.roundRect = function (x, y, w, h, r) {
+        const rad = Math.min(Array.isArray(r) ? r[0] : (r || 0), Math.abs(w) / 2, Math.abs(h) / 2);
+        this.moveTo(x + rad, y);
+        this.arcTo(x + w, y, x + w, y + h, rad);
+        this.arcTo(x + w, y + h, x, y + h, rad);
+        this.arcTo(x, y + h, x, y, rad);
+        this.arcTo(x, y, x + w, y, rad);
+        this.closePath();
+        return this;
+      };
+    }
+
+    // =========================================================================
+    // 1. WÖRTERBUCH / GLOSSAR (LEICHT VERSTÄNDLICH)
+    // =========================================================================
+    const GLOSSARY = {
+      ureinwohner: {
+        word: "Ureinwohner",
+        short: "Die ersten Menschen in einem Land",
+        text: "Menschen und Völker, die schon lange in einem Land gelebt haben, bevor fremde Eroberer ankamen."
+      },
+      indigen: {
+        word: "indigene Völker",
+        short: "Einheimische Völker",
+        text: "Ein anderes Wort für «einheimische Völker» – also die Menschen, die ursprünglich in Amerika lebten."
+      },
+      zivilisation: {
+        word: "Zivilisation",
+        short: "Hochentwickelte Gesellschaft",
+        text: "Eine Gemeinschaft mit grossen Städten, Gesetzen, Wissen (z. B. Mathematik, Medizin) und eigener Baukunst."
+      },
+      tenochtitlan: {
+        word: "Tenochtitlán",
+        short: "Hauptstadt der Azteken",
+        text: "Eine riesige Insel-Stadt im Texcoco-See im heutigen Mexiko. Heute liegt dort Mexiko-Stadt."
+      },
+      sapa_inka: {
+        word: "Sapa Inka",
+        short: "König der Inkas",
+        text: "Der mächtige Herrscher im Inkareich. Die Inkas verehrten ihn als «Sohn der Sonne»."
+      },
+      viracocha: {
+        word: "Viracocha",
+        short: "Schöpfergott der Inkas",
+        text: "In der Religion der Inkas der höchste Gott, der die Welt, die Sonne und die Menschen erschaffen hat."
+      },
+      conquistadores: {
+        word: "Conquistadores",
+        short: "Spanische Eroberer",
+        text: "So nannte man auf Spanisch die Anführer und Soldaten, die ab 1500 Teile Amerikas für Spanien eroberten."
+      },
+      geisel: {
+        word: "Geisel",
+        short: "Gefangener zur Erpressung",
+        text: "Jemand wird festgehalten und als Druckmittel benutzt, damit andere Menschen gehorchen."
+      },
+      belagern: {
+        word: "belagern",
+        short: "Eine Stadt umzingeln",
+        text: "Eine Armee sperrt alle Wege zu einer Stadt ab, damit kein Essen und keine Hilfe mehr hineinkommen."
+      },
+      buergerkrieg: {
+        word: "Bürgerkrieg",
+        short: "Krieg im eigenen Land",
+        text: "Zwei Gruppen im selben Reich kämpfen gegeneinander – bei den Inkas die Brüder Huáscar und Atahualpa."
+      },
+      bekehren: {
+        word: "bekehren",
+        short: "Zu einem neuen Glauben bringen",
+        text: "Jemanden dazu bringen (oft mit Zwang), an eine andere Religion – hier das Christentum – zu glauben."
+      },
+      loesegeld: {
+        word: "Lösegeld",
+        short: "Bezahlung für die Freiheit",
+        text: "Geld oder Schätze (Gold und Silber), um eine gefangene Person wieder freizukaufen."
+      },
+      abgaben: {
+        word: "Abgaben",
+        short: "Erzwungene Steuern oder Arbeit",
+        text: "Gold, Ernte oder Geld, das die unterworfenen Einheimischen regelmässig an die Spanier abgeben mussten."
+      },
+      immunitaet: {
+        word: "Immunität",
+        short: "Schutz des Körpers gegen Krankheiten",
+        text: "Wenn der Körper eine Krankheit kennt und abwehren kann. Weil Pocken, Masern und Grippe in Amerika unbekannt waren, hatten die Einheimischen keinen Schutz."
+      }
+    };
+
+    // =========================================================================
+    // 2. SCHRITTE / NAVIGATION (GEFUERTER LERNPFAD)
+    // =========================================================================
+    const STEPS = [
+      { id: 0, label: "🗺️ Karte" },
+      { id: 1, label: "1. Azteken" },
+      { id: 2, label: "2. Inkas" },
+      { id: 3, label: "3. Spanier 1500" },
+      { id: 4, label: "4. Cortés" },
+      { id: 5, label: "5. Pizarro" },
+      { id: 6, label: "6. Folgen" },
+      { id: 7, label: "Auftrag A" },
+      { id: 8, label: "Auftrag B" },
+      { id: 9, label: "Auftrag C" },
+      { id: 10, label: "Auftrag D" },
+      { id: 11, label: "📥 Abgabe" }
+    ];
+
+    // =========================================================================
+    // 3. STATIONEN DER ÜBERSICHTSKARTE (SCHRITT 0)
+    // =========================================================================
+    // Projektion auf karte-amerika-azteken-inkas.jpg (1180x940, lon -117.99..+14.97, lat +50.0..-55.85)
+    const MAP_STATIONS = [
+      {
+        id: 1,
+        x: 154,
+        y: 272,
+        chapterIdx: 1,
+        badge: "Station 1 • Mexiko (Mittelamerika)",
+        title: "Das Reich der Azteken & Tenochtitlán",
+        desc: "Im heutigen Mexiko beherrschten die Azteken rund 220'000 km² – etwa fünfmal so gross wie die Schweiz. Ihre Hauptstadt Tenochtitlán lag auf einer Insel im Texcoco-See."
+      },
+      {
+        id: 2,
+        x: 408,
+        y: 564,
+        chapterIdx: 2,
+        badge: "Station 2 • Anden (Südamerika)",
+        title: "Das Reich der Inkas & Cusco",
+        desc: "In den Anden erstreckte sich das Inkareich über rund 2 Millionen km² (von Ecuador bis Chile/Argentinien) – verbunden durch ein riesiges Netz aus Strassen und Brücken."
+      },
+      {
+        id: 3,
+        x: 1010,
+        y: 92,
+        chapterIdx: 3,
+        badge: "Station 3 • Spanien / ab 1500",
+        title: "Aufbruch der Spanier (Conquistadores)",
+        desc: "Ab dem Jahr 1500 fuhren spanische Eroberer über den Atlantik nach Amerika. Sie suchten Gold, Ruhm und Abenteuer – und wollten das Christentum verbreiten."
+      },
+      {
+        id: 4,
+        x: 212,
+        y: 274,
+        chapterIdx: 4,
+        badge: "Station 4 • Küste Mexikos / 1519–1521",
+        title: "Hernán Cortés landet in Mexiko",
+        desc: "1519 landete Hernán Cortés mit etwa 500 Soldaten an der Küste Mexikos. Mit einheimischen Verbündeten eroberte er bis 1521 die Hauptstadt Tenochtitlán."
+      },
+      {
+        id: 5,
+        x: 344,
+        y: 508,
+        chapterIdx: 5,
+        badge: "Station 5 • Peru / 1532–1533",
+        title: "Francisco Pizarro landet in Peru",
+        desc: "1532 landete Francisco Pizarro mit etwa 180 Soldaten an der Küste Perus. Er nutzte einen Bürgerkrieg im Inkareich aus und eroberte 1533 Cusco."
+      },
+      {
+        id: 6,
+        x: 497,
+        y: 466,
+        chapterIdx: 6,
+        badge: "Station 6 • Mittel- & Südamerika / 16. Jh.",
+        title: "Verheerende Folgen & Krankheiten",
+        desc: "Die Eroberung zerstörte viele Kulturen und brachte Sklaverei. Eingeschleppte Krankheiten wie Pocken, Masern und Grippe töteten über 90 % der Bevölkerung."
+      }
+    ];
+
+    // =========================================================================
+    // 4. HISTORISCHE BILDQUELLEN (GENAU 1 ZENTRALES BILD PRO KAPITEL)
+    // =========================================================================
+    const HIST_SOURCES = {
+      1: {
+        imgSrc: "./assets/tenochtitlan-rekonstruktion.jpg",
+        title: "Tenochtitlán auf dem Texcoco-See (Rekonstruktionsgemälde)",
+        credit: "Gemälde von Luis Covarrubias (Nationalmuseum für Anthropologie, Mexiko-Stadt / Wikimedia Commons)",
+        hint: "Schau genau hin: Die riesige Hauptstadt Tenochtitlán lag auf einer Insel mitten im See! Lange Damm-Strassen und Kanäle verbanden die Stadt mit den Tempeln und Palästen in der Mitte."
+      },
+      2: {
+        imgSrc: "./assets/machu-picchu-inkas.jpg",
+        title: "Die Inka-Stadt Machu Picchu in den Anden (Peru)",
+        credit: "Foto von Brian Jeffery Beggerly (CC BY 2.0, Wikimedia Commons)",
+        hint: "Links vorne siehst du die berühmten, genau behauenen Steinmauern der Inkas. In den steilen Bergen der Anden legten sie Terrassen für ihre Landwirtschaft und beeindruckende Städte an."
+      },
+      3: {
+        imgSrc: "./assets/ankunft-spanier-veracruz.jpg",
+        title: "Ankunft der Spanier an der Küste Mexikos (17. Jh.)",
+        credit: "Ölgemälde aus der Reihe «Eroberung Mexikos», Library of Congress (Public Domain)",
+        hint: "Rechts liegen die grossen spanischen Segelschiffe vor der Küste, links überbringen Gesandte von Moctezuma II. Geschenke. Auf dem Bild erkennst du auch die eisernen Rüstungen, Pferde, Lanzen und Kanonen (Waffen) der Spanier."
+      },
+      4: {
+        imgSrc: "./assets/cortes-tenochtitlan-leutze.jpg",
+        title: "Kampf am Tempel von Tenochtitlán (Gemälde von 1848)",
+        credit: "Emanuel Leutze, 1848, Wadsworth Atheneum (Public Domain)",
+        hint: "Links kämpfen Cortés und seine Soldaten in dunklen Rüstungen mit Schwertern und Gewehren, rechts verteidigen Azteken ihren Tempel. Auch hier sieht man die Waffen und Rüstungen der Spanier – allerdings entstand das Gemälde erst über 300 Jahre nach 1521."
+      },
+      5: {
+        imgSrc: "./assets/francisco-pizarro-portraet.jpg",
+        title: "Porträt des Conquistadors Francisco Pizarro",
+        credit: "Historisches Ölgemälde, Archivo General de Indias, Sevilla (Public Domain)",
+        hint: "Unten steht sein Name «D. FRAN.co PIZARRO». Er trägt dunkle spanische Adelskleidung, einen weissen Halskragen und das rote Ordenskreuz auf der Brust – so zeigte man ihn später als mächtigen Eroberer Perus."
+      },
+      6: {
+        imgSrc: "./assets/florentiner-codex-pocken.jpg",
+        title: "An den Pocken erkrankte Einheimische (Florentiner Codex, 16. Jh.)",
+        credit: "Florentiner Codex, Buch 12, Folio 54 (ca. 1540–1585, Public Domain)",
+        hint: "Diese Zeichnung entstand im 16. Jahrhundert in Mexiko zusammen mit einheimischen Künstlern. Du siehst Menschen mit Pocken-Flecken auf der Haut, gegen die sie keine Immunität hatten."
+      }
+    };
+
+    // =========================================================================
+    // 5. ANIMIERTE COMIC-CHARAKTERE (TIMO, KOKO & HISTORISCHE FIGUREN)
+    // =========================================================================
+    function getCharSVG(id, mood = "happy") {
+      switch (id) {
+        case "timo":
+          return `
+          <svg width="96" height="110" viewBox="0 0 120 136" class="anim-bob" aria-hidden="true">
+            <path d="M32 126 C32 94, 88 94, 88 126 Z" fill="#1F4E78" stroke="#2A2018" stroke-width="3"/>
+            <path d="M52 98 L60 112 L68 98" fill="#F4C552" stroke="#2A2018" stroke-width="2.5"/>
+            <circle cx="60" cy="64" r="28" fill="#FAD2B4" stroke="#2A2018" stroke-width="3"/>
+            <path d="M31 54 C31 32, 89 32, 89 54 Z" fill="#15324D" stroke="#2A2018" stroke-width="3"/>
+            <rect x="28" y="50" width="64" height="10" rx="5" fill="#F4C552" stroke="#2A2018" stroke-width="2.5"/>
+            <circle cx="50" cy="64" r="3.8" fill="#2A2018"/>
+            <circle cx="70" cy="64" r="3.8" fill="#2A2018"/>
+            <circle cx="51.2" cy="62.8" r="1.2" fill="#FFF"/>
+            <circle cx="71.2" cy="62.8" r="1.2" fill="#FFF"/>
+            <ellipse cx="42" cy="71" rx="4.5" ry="2.5" fill="#F29B8E" opacity="0.7"/>
+            <ellipse cx="78" cy="71" rx="4.5" ry="2.5" fill="#F29B8E" opacity="0.7"/>
+            ${mood === "wow"
+              ? `<circle cx="60" cy="77" r="5" fill="#B8402C" stroke="#2A2018" stroke-width="2"/>`
+              : mood === "sad"
+              ? `<path d="M44 55 L54 58 M76 55 L66 58" stroke="#2A2018" stroke-width="2.5" stroke-linecap="round"/>
+                 <path d="M51 79 Q60 72 69 79" fill="none" stroke="#2A2018" stroke-width="3" stroke-linecap="round"/>`
+              : `<path d="M51 75 Q60 83 69 75" fill="none" stroke="#2A2018" stroke-width="3" stroke-linecap="round"/>`
+            }
+            <g transform="translate(76, 86) rotate(-22)">
+              <rect x="0" y="0" width="32" height="10" rx="3" fill="#D49B35" stroke="#2A2018" stroke-width="2.5"/>
+              <rect x="25" y="-1" width="9" height="12" rx="2" fill="#9FD6F2" stroke="#2A2018" stroke-width="2.5"/>
+            </g>
+          </svg>`;
+
+        case "koko":
+          return `
+          <svg width="74" height="94" viewBox="0 0 92 116" class="anim-parrot" aria-hidden="true">
+            <path d="M36 86 L26 110 L42 98 L46 112 L54 88 Z" fill="#1D6FD8" stroke="#2A2018" stroke-width="2.5"/>
+            <ellipse cx="48" cy="66" rx="22" ry="28" fill="#237A4B" stroke="#2A2018" stroke-width="3"/>
+            <path d="M52 48 C72 52, 74 78, 54 86 C48 74, 48 60, 52 48 Z" fill="#F4C552" stroke="#2A2018" stroke-width="2.5"/>
+            <ellipse cx="40" cy="69" rx="11" ry="17" fill="#E3F5E9"/>
+            <path d="M38 28 C34 12, 48 12, 47 26 C52 14, 61 18, 54 30 Z" fill="#B8402C" stroke="#2A2018" stroke-width="2.5"/>
+            <circle cx="41" cy="40" r="8" fill="#FFF" stroke="#2A2018" stroke-width="2"/>
+            <circle cx="40" cy="40" r="3.5" fill="#2A2018"/>
+            ${mood === "sad" ? `<path d="M35 35 L46 37" stroke="#2A2018" stroke-width="2" stroke-linecap="round"/>` : ""}
+            <path d="M32 39 C18 39, 17 51, 28 53 C28 47, 31 45, 34 45 Z" fill="#F4C552" stroke="#2A2018" stroke-width="2.5"/>
+          </svg>`;
+
+        case "aztekin":
+          return `
+          <svg width="98" height="110" viewBox="0 0 120 136" class="anim-bob-delay" aria-hidden="true">
+            <path d="M24 126 C26 92, 94 92, 96 126 Z" fill="#0F766E" stroke="#2A2018" stroke-width="3"/>
+            <path d="M40 96 L80 96 L76 126 L44 126 Z" fill="#FFFDF8" stroke="#2A2018" stroke-width="2"/>
+            <path d="M46 105 H74 M44 114 H76" stroke="#B8402C" stroke-width="3"/>
+            <circle cx="60" cy="64" r="25" fill="#D99B66" stroke="#2A2018" stroke-width="3"/>
+            <path d="M34 58 C34 32, 86 32, 86 58 C74 44, 46 44, 34 58 Z" fill="#1E1B18" stroke="#2A2018" stroke-width="2.5"/>
+            <path d="M34 56 L26 88 L38 86 Z" fill="#1E1B18" stroke="#2A2018" stroke-width="2"/>
+            <path d="M86 56 L94 88 L82 86 Z" fill="#1E1B18" stroke="#2A2018" stroke-width="2"/>
+            <circle cx="33" cy="60" r="5" fill="#F4C552" stroke="#2A2018" stroke-width="2"/>
+            <circle cx="87" cy="60" r="5" fill="#F4C552" stroke="#2A2018" stroke-width="2"/>
+            <circle cx="50" cy="63" r="3.5" fill="#2A2018"/>
+            <circle cx="70" cy="63" r="3.5" fill="#2A2018"/>
+            ${mood === "sad"
+              ? `<path d="M44 55 L54 58 M76 55 L66 58" stroke="#2A2018" stroke-width="2.5" stroke-linecap="round"/>
+                 <path d="M51 78 Q60 72 69 78" fill="none" stroke="#2A2018" stroke-width="2.8" stroke-linecap="round"/>`
+              : `<path d="M51 74 Q60 81 69 74" fill="none" stroke="#2A2018" stroke-width="2.8" stroke-linecap="round"/>`
+            }
+          </svg>`;
+
+        case "moctezuma":
+          return `
+          <svg width="98" height="110" viewBox="0 0 120 136" class="anim-bob-delay" aria-hidden="true">
+            <!-- Green Quetzal Headdress -->
+            <path d="M18 46 Q28 10 60 8 Q92 10 102 46 Z" fill="#1B8A4B" stroke="#2A2018" stroke-width="3"/>
+            <path d="M28 46 Q42 18 60 16 Q78 18 92 46 Z" fill="#237A4B" stroke="#2A2018" stroke-width="2"/>
+            <rect x="33" y="40" width="54" height="9" rx="4" fill="#F4C552" stroke="#2A2018" stroke-width="2.5"/>
+            <circle cx="60" cy="44.5" r="3.5" fill="#1D6FD8"/>
+            <!-- Royal Mantle -->
+            <path d="M22 126 C24 90, 96 90, 98 126 Z" fill="#1D6FD8" stroke="#2A2018" stroke-width="3"/>
+            <path d="M42 96 Q60 112 78 96" fill="none" stroke="#F4C552" stroke-width="5" stroke-linecap="round"/>
+            <circle cx="60" cy="68" r="24" fill="#D59560" stroke="#2A2018" stroke-width="3"/>
+            <circle cx="51" cy="66" r="3.5" fill="#2A2018"/>
+            <circle cx="69" cy="66" r="3.5" fill="#2A2018"/>
+            <path d="M54 83 Q60 89 66 83" fill="#1E1B18"/>
+            ${mood === "worried"
+              ? `<path d="M45 58 L54 61 M75 58 L66 61" stroke="#2A2018" stroke-width="2.5" stroke-linecap="round"/>
+                 <path d="M52 79 Q60 73 68 79" fill="none" stroke="#2A2018" stroke-width="2.5" stroke-linecap="round"/>`
+              : `<path d="M52 76 Q60 81 68 76" fill="none" stroke="#2A2018" stroke-width="2.5" stroke-linecap="round"/>`
+            }
+          </svg>`;
+
+        case "inka":
+          return `
+          <svg width="98" height="110" viewBox="0 0 120 136" class="anim-bob-delay" aria-hidden="true">
+            <path d="M22 126 L36 92 L84 92 L98 126 Z" fill="#B8402C" stroke="#2A2018" stroke-width="3"/>
+            <path d="M36 92 L60 116 L84 92" fill="#F4C552" stroke="#2A2018" stroke-width="2.5"/>
+            <path d="M48 112 L60 124 L72 112" fill="#1B8A4B" stroke="#2A2018" stroke-width="2"/>
+            <circle cx="60" cy="64" r="25" fill="#D99B66" stroke="#2A2018" stroke-width="3"/>
+            <path d="M34 54 C34 30, 86 30, 86 54 Z" fill="#1E1B18" stroke="#2A2018" stroke-width="2.5"/>
+            <rect x="33" y="45" width="54" height="9" rx="3" fill="#F4C552" stroke="#2A2018" stroke-width="2.5"/>
+            <circle cx="60" cy="49.5" r="3" fill="#B8402C"/>
+            <circle cx="50" cy="64" r="3.5" fill="#2A2018"/>
+            <circle cx="70" cy="64" r="3.5" fill="#2A2018"/>
+            <path d="M51 75 Q60 82 69 75" fill="none" stroke="#2A2018" stroke-width="2.8" stroke-linecap="round"/>
+          </svg>`;
+
+        case "atahualpa":
+          return `
+          <svg width="98" height="110" viewBox="0 0 120 136" class="anim-bob-delay" aria-hidden="true">
+            <!-- Sun Rays -->
+            <path d="M34 40 L26 20 L44 33 L60 12 L76 33 L94 20 L86 40 Z" fill="#F4C552" stroke="#2A2018" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M22 126 C24 90, 96 90, 98 126 Z" fill="#1B8A4B" stroke="#2A2018" stroke-width="3"/>
+            <!-- Gold Sun Medallion -->
+            <circle cx="60" cy="110" r="10" fill="#F4C552" stroke="#2A2018" stroke-width="2.5"/>
+            <circle cx="60" cy="66" r="25" fill="#D59560" stroke="#2A2018" stroke-width="3"/>
+            <path d="M35 55 C35 34, 85 34, 85 55 Z" fill="#1E1B18" stroke="#2A2018" stroke-width="2"/>
+            <rect x="34" y="42" width="52" height="8" rx="3" fill="#B8402C" stroke="#2A2018" stroke-width="2.5"/>
+            <circle cx="50" cy="65" r="3.5" fill="#2A2018"/>
+            <circle cx="70" cy="65" r="3.5" fill="#2A2018"/>
+            ${mood === "sad"
+              ? `<path d="M44 57 L54 60 M76 57 L66 60" stroke="#2A2018" stroke-width="2.5" stroke-linecap="round"/>
+                 <path d="M52 79 Q60 73 68 79" fill="none" stroke="#2A2018" stroke-width="2.8" stroke-linecap="round"/>`
+              : `<path d="M52 76 Q60 82 68 76" fill="none" stroke="#2A2018" stroke-width="2.8" stroke-linecap="round"/>`
+            }
+          </svg>`;
+
+        case "cortes":
+          return `
+          <svg width="98" height="110" viewBox="0 0 120 136" class="anim-bob" aria-hidden="true">
+            <!-- Steel Armor -->
+            <path d="M24 126 C26 90, 94 90, 96 126 Z" fill="#64748B" stroke="#2A2018" stroke-width="3"/>
+            <path d="M34 96 L82 126" stroke="#B8402C" stroke-width="8" stroke-linecap="round"/>
+            <circle cx="60" cy="66" r="24" fill="#FAD2B4" stroke="#2A2018" stroke-width="3"/>
+            <!-- Beard -->
+            <path d="M39 71 C41 94, 79 94, 81 71 C71 79, 49 79, 39 71 Z" fill="#3E2723" stroke="#2A2018" stroke-width="2.5"/>
+            <circle cx="50" cy="62" r="3.5" fill="#2A2018"/>
+            <circle cx="70" cy="62" r="3.5" fill="#2A2018"/>
+            <path d="M44 55 L54 58 M76 55 L66 58" stroke="#2A2018" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M53 76 Q60 72 67 76" fill="none" stroke="#FFF" stroke-width="2.2" stroke-linecap="round"/>
+            <!-- Spanish Morion Helmet + Red Plume -->
+            <path d="M78 24 Q98 14 96 34 Q86 30 76 34 Z" fill="#B8402C" stroke="#2A2018" stroke-width="2"/>
+            <path d="M34 46 C36 20, 84 20, 86 46 Z" fill="#94A3B8" stroke="#2A2018" stroke-width="3"/>
+            <path d="M24 46 Q60 56 96 46 Q60 40 24 46 Z" fill="#475569" stroke="#2A2018" stroke-width="2.5"/>
+          </svg>`;
+
+        case "pizarro":
+          return `
+          <svg width="98" height="110" viewBox="0 0 120 136" class="anim-bob-delay" aria-hidden="true">
+            <!-- Dark Spanish Coat + Red Cross of Santiago + White Ruff Collar -->
+            <path d="M22 126 C24 90, 96 90, 98 126 Z" fill="#1E293B" stroke="#2A2018" stroke-width="3"/>
+            <path d="M68 103 L76 103 M72 99 L72 114" stroke="#B8402C" stroke-width="3.5" stroke-linecap="round"/>
+            <ellipse cx="60" cy="92" rx="22" ry="7" fill="#FFFDF8" stroke="#2A2018" stroke-width="2.5"/>
+            <circle cx="60" cy="65" r="24" fill="#F5C8A8" stroke="#2A2018" stroke-width="3"/>
+            <!-- Full Dark Beard -->
+            <path d="M38 69 C40 94, 80 94, 82 69 C72 78, 48 78, 38 69 Z" fill="#2D221B" stroke="#2A2018" stroke-width="2.5"/>
+            <circle cx="50" cy="61" r="3.5" fill="#2A2018"/>
+            <circle cx="70" cy="61" r="3.5" fill="#2A2018"/>
+            <path d="M44 54 L54 57 M76 54 L66 57" stroke="#2A2018" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M53 75 Q60 71 67 75" fill="none" stroke="#FFF" stroke-width="2.2" stroke-linecap="round"/>
+            <!-- Black Velvet Cap -->
+            <path d="M32 46 C32 22, 88 22, 88 46 Z" fill="#221A14" stroke="#2A2018" stroke-width="3"/>
+            <ellipse cx="60" cy="46" rx="31" ry="6" fill="#332922" stroke="#2A2018" stroke-width="2.5"/>
+          </svg>`;
+
+        default:
+          return "";
+      }
+    }
+
+    // =========================================================================
+    // 6. DIE 6 STORY-KAPITEL (SCHRITTE 1–6)
+    // =========================================================================
+    const STORY_CHAPTERS = {
+      1: {
+        id: 1,
+        badge: "Kapitel 1 • Vor 1500 in Mexiko",
+        title: "Die Azteken und ihre Inselstadt Tenochtitlán",
+        stageClass: "",
+        cast: [
+          { who: "timo", mood: "wow", name: "Timo" },
+          { who: "aztekin", mood: "happy", name: "Aztekin" }
+        ],
+        panels: [
+          {
+            style: "timo",
+            speaker: "🧭 Timo (Zeitreisender)",
+            text: "Schau mal, Koko! Bevor die Spanier kamen, lebten in Mittel- und Südamerika viele eigene Völker. Die bekanntesten waren die Azteken und die Inkas!"
+          },
+          {
+            style: "aztekin",
+            speaker: "🏛️ Aztekin in Mexiko",
+            text: "Willkommen in unserem Reich im heutigen Mexiko! Unser Gebiet ist etwa 220'000 Quadratkilometer gross – rund fünfmal so gross wie die Schweiz."
+          },
+          {
+            style: "aztekin",
+            speaker: "🏛️ Aztekin in Mexiko",
+            text: "Unsere Hauptstadt {{tenochtitlan}} liegt auf einer Insel im Texcoco-See. Über 200'000 Menschen leben hier zwischen Kanälen, Tempeln, Palästen und Märkten!"
+          },
+          {
+            style: "koko",
+            speaker: "🦜 Papagei Koko",
+            text: "Wow! Die Azteken haben eine starke {{zivilisation}}: Sie sind berühmt für Kunst, Architektur, Mathematik, Astronomie und Medizin. Sie glauben an viele Götter und opfern ihnen regelmässig Menschen und Tiere."
+          }
+        ],
+        originalText: "Mittel- und Südamerika waren vor der Ankunft der Spanier von vielen verschiedenen Völkern bewohnt, die ihre eigenen Kulturen, Sprachen und Religionen hatten. Die bekanntesten und mächtigsten waren die Azteken und die Inkas, die große Reiche aufgebaut hatten.<br><br>Die Azteken lebten im heutigen Mexiko und beherrschten ein Gebiet von etwa 220'000 Quadratkilometern, was etwa fünfmal so gross ist wie die Schweiz. Sie hatten eine hochentwickelte Zivilisation mit einer Hauptstadt namens Tenochtitlán, die auf einer Insel im Texcoco-See lag. Die Stadt hatte mehr als 200'000 Einwohner und war mit Kanälen, Tempeln, Palästen und Märkten ausgestattet. Die Azteken waren berühmt für ihre Kunst, Architektur, Mathematik, Astronomie und Medizin. Sie glaubten an viele Götter und opferten ihnen regelmässig Menschen und Tiere.<br><br>• Die Azteken opferten regelmässig Menschen und Tiere<br>• Sie bauten grosse Tempel und Paläste",
+        quiz: {
+          question: "Mini-Check: Wo lag die grosse Azteken-Hauptstadt Tenochtitlán?",
+          options: [
+            "Hoch oben in den eisigen Anden in Peru",
+            "Auf einer Insel im Texcoco-See im heutigen Mexiko",
+            "Direkt am Meer in Spanien"
+          ],
+          correct: 1,
+          okMsg: "Richtig! Tenochtitlán lag auf einer Insel im Texcoco-See und hatte über 200'000 Einwohner.",
+          retryMsg: "Schau nochmals in die zweite Sprechblase der Aztekin: Wo liegt die Hauptstadt genau?"
+        }
+      },
+      2: {
+        id: 2,
+        badge: "Kapitel 2 • Vor 1500 in den Anden",
+        title: "Die Inkas – Söhne der Sonne in den Anden",
+        stageClass: "andes-bg",
+        cast: [
+          { who: "timo", mood: "happy", name: "Timo" },
+          { who: "inka", mood: "happy", name: "Inka-Bote" }
+        ],
+        panels: [
+          {
+            style: "timo",
+            speaker: "🧭 Timo (Zeitreisender)",
+            text: "Jetzt fliegen wir weiter in den Süden – hoch hinauf in die Anden! Hallo, wer bist du?"
+          },
+          {
+            style: "inka",
+            speaker: "🏔️ Inka-Bote",
+            text: "Ich laufe durch das riesige Inkareich! Es liegt in den Anden im heutigen Peru, Bolivien, Ecuador, Chile und Argentinien und ist rund 2 Millionen Quadratkilometer gross."
+          },
+          {
+            style: "inka",
+            speaker: "🏔️ Inka-Bote",
+            text: "Unser König, der {{sapa_inka}}, wird als Sohn der Sonne verehrt. Ein Netz aus Strassen, Brücken und Poststationen verbindet unser ganzes Land!"
+          },
+          {
+            style: "koko",
+            speaker: "🦜 Papagei Koko",
+            text: "Und schau die Mauern an! Die Inkas sind berühmt für Landwirtschaft, Textilien, Keramik, Metall und Baukunst. Sie verehren die Sonne, die Naturkräfte und den Schöpfergott {{viracocha}}."
+          }
+        ],
+        originalText: "Die Inkas lebten in den Anden im heutigen Peru, Bolivien, Ecuador, Chile und Argentinien. Sie beherrschten ein Gebiet von etwa 2 Millionen Quadratkilometern, das sie mit einem Netzwerk von Strassen, Brücken und Poststationen verbanden. Sie hatten eine zentrale Regierung mit einem König namens Sapa Inka, der als Sohn der Sonne verehrt wurde. Die Inkas waren berühmt für ihre Landwirtschaft, Textilien, Keramik, Metallverarbeitung und Baukunst. Sie glaubten an einen Schöpfergott namens Viracocha und an andere Götter, die die Naturkräfte repräsentierten.<br><br>• Die Inkas verehrten die Sonne<br>• Sie bauten grosse Städte mit beeindruckenden Mauern",
+        quiz: {
+          question: "Mini-Check: Wie verbanden die Inkas ihr riesiges Reich in den Anden?",
+          options: [
+            "Mit einem Netzwerk aus Strassen, Brücken und Poststationen",
+            "Mit grossen Kanälen rund um eine Insel im See",
+            "Mit Dampfschiffen über den Atlantik"
+          ],
+          correct: 0,
+          okMsg: "Genau richtig! Strassen, Brücken und Poststationen hielten das 2 Millionen km² grosse Reich zusammen.",
+          retryMsg: "Fast! Lies nochmals, was der Inka-Bote über die Verbindungen in den Bergen erzählt."
+        }
+      },
+      3: {
+        id: 3,
+        badge: "Kapitel 3 • Ab dem Jahr 1500",
+        title: "Ab dem Jahr 1500 kommen die Spanier!",
+        stageClass: "warm-bg",
+        cast: [
+          { who: "cortes", mood: "normal", name: "Conquistador" },
+          { who: "koko", mood: "happy", name: "Koko" }
+        ],
+        panels: [
+          {
+            style: "narrator",
+            speaker: "📖 Erzähler",
+            text: "Nach Kolumbus segeln im 16. Jahrhundert immer mehr Spanier nach Mittel- und Südamerika. Man nennt diese spanischen Eroberer {{conquistadores}}."
+          },
+          {
+            style: "cortes",
+            speaker: "⚔️ Spanischer Conquistador",
+            text: "Wir suchen Gold, Ruhm und Abenteuer! Ausserdem wollen wir das Christentum verbreiten und die {{indigen}} Völker unterwerfen."
+          },
+          {
+            style: "koko",
+            speaker: "🦜 Papagei Koko",
+            text: "Zwei Conquistadores werden besonders berühmt und gefürchtet: Hernán Cortés gegen die Azteken und Francisco Pizarro gegen die Inkas!"
+          }
+        ],
+        originalText: "Ab dem Jahr 1500 kommen die Spanier!<br><br>Die Spanier kamen im 16. Jahrhundert nach Amerika auf der Suche nach Gold, Ruhm und Abenteuer. Sie wollten auch das Christentum verbreiten und die indigenen (einheimischen) Völker unterwerfen. Die wichtigsten spanischen Eroberer (auf Spanisch: Conquistadores) waren Hernán Cortés, der die Azteken besiegte, und Francisco Pizarro, der die Inkas besiegte.",
+        quiz: {
+          question: "Mini-Check: Warum kamen die spanischen Conquistadores ab 1500 nach Amerika?",
+          options: [
+            "Um friedlich Architektur von den Inkas zu lernen",
+            "Auf der Suche nach Gold, Ruhm und Abenteuer – und um das Christentum zu verbreiten und Völker zu unterwerfen",
+            "Um den Azteken ihre Schiffe zu schenken"
+          ],
+          correct: 1,
+          okMsg: "Stimmt! Gold, Ruhm, Abenteuer, die Verbreitung des Christentums und Unterwerfung waren ihre Ziele.",
+          retryMsg: "Nicht ganz. Schau in die Sprechblase des Conquistadors: Was will er in Amerika?"
+        }
+      },
+      4: {
+        id: 4,
+        badge: "Kapitel 4 • Mexiko 1519–1521",
+        title: "Hernán Cortés besiegt die Azteken",
+        stageClass: "warm-bg",
+        cast: [
+          { who: "cortes", mood: "normal", name: "Hernán Cortés" },
+          { who: "moctezuma", mood: "worried", name: "Moctezuma II." }
+        ],
+        panels: [
+          {
+            style: "narrator",
+            speaker: "📖 Erzähler (1519)",
+            text: "Hernán Cortés landet 1519 mit nur rund 500 Soldaten an der Küste Mexikos. Er findet andere einheimische Völker, die gegen die Azteken rebellieren, und verbündet sich mit ihnen."
+          },
+          {
+            style: "moctezuma",
+            speaker: "👑 Aztekenkönig Moctezuma II.",
+            text: "Zuerst empfange ich Cortés freundlich in Tenochtitlán. Doch bald nimmt er mich als {{geisel}}! Seine Männer plündern die Stadt und töten viele Menschen."
+          },
+          {
+            style: "cortes",
+            speaker: "⚔️ Hernán Cortés",
+            text: "Die Azteken wehren sich und vertreiben uns aus der Stadt! Aber ich hole Verstärkung. Wir {{belagern}} Tenochtitlán, bis die Stadt 1521 fällt."
+          },
+          {
+            style: "timo",
+            speaker: "🧭 Timo",
+            text: "Nach einer langen, blutigen Schlacht zerstören die Spanier Tenochtitlán. Auf den Ruinen bauen sie ihre eigene Hauptstadt: Mexiko-Stadt."
+          }
+        ],
+        originalText: "Hernán Cortés landete 1519 mit etwa 500 Soldaten an der Küste Mexikos. Er verbündete sich mit einigen einheimischen Völkern, die gegen die Azteken rebellierten, und marschierte nach Tenochtitlán, der Hauptstadt der Azteken. Er wurde zunächst freundlich vom Aztekenkönig Moctezuma II empfangen, nahm ihn aber bald als Geisel. Die Spanier plünderten die Stadt und töteten viele Einwohner. Die Azteken erhoben sich gegen die Spanier und vertrieben sie aus der Stadt. Cortés kehrte mit Verstärkung zurück und belagerte Tenochtitlán. Nach einer langen und blutigen Schlacht fiel die Stadt 1521 in seine Hände. Die Spanier zerstörten die Stadt und errichteten darauf ihre eigene Hauptstadt: Mexiko-Stadt.<br><br>• Der Conquistador Hernán Cortés besiegt die Azteken und erobert das heutige Mexiko.",
+        quiz: {
+          question: "Mini-Check: Wie schaffte es Cortés mit nur etwa 500 Soldaten, die Azteken zu besiegen?",
+          options: [
+            "Er kaufte Tenochtitlán mit Gewürzen",
+            "Er verbündete sich mit rebellierenden einheimischen Völkern, nahm Moctezuma II. als Geisel und belagerte die Stadt mit Verstärkung",
+            "Die Azteken verliessen ihre Stadt freiwillig vor 1519"
+          ],
+          correct: 1,
+          okMsg: "Genau! Verbündete Völker, die Geiselnahme Moctezumas II., Verstärkung und die Belagerung brachten den Sieg.",
+          retryMsg: "Schau nochmals genau nach: Mit wem verbündete sich Cortés, und was tat er nach der Vertreibung?"
+        }
+      },
+      5: {
+        id: 5,
+        badge: "Kapitel 5 • Peru 1532–1533",
+        title: "Francisco Pizarro besiegt die Inkas",
+        stageClass: "warm-bg",
+        cast: [
+          { who: "pizarro", mood: "normal", name: "Francisco Pizarro" },
+          { who: "atahualpa", mood: "sad", name: "Atahualpa" }
+        ],
+        panels: [
+          {
+            style: "narrator",
+            speaker: "📖 Erzähler (1532)",
+            text: "Francisco Pizarro landet 1532 mit nur etwa 180 Soldaten in Peru. Gerade herrscht im Inkareich ein {{buergerkrieg}} zwischen den Brüdern Huáscar und Atahualpa!"
+          },
+          {
+            style: "pizarro",
+            speaker: "⚔️ Francisco Pizarro",
+            text: "Ich nutze diesen Streit aus und treffe Atahualpa in Cajamarca. Ich verlange: Du musst dich zum Christentum {{bekehren}} und dem spanischen König unterwerfen!"
+          },
+          {
+            style: "atahualpa",
+            speaker: "☀️ Inka-König Atahualpa",
+            text: "Ich lehne ab – da nehmen mich die Spanier gefangen! Sie fordern ein riesiges {{loesegeld}}: einen Raum voller Gold und Silber. Doch obwohl sie alles bekommen, töten sie mich trotzdem!"
+          },
+          {
+            style: "timo",
+            speaker: "🧭 Timo",
+            text: "1533 marschieren die Spanier in die Inka-Hauptstadt Cusco und erobern sie. Danach gründen sie eine neue Hauptstadt an der Küste: Lima."
+          }
+        ],
+        originalText: "Francisco Pizarro landete 1532 mit etwa 180 Soldaten an der Küste Perus. Er nutzte den Bürgerkrieg zwischen den Inka-Brüdern Huáscar und Atahualpa aus und traf sich mit Atahualpa in der Stadt Cajamarca. Er forderte ihn auf, sich dem Christentum zu bekehren und dem spanischen König zu unterwerfen. Atahualpa lehnte ab und wurde von den Spaniern gefangen genommen. Die Spanier forderten ein großes Lösegeld für ihn, das aus einem Raum voller Gold und Silber bestand. Nachdem sie das Lösegeld erhalten hatten, töteten sie Atahualpa trotzdem. Die Spanier marschierten dann nach Cusco, der Hauptstadt der Inkas, und eroberten sie 1533. Sie gründeten eine neue Hauptstadt: Lima.<br><br>• Der Conquistador Francisco Pizarro eroberte das Inkareich.",
+        quiz: {
+          question: "Mini-Check: Welche Schwäche im Inkareich nutzte Francisco Pizarro 1532 aus?",
+          options: [
+            "Den Bürgerkrieg zwischen den beiden Inka-Brüdern Huáscar und Atahualpa",
+            "Dass es bei den Inkas gar kein Gold und Silber gab",
+            "Dass die Inkas keine Strassen gebaut hatten"
+          ],
+          correct: 0,
+          okMsg: "Richtig! Der Bürgerkrieg zwischen Huáscar und Atahualpa schwächte das Inkareich stark.",
+          retryMsg: "Lies nochmals die erste Sprechblase oben: Was passierte gerade zwischen Huáscar und Atahualpa?"
+        }
+      },
+      6: {
+        id: 6,
+        badge: "Kapitel 6 • Die Folgen im 16. Jahrhundert",
+        title: "Verheerende Folgen und tödliche Krankheiten",
+        stageClass: "serious-bg",
+        cast: [
+          { who: "timo", mood: "sad", name: "Timo" },
+          { who: "aztekin", mood: "sad", name: "Einheimische" }
+        ],
+        panels: [
+          {
+            style: "aztekin",
+            speaker: "😔 Einheimische Bewohnerin",
+            text: "Die spanische Eroberung nahm uns Freiheit, Land, Kultur und Religion. Viele von uns wurden zu Sklaven gemacht oder mussten schwere {{abgaben}} zahlen."
+          },
+          {
+            style: "timo",
+            speaker: "🧭 Timo (bedrückt)",
+            text: "Noch schlimmer waren die eingeschleppten Krankheiten: Pocken, Masern und Grippe. Gegen diese Krankheiten hatten die Menschen in Amerika keine {{immunitaet}}."
+          },
+          {
+            style: "narrator",
+            speaker: "📖 Bilanz des 16. Jahrhunderts",
+            text: "Von etwa 70 Millionen Menschen vor 1492 starben im 16. Jahrhundert vermutlich über 90 Prozent (über 60 Millionen Menschen). Nur ungefähr jeder Zehnte überlebte!"
+          }
+        ],
+        originalText: "Die spanische Eroberung von Mittel- und Südamerika hatte verheerende Folgen für die einheimischen Völker. Sie wurden ihrer Freiheit, ihres Landes, ihrer Kultur und ihrer Religion beraubt. Sie wurden zu Sklaven gemacht oder mussten schwere Abgaben an die Spanier zahlen. Sie wurden auch von vielen Krankheiten befallen, die die Spanier eingeschleppt hatten, wie Pocken, Masern und Grippe. Diese Krankheiten töteten Millionen von Menschen, die keine Immunität dagegen hatten. Von den etwa 70 Millionen Menschen, die vor 1492 in Mittel- und Südamerika lebten, starben im 16. Jahrhundert vermutlich über 90 Prozent.<br><br>• Viele Einheimische wurden von den Spaniern zu Sklaven gemacht.<br>• Nur jeder zehnte Einheimische überlebte die Ankunft der Europäer: Sie brachten Krankheiten mit, die für die Einheimischen tödlich waren.<br>• Viel von der Kultur der Einheimischen wurde durch die Spanier zerstört.",
+        quiz: {
+          question: "Mini-Check: Warum überlebte im 16. Jahrhundert nur etwa jeder zehnte Einheimische?",
+          options: [
+            "Weil fast alle freiwillig nach Europa auswanderten",
+            "Weil die Spanier Krankheiten wie Pocken, Masern und Grippe einschleppten, gegen die keine Immunität bestand (dazu Krieg und Sklaverei)",
+            "Weil es in den Anden zu kalt wurde"
+          ],
+          correct: 1,
+          okMsg: "Genau richtig! Ohne Immunität waren die eingeschleppten Krankheiten verheerend – über 90 % starben. Alle 6 Kapitel geschafft!",
+          retryMsg: "Schau nochmals in die Sprechblase von Timo: Welche Krankheiten waren so tödlich und warum?"
+        }
+      }
+    };
+
+    // =========================================================================
+    // 7. AUFTRÄGE A–D (SCHRITTE 7–10)
+    // =========================================================================
+    const TASKS = {
+      7: {
+        stepIdx: 7,
+        letter: "A",
+        badge: "Auftrag A • Schreiben",
+        title: "Wo würdest du lieber gelebt haben?",
+        question: "A) Wo würdest du lieber gelebt haben: Bei den Azteken oder den Inkas? Warum?",
+        kokoTip: "Wähle zuerst ein Volk aus (Azteken oder Inkas) und schreibe mit den Satzstartern auf, warum es dir dort besser gefallen hätte!",
+        spickText: "<strong>Azteken (Mexiko):</strong> Insel-Hauptstadt Tenochtitlán im Texcoco-See (&gt; 200'000 Einwohner), Kanäle, Tempel, Paläste, Märkte, Kunst, Mathematik, Astronomie &amp; Medizin – aber regelmässige Menschen- und Tieropfer.<br><strong>Inkas (Anden):</strong> Riesiges Reich in den Bergen (2 Mio. km²), verbunden durch Strassen, Brücken &amp; Poststationen, beeindruckende Steinmauern, Landwirtschaft, Textilien, Keramik &amp; Metall, Sonnenverehrung unter König Sapa Inka.",
+        hasChoiceButtons: true,
+        starters: [
+          "Ich hätte lieber bei den Azteken gelebt, weil ",
+          "Ich hätte lieber bei den Inkas gelebt, weil ",
+          "Besonders beeindruckend finde ich dort, dass ",
+          "Dagegen hätte mir beim anderen Volk nicht gefallen, dass "
+        ],
+        keywords: [
+          "Tenochtitlán",
+          "Kanäle & Tempel",
+          "Mathematik & Medizin",
+          "Menschenopfer",
+          "Anden",
+          "Strassen & Brücken",
+          "Landwirtschaft & Mauern",
+          "Sapa Inka"
+        ],
+        checks: [
+          { id: "choice", label: "Volk gewählt (Azteken oder Inkas)", test: low => /aztek|inka/.test(low) },
+          { id: "reason", label: "Begründung («weil» / «denn» / «da»)", test: low => /weil|denn|da |darum|deshalb|wichtig|besser|lieber/.test(low) },
+          { id: "detail", label: "Konkretes Detail aus dem Reich genannt", test: low => /tenochtitl|see|kanal|tempel|palast|markt|kunst|mathe|medizin|opfer|anden|strass|brück|post|mauer|landwirtschaft|sonne|sapa|textil|keramik|berg/.test(low) }
+        ],
+        placeholder: "Schreibe hier deine Antwort zu Auftrag A (oder tippe oben auf die Satzstarter)..."
+      },
+      8: {
+        stepIdx: 8,
+        letter: "B",
+        badge: "Auftrag B • Schreiben",
+        title: "Warum konnten Cortés und Pizarro siegen?",
+        question: "B) Warum konnten Hernán Cortés und Francisco Pizarro die Einheimischen im Kampf besiegen?",
+        kokoTip: "Achte darauf, dass du Gründe von Cortés UND von Pizarro nennst! Nutze die Satzstarter und Wort-Chips unten.",
+        spickText: "<strong>Cortés (1519, ca. 500 Soldaten):</strong> Verbündete sich mit rebellierenden einheimischen Völkern, nahm König Moctezuma II. als Geisel, kam nach der Vertreibung mit Verstärkung zurück und belagerte Tenochtitlán.<br><strong>Pizarro (1532, ca. 180 Soldaten):</strong> Nutzte den Bürgerkrieg zwischen den Inka-Brüdern Huáscar und Atahualpa aus, nahm Atahualpa gefangen und tötete ihn trotz Lösegeld.<br><strong>Zusätzlich:</strong> Eingeschleppte Krankheiten schwächten die Einheimischen stark; auf den historischen Bildern erkennt man zudem Waffen, Rüstungen und Pferde der Spanier.",
+        starters: [
+          "Cortés konnte die Azteken besiegen, weil er sich mit ",
+          "Ausserdem nahm er König Moctezuma II. als Geisel und ",
+          "Pizarro besiegte die Inkas, weil er den Bürgerkrieg zwischen ",
+          "Er brach sein Wort beim Lösegeld und ",
+          "Auch auf den Bildern sieht man, dass die Spanier "
+        ],
+        keywords: [
+          "einheimische Verbündete",
+          "Geisel (Moctezuma II.)",
+          "Belagerung & Verstärkung",
+          "Bürgerkrieg (Huáscar & Atahualpa)",
+          "Lösegeld / Verrat",
+          "Krankheiten",
+          "Waffen, Rüstungen & Pferde"
+        ],
+        checks: [
+          { id: "cortes", label: "Grund bei Cortés (Verbündete / Geisel / Belagerung)", test: low => /verbünd|rebell|geisel|moctezuma|belager|verstärk/.test(low) },
+          { id: "pizarro", label: "Grund bei Pizarro (Bürgerkrieg / Lösegeld / Verrat)", test: low => /bürgerkrieg|brüder|huáscar|huascar|atahualpa|lösegeld|streit|täuscht|verrat|getötet/.test(low) },
+          { id: "extra", label: "Krankheiten oder Waffen/Rüstungen/Pferde erwähnt", test: low => /krank|pocken|waff|rüstung|pferd|kanon|schwert/.test(low) }
+        ],
+        placeholder: "Schreibe hier deine Antwort zu Auftrag B..."
+      },
+      9: {
+        stepIdx: 9,
+        letter: "C",
+        badge: "Auftrag C • Bewerten",
+        title: "Bewerte das Verhalten der Spanier",
+        question: "C) Bewerte wie sich die Spanier gegenüber den einheimischen Azteken und Inkas verhalten haben.",
+        kokoTip: "«Bewerten» heisst: Sag deine klare eigene Meinung (z. B. grausam, ungerecht, gierig, falsch) UND begründe sie mit Beispielen aus der Geschichte!",
+        spickText: "<strong>Beispiele aus dem Text:</strong> Moctezuma II. empfing Cortés freundlich, wurde aber als Geisel genommen; Tenochtitlán wurde geplündert und zerstört. Pizarro forderte ein riesiges Lösegeld aus Gold und Silber, liess Atahualpa aber trotzdem töten. Danach nahmen die Spanier Land, Freiheit, Kultur und Religion, machten Menschen zu Sklaven und verlangten hohe Abgaben.",
+        starters: [
+          "Ich finde das Verhalten der Spanier sehr ",
+          "Obwohl Moctezuma II. Cortés zuerst freundlich empfing, ",
+          "Bei den Inkas war das Verhalten besonders gemein, weil Pizarro ",
+          "Ausserdem haben die Spanier die Einheimischen schlecht behandelt, weil sie "
+        ],
+        keywords: [
+          "ungerecht & grausam",
+          "Gier nach Gold",
+          "Wort gebrochen",
+          "Geiselnahme & Plünderung",
+          "Sklaverei & Abgaben",
+          "Kultur zerstört",
+          "Religion aufgezwungen"
+        ],
+        checks: [
+          { id: "opinion", label: "Eigene Bewertung / Meinung genannt", test: low => /ungerecht|grausam|schlecht|gemein|brutal|falsch|gierig|rücksichtslos|unfair|schlimm|verräter|unmenschlich/.test(low) },
+          { id: "example", label: "Konkretes Beispiel (Geisel, Lösegeld, Sklaven, Zerstörung)", test: low => /geisel|plünder|lösegeld|getötet|sklav|abgab|kultur|land|religion|freiheit|zerstört/.test(low) },
+          { id: "reason", label: "Begründung mit «weil» / «denn» / «obwohl»", test: low => /weil|denn|obwohl|da |deshalb|darum/.test(low) }
+        ],
+        placeholder: "Schreibe hier deine Bewertung zu Auftrag C..."
+      },
+      10: {
+        stepIdx: 10,
+        letter: "D",
+        badge: "Auftrag D • Schreiben",
+        title: "Warum starben über 60 Millionen Menschen?",
+        question: "D) Warum starben in Mittel- und Südamerika im 16. Jahrhundert über 60 Millionen Menschen?",
+        kokoTip: "Erkläre den Hauptgrund (Krankheiten & fehlende Immunität) und nenne auch die Folgen der Eroberung (Gewalt, Sklaverei, schwere Abgaben).",
+        spickText: "<strong>Zahlen & Gründe:</strong> Vor 1492 lebten in Mittel- und Südamerika rund 70 Millionen Menschen. Im 16. Jahrhundert starben über 90 % (über 60 Mio.) – nur etwa jeder Zehnte überlebte. Hauptgrund waren eingeschleppte Krankheiten (Pocken, Masern, Grippe), gegen die es keine Immunität gab. Dazu kamen Kriege, Gewalt, Sklaverei und schwere Abgaben.",
+        starters: [
+          "Im 16. Jahrhundert starben über 60 Millionen Menschen (über 90 %), vor allem wegen ",
+          "Die Spanier schleppten Krankheiten ein wie ",
+          "Diese Krankheiten waren für die Einheimischen tödlich, weil sie ",
+          "Ausserdem starben viele Menschen durch "
+        ],
+        keywords: [
+          "eingeschleppte Krankheiten",
+          "Pocken, Masern & Grippe",
+          "keine Immunität",
+          "über 90 Prozent",
+          "Gewalt & Kriege",
+          "Sklaverei & schwere Abgaben"
+        ],
+        checks: [
+          { id: "disease", label: "Krankheiten genannt (Pocken / Masern / Grippe)", test: low => /krank|pocken|masern|grippe|seuche/.test(low) },
+          { id: "immunity", label: "Keine Immunität / kein Schutz erwähnt", test: low => /immunität|immun|abwehr|schutz|unbekannt|kannten/.test(low) },
+          { id: "conquest", label: "Auch Sklaverei / Abgaben / Gewalt erwähnt", test: low => /sklav|gewalt|krieg|abgab|unterdrück|schlacht|getötet|arbeit/.test(low) }
+        ],
+        placeholder: "Schreibe hier deine Antwort zu Auftrag D..."
+      }
+    };
+
+    // =========================================================================
+    // 8. ZUSTAND & PERSISTENZ (LOCALSTORAGE)
+    // =========================================================================
+    const STORAGE_KEY = "entdeckungen_azteken_inkas_v1";
+
+    let state = {
+      currentStep: 0,
+      maxUnlocked: 1,
+      selectedPin: 1,
+      showSwissCompare: true,
+      showRoutes: true,
+      completed: {},
+      quizAnswers: {},
+      taskA: "",
+      taskAChoice: "",
+      taskB: "",
+      taskC: "",
+      taskD: "",
+      studentName: "",
+      fontScale: 1
+    };
+
+    let voyageAnimFrame = null;
+    let activeSpeakBtn = null;
+    let readingSequenceCancelled = false;
+
+    function loadState() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          state = { ...state, ...parsed };
+        }
+      } catch (_) {}
+      if (state.maxUnlocked < 1) state.maxUnlocked = 1;
+      document.documentElement.style.setProperty("--font-scale", String(state.fontScale || 1));
+      updateFontLabel();
+    }
+
+    function saveState() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      } catch (_) {}
+    }
+
+    function resetProgress() {
+      if (confirm("Möchtest du wirklich alles zurücksetzen und von vorne beginnen?")) {
+        const savedScale = state.fontScale;
+        localStorage.removeItem(STORAGE_KEY);
+        state = {
+          currentStep: 0,
+          maxUnlocked: 1,
+          selectedPin: 1,
+          showSwissCompare: true,
+          showRoutes: true,
+          completed: {},
+          quizAnswers: {},
+          taskA: "",
+          taskAChoice: "",
+          taskB: "",
+          taskC: "",
+          taskD: "",
+          studentName: "",
+          fontScale: savedScale
+        };
+        saveState();
+        render();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    }
+
+    function markStepDone(stepIdx) {
+      state.completed[stepIdx] = true;
+      if (state.maxUnlocked < stepIdx + 1 && stepIdx + 1 < STEPS.length) {
+        state.maxUnlocked = stepIdx + 1;
+      }
+      saveState();
+      renderHeaderStats();
+      renderStepper();
+    }
+
+    function canAccessStep(stepIdx) {
+      return stepIdx === 0 || stepIdx <= state.maxUnlocked || !!state.completed[stepIdx];
+    }
+
+    function goToStep(stepIdx) {
+      if (stepIdx < 0 || stepIdx >= STEPS.length) return;
+      if (!canAccessStep(stepIdx)) return;
+      stopSpeech();
+      if (voyageAnimFrame) {
+        cancelAnimationFrame(voyageAnimFrame);
+        voyageAnimFrame = null;
+      }
+      state.currentStep = stepIdx;
+      saveState();
+      render();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    // =========================================================================
+    // 9. HILFSFUNKTIONEN
+    // =========================================================================
+    function escapeHtml(str) {
+      return String(str)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    function formatRichText(raw) {
+      return escapeHtml(raw).replace(/\{\{(\w+)\}\}/g, (_, key) => {
+        const entry = GLOSSARY[key];
+        if (!entry) return key;
+        return `<button type="button" class="term-btn" onclick="openSingleTerm('${key}')">${entry.word}</button>`;
+      });
+    }
+
+    function stripTokensForSpeech(raw) {
+      return raw.replace(/\{\{(\w+)\}\}/g, (_, key) => GLOSSARY[key] ? GLOSSARY[key].word : key);
+    }
+
+    function updateFontLabel() {
+      const el = document.getElementById("fontLabel");
+      if (!el) return;
+      el.textContent = state.fontScale === 1 ? "A+" : state.fontScale === 1.15 ? "A++" : "Normal";
+    }
+
+    function toggleFontSize() {
+      state.fontScale = state.fontScale === 1 ? 1.15 : state.fontScale === 1.15 ? 1.3 : 1;
+      document.documentElement.style.setProperty("--font-scale", String(state.fontScale));
+      updateFontLabel();
+      saveState();
+    }
+
+    function copyTextToClipboard(text, successMsg) {
+      const showToast = (msg) => {
+        const toast = document.getElementById("copy-toast");
+        if (toast) toast.textContent = msg;
+      };
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(
+          () => showToast(successMsg),
+          () => fallbackCopyText(text, successMsg, showToast)
+        );
+      } else {
+        fallbackCopyText(text, successMsg, showToast);
+      }
+    }
+
+    function fallbackCopyText(text, successMsg, showToast) {
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      ta.style.position = "fixed";
+      ta.style.left = "-9999px";
+      document.body.appendChild(ta);
+      ta.focus();
+      ta.select();
+      try {
+        document.execCommand("copy");
+        showToast(successMsg);
+      } catch (_) {
+        alert("Kopieren fehlgeschlagen. Markiere den Text manuell:\n\n" + text);
+      }
+      document.body.removeChild(ta);
+    }
+
+    // =========================================================================
+    // 10. HEADER & STEPPER RENDERN
+    // =========================================================================
+    function renderHeaderStats() {
+      const doneCount = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].filter(id => !!state.completed[id]).length;
+      document.getElementById("stars-count").textContent = String(doneCount);
+    }
+
+    function renderStepper() {
+      const nav = document.getElementById("stepper-nav");
+      nav.innerHTML = STEPS.map((s, idx) => {
+        const isActive = idx === state.currentStep;
+        const isDone = !!state.completed[idx];
+        const isLocked = !canAccessStep(idx);
+        const cls = ["step-chip", isActive ? "active" : "", isDone && !isActive ? "done" : ""].join(" ");
+        const mark = isDone && !isActive ? "✅ " : (isLocked ? "🔒 " : "");
+        return `<button type="button" class="${cls}" ${isLocked ? "disabled" : ""} onclick="goToStep(${idx})">${mark}${s.label}</button>`;
+      }).join("");
+    }
+
+    // =========================================================================
+    // 11. SCHRITT 0: INTERAKTIVE AMERIKA-KARTE & SCHWEIZ-GRÖSSENVERGLEICH
+    // =========================================================================
+    function renderOverviewScreen() {
+      const activeStation = MAP_STATIONS.find(s => s.id === state.selectedPin) || MAP_STATIONS[0];
+      const continueStep = Math.min(state.maxUnlocked, 11);
+      const canJumpToPin = canAccessStep(activeStation.chapterIdx);
+
+      return `
+        <section class="comic-panel">
+          <div class="overview-hero">
+            <div style="flex:1; min-width:240px;">
+              <span class="chapter-badge">🗺️ Übersichtskarte • Mittel- &amp; Südamerika</span>
+              <h2 class="chapter-heading font-title" style="margin-bottom:4px;">Azteken, Inkas &amp; die Ankunft der Spanier</h2>
+              <p style="margin:0; font-size:0.94rem; color:var(--ink-muted);">
+                Entdecke auf der Karte, wo die Azteken und Inkas lebten, wie gross ihre Reiche im Vergleich zur Schweiz waren und welchen Weg die Spanier nahmen. Tippe auf die Zahlen <strong>1–6</strong>!
+              </p>
+            </div>
+            <div style="display:flex; gap:8px; flex-wrap:wrap;">
+              <button type="button" class="btn btn-gold" onclick="goToStep(${continueStep})">
+                ☀️ ${state.maxUnlocked > 1 ? `Weiter bei Schritt ${continueStep}` : "Kapitel 1 starten"} ▶
+              </button>
+            </div>
+          </div>
+
+          <div class="map-frame">
+            <div class="map-toolbar">
+              <div class="map-legend">
+                <span class="legend-item">
+                  <span class="legend-swatch" style="background:rgba(29, 111, 216, 0.55); border-color:#1D6FD8;"></span> Azteken (Mexiko)
+                </span>
+                <span class="legend-item">
+                  <span class="legend-swatch" style="background:rgba(27, 138, 75, 0.55); border-color:#1B8A4B;"></span> Inkas (Anden)
+                </span>
+                ${state.showRoutes ? `
+                  <span class="legend-item">
+                    <span class="legend-line" style="border-top:3.5px dashed #B8402C; height:0;"></span> Spanier ab 1500
+                  </span>
+                ` : ""}
+                ${state.showSwissCompare ? `
+                  <span class="legend-item">
+                    <span>🇨🇭</span> Schweiz-Vergleich
+                  </span>
+                ` : ""}
+              </div>
+
+              <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                <button type="button" class="btn btn-soft btn-sm" onclick="toggleSwissCompare()">
+                  ${state.showSwissCompare ? "🇨🇭 Schweiz-Vergleich aus" : "🇨🇭 Schweiz-Vergleich an"}
+                </button>
+                <button type="button" class="btn btn-soft btn-sm" onclick="toggleRoutes()">
+                  ${state.showRoutes ? "⚔️ Routen ausblenden" : "⚔️ Eroberungsrouten"}
+                </button>
+                <button type="button" class="btn btn-primary btn-sm" onclick="animateSpanishVoyage()">
+                  ⛵ Fahrt abspielen
+                </button>
+              </div>
+            </div>
+
+            <div class="overview-map-wrap">
+              <img src="./assets/karte-amerika-azteken-inkas.jpg" alt="Physische Übersichtskarte von Amerika, dem Atlantik und Europa">
+              <svg id="overview-map-svg" class="overview-svg-overlay" viewBox="0 0 1180 940" role="img" aria-label="Interaktive Übersichtskarte zu Azteken, Inkas und Spaniern">
+                <!-- AZTEKEN-REICH (BLAU) -->
+                <polygon points="149,261 185,259 194,274 209,283 202,300 164,296 138,281 139,267"
+                  fill="rgba(29, 111, 216, 0.42)" stroke="#FFFDF8" stroke-width="5" stroke-linejoin="round"/>
+                <polygon points="149,261 185,259 194,274 209,283 202,300 164,296 138,281 139,267"
+                  fill="rgba(29, 111, 216, 0.42)" stroke="#1D6FD8" stroke-width="2.6" stroke-linejoin="round"/>
+
+                <!-- INKA-REICH (GRÜN) -->
+                <polygon points="357,433 338,444 327,484 350,524 370,568 422,608 422,666 410,750 430,750 457,684 470,631 451,586 417,555 368,502 366,457"
+                  fill="rgba(27, 138, 75, 0.42)" stroke="#FFFDF8" stroke-width="5" stroke-linejoin="round"/>
+                <polygon points="357,433 338,444 327,484 350,524 370,568 422,608 422,666 410,750 430,750 457,684 470,631 451,586 417,555 368,502 366,457"
+                  fill="rgba(27, 138, 75, 0.42)" stroke="#1B8A4B" stroke-width="2.6" stroke-linejoin="round"/>
+
+                <!-- BESCHRIFTUNGEN -->
+                <g font-family="Verdana, sans-serif" font-weight="800" text-anchor="middle">
+                  <rect x="64" y="82" width="142" height="28" rx="14" fill="rgba(255,253,248,0.9)" stroke="#5C4E42" stroke-width="1.5"/>
+                  <text x="135" y="101" font-size="14" fill="#221A14">Nordamerika</text>
+
+                  <line x1="118" y1="316" x2="152" y2="288" stroke="#1D6FD8" stroke-width="2.5"/>
+                  <rect x="24" y="316" width="166" height="28" rx="14" fill="rgba(255,253,248,0.95)" stroke="#1D6FD8" stroke-width="2"/>
+                  <text x="107" y="335" font-size="13.5" fill="#1D6FD8">Azteken (Mexiko)</text>
+
+                  <line x1="286" y1="608" x2="386" y2="592" stroke="#1B8A4B" stroke-width="2.5"/>
+                  <rect x="132" y="594" width="154" height="28" rx="14" fill="rgba(255,253,248,0.95)" stroke="#1B8A4B" stroke-width="2"/>
+                  <text x="209" y="613" font-size="13.5" fill="#164F30">Inkas (Anden)</text>
+
+                  <rect x="470" y="556" width="136" height="28" rx="14" fill="rgba(255,253,248,0.9)" stroke="#5C4E42" stroke-width="1.5"/>
+                  <text x="538" y="575" font-size="14" fill="#221A14">Südamerika</text>
+
+                  <rect x="812" y="62" width="136" height="28" rx="14" fill="rgba(255,253,248,0.92)" stroke="#5C4E42" stroke-width="1.5"/>
+                  <text x="880" y="81" font-size="13.5" fill="#221A14">Spanien (Europa)</text>
+
+                  <text x="690" y="310" font-size="17" font-style="italic" fill="#15324D" opacity="0.78">Atlantischer Ozean</text>
+                </g>
+
+                <!-- KOMPASSROSE -->
+                <g transform="translate(96, 845)">
+                  <circle cx="0" cy="0" r="42" fill="rgba(255,253,248,0.9)" stroke="#2A2018" stroke-width="2.2"/>
+                  <polygon points="0,-32 7,-7 0,-13 -7,-7" fill="#B8402C"/>
+                  <polygon points="0,32 7,7 0,13 -7,7" fill="#15324D"/>
+                  <polygon points="-32,0 -7,-7 -13,0 -7,7" fill="#15324D"/>
+                  <polygon points="32,0 7,-7 13,0 7,7" fill="#15324D"/>
+                  <text x="0" y="-46" text-anchor="middle" font-size="13" font-weight="900" fill="#B8402C">N</text>
+                  <text x="0" y="57" text-anchor="middle" font-size="12" font-weight="800" fill="#15324D">S</text>
+                  <text x="-50" y="4" text-anchor="middle" font-size="12" font-weight="800" fill="#15324D">W</text>
+                  <text x="50" y="4" text-anchor="middle" font-size="12" font-weight="800" fill="#15324D">O</text>
+                </g>
+
+                <!-- SCHWEIZ-PIN (WENN AKTIV) -->
+                ${state.showSwissCompare ? `
+                  <g>
+                    <rect x="944" y="14" width="150" height="28" rx="14" fill="rgba(255,253,248,0.95)" stroke="#B8402C" stroke-width="2"/>
+                    <text x="1019" y="33" text-anchor="middle" font-family="Verdana, sans-serif" font-size="13" font-weight="800" fill="#B8402C">🇨🇭 Schweiz (1×)</text>
+                    <rect x="1101" y="15" width="24" height="24" rx="5" fill="#D52B1E" stroke="#FFFDF8" stroke-width="2.5"/>
+                    <rect x="1110.5" y="20" width="5" height="14" fill="#FFFDF8"/>
+                    <rect x="1106" y="24.5" width="14" height="5" fill="#FFFDF8"/>
+                  </g>
+                ` : ""}
+
+                <!-- EROBERUNGSROUTEN CORTES & PIZARRO -->
+                ${state.showRoutes ? `
+                  <!-- Cortés 1519 -->
+                  <path d="M 990 117 C 810 155, 580 205, 355 253 C 295 262, 248 270, 212 274 L 154 272"
+                    fill="none" stroke="rgba(255,253,248,0.88)" stroke-width="9" stroke-linecap="round"/>
+                  <path id="cortes-route-path"
+                    d="M 990 117 C 810 155, 580 205, 355 253 C 295 262, 248 270, 212 274 L 154 272"
+                    fill="none" stroke="#B8402C" stroke-width="4.5" stroke-dasharray="10 7" stroke-linecap="round"/>
+
+                  <!-- Pizarro 1532 -->
+                  <path d="M 990 117 C 790 185, 520 275, 342 364 C 330 415, 326 468, 344 508 L 408 564"
+                    fill="none" stroke="rgba(255,253,248,0.88)" stroke-width="9" stroke-linecap="round"/>
+                  <path id="pizarro-route-path"
+                    d="M 990 117 C 790 185, 520 275, 342 364 C 330 415, 326 468, 344 508 L 408 564"
+                    fill="none" stroke="#9E2A2B" stroke-width="4.5" stroke-dasharray="6 7" stroke-linecap="round"/>
+
+                  <!-- Animierte Schiffe -->
+                  <g id="ship-cortes" transform="translate(990, 117)">
+                    <circle cx="0" cy="0" r="16" fill="#F4C552" stroke="#221A14" stroke-width="2.5"/>
+                    <text x="0" y="6" text-anchor="middle" font-size="18">⛵</text>
+                  </g>
+                  <g id="ship-pizarro" transform="translate(990, 117)">
+                    <circle cx="0" cy="0" r="16" fill="#F4C552" stroke="#221A14" stroke-width="2.5"/>
+                    <text x="0" y="6" text-anchor="middle" font-size="18">⛵</text>
+                  </g>
+                ` : ""}
+
+                <!-- KLICKBARE STATIONEN 1–6 -->
+                ${MAP_STATIONS.map(st => {
+                  const isSel = st.id === state.selectedPin;
+                  const fill = isSel ? "#F4C552" : "#B8402C";
+                  const textFill = isSel ? "#221A14" : "#FFFDF8";
+                  const r = isSel ? 21 : 17;
+                  return `
+                    <g class="map-pin-btn" tabindex="0" role="button" aria-label="Station ${st.id}: ${escapeHtml(st.title)}"
+                      onclick="selectMapPin(${st.id})" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectMapPin(${st.id});}">
+                      <circle class="pin-bg" cx="${st.x}" cy="${st.y}" r="${r}" fill="${fill}" stroke="#FFFDF8" stroke-width="3.5"/>
+                      <text x="${st.x}" y="${st.y + 6}" text-anchor="middle" font-size="16" font-weight="900" fill="${textFill}">${st.id}</text>
+                    </g>
+                  `;
+                }).join("")}
+              </svg>
+            </div>
+          </div>
+
+          ${state.showSwissCompare ? `
+            <div class="swiss-compare-box">
+              <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:8px;">
+                <strong style="color:var(--ocean-deep); font-size:1rem;">🇨🇭 Wie riesig waren die beiden Reiche im Vergleich zur Schweiz?</strong>
+                <button type="button" class="btn-speak" onclick="speakText('Grössenvergleich zur Schweiz. Die Schweiz ist rund 41 Tausend Quadratkilometer gross. Das Aztekenreich war mit 220 Tausend Quadratkilometern etwa fünfmal so gross wie die Schweiz. Das Inkareich war mit 2 Millionen Quadratkilometern fast fünfzigmal so gross wie die Schweiz!', this)">
+                  🔊 Vorlesen
+                </button>
+              </div>
+              <div class="size-row">
+                <div style="font-weight:800; font-size:0.88rem;">🇨🇭 Schweiz <span style="color:var(--ink-muted); font-weight:600;">(~41'000 km²)</span></div>
+                <div style="display:flex; align-items:center; gap:8px;">
+                  <div class="size-track" style="flex:1;"><div class="size-fill" style="width:3%; min-width:14px; background:#D52B1E;"></div></div>
+                  <strong style="font-size:0.84rem; min-width:90px;">1× Schweiz</strong>
+                </div>
+              </div>
+              <div class="size-row">
+                <div style="font-weight:800; font-size:0.88rem; color:var(--aztec-blue);">🔵 Azteken <span style="color:var(--ink-muted); font-weight:600;">(~220'000 km²)</span></div>
+                <div style="display:flex; align-items:center; gap:8px;">
+                  <div class="size-track" style="flex:1;"><div class="size-fill" style="width:12%; min-width:44px; background:var(--aztec-blue);"></div></div>
+                  <strong style="font-size:0.84rem; min-width:90px; color:var(--aztec-blue);">≈ 5× Schweiz</strong>
+                </div>
+              </div>
+              <div class="size-row">
+                <div style="font-weight:800; font-size:0.88rem; color:var(--inca-green);">🟢 Inkas <span style="color:var(--ink-muted); font-weight:600;">(~2'000'000 km²)</span></div>
+                <div style="display:flex; align-items:center; gap:8px;">
+                  <div class="size-track" style="flex:1;"><div class="size-fill" style="width:100%; background:var(--inca-green);"></div></div>
+                  <strong style="font-size:0.84rem; min-width:90px; color:var(--inca-green);">≈ 48× Schweiz</strong>
+                </div>
+              </div>
+            </div>
+          ` : ""}
+
+          <!-- INFOKARTE ZUR GEWÄHLTEN STATION -->
+          <div class="pin-detail-card">
+            <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px;">
+              <div>
+                <span class="chapter-badge" style="background:var(--spice-red);">${activeStation.badge}</span>
+                <h3 style="margin:6px 0 4px; font-size:1.18rem; color:var(--ocean-deep);">${activeStation.title}</h3>
+              </div>
+              <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                <button type="button" class="btn-speak" data-speech="${escapeHtml(activeStation.title + ". " + activeStation.desc)}" onclick="speakFromBtn(this)">
+                  🔊 Vorlesen
+                </button>
+                ${canJumpToPin ? `
+                  <button type="button" class="btn btn-primary btn-sm" onclick="goToStep(${activeStation.chapterIdx})">
+                    Zu Kapitel ${activeStation.chapterIdx} ▶
+                  </button>
+                ` : `
+                  <button type="button" class="btn btn-gold btn-sm" onclick="goToStep(${continueStep})">
+                    🔒 Zuerst Schritt ${continueStep} lösen ▶
+                  </button>
+                `}
+              </div>
+            </div>
+            <p style="margin:6px 0 0; font-size:0.96rem;">${activeStation.desc}</p>
+          </div>
+
+          <!-- ALLE STATIONEN IM ÜBERBLICK -->
+          <div style="margin-top:16px;">
+            <strong style="color:var(--ocean-deep); font-size:0.98rem;">🧭 Dein Lernpfad (Kapitel schalten sich nacheinander frei):</strong>
+            <div class="roadmap-grid">
+              ${STEPS.slice(1).map(s => {
+                const isDone = !!state.completed[s.id];
+                const isLocked = !canAccessStep(s.id);
+                let title = "OneNote-Abgabe";
+                if (STORY_CHAPTERS[s.id]) title = STORY_CHAPTERS[s.id].title;
+                else if (TASKS[s.id]) title = TASKS[s.id].title;
+                return `
+                  <button type="button" class="roadmap-card ${isDone ? "done" : ""}" ${isLocked ? "disabled" : ""} onclick="goToStep(${s.id})">
+                    <div>
+                      <div style="font-size:0.78rem; font-weight:800; color:var(--ocean-mid);">${s.label}</div>
+                      <div style="font-weight:800; font-size:0.94rem; color:var(--ink);">${title}</div>
+                    </div>
+                    <span style="font-size:1.2rem;">${isDone ? "✅" : (isLocked ? "🔒" : "▶")}</span>
+                  </button>
+                `;
+              }).join("")}
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    function selectMapPin(pinId) {
+      state.selectedPin = pinId;
+      saveState();
+      render();
+    }
+
+    function toggleSwissCompare() {
+      state.showSwissCompare = !state.showSwissCompare;
+      saveState();
+      render();
+    }
+
+    function toggleRoutes() {
+      state.showRoutes = !state.showRoutes;
+      saveState();
+      render();
+    }
+
+    function animateSpanishVoyage() {
+      if (!state.showRoutes) {
+        state.showRoutes = true;
+        saveState();
+        render();
+      }
+      const shipC = document.getElementById("ship-cortes");
+      const pathC = document.getElementById("cortes-route-path");
+      const shipP = document.getElementById("ship-pizarro");
+      const pathP = document.getElementById("pizarro-route-path");
+      if (!shipC || !pathC || !shipP || !pathP) return;
+
+      if (voyageAnimFrame) cancelAnimationFrame(voyageAnimFrame);
+      const lenC = pathC.getTotalLength();
+      const lenP = pathP.getTotalLength();
+      const duration = 3400;
+      const start = performance.now();
+
+      function frame(now) {
+        const t = Math.min(1, (now - start) / duration);
+        const ptC = pathC.getPointAtLength(t * lenC);
+        const ptP = pathP.getPointAtLength(t * lenP);
+        shipC.setAttribute("transform", `translate(${ptC.x.toFixed(1)}, ${ptC.y.toFixed(1)})`);
+        shipP.setAttribute("transform", `translate(${ptP.x.toFixed(1)}, ${ptP.y.toFixed(1)})`);
+        if (t < 1) {
+          voyageAnimFrame = requestAnimationFrame(frame);
+        } else {
+          voyageAnimFrame = null;
+        }
+      }
+      voyageAnimFrame = requestAnimationFrame(frame);
+    }
+
+    // =========================================================================
+    // 12. HISTORISCHE BILDQUELLE PRO KAPITEL & LIGHTBOX
+    // =========================================================================
+    function renderSourceSection(chId) {
+      const src = HIST_SOURCES[chId];
+      if (!src) return "";
+      return `
+        <div class="sources-box">
+          <div class="sources-title">🖼️ Historisches Bild zum Kapitel (antippen zum Vergrössern)</div>
+          <article class="source-card-single">
+            <button type="button" class="source-img-btn" onclick="openSourceModal(${chId})" aria-label="Bild vergrössern: ${escapeHtml(src.title)}">
+              <img src="${src.imgSrc}" alt="${escapeHtml(src.title)}">
+              <span class="source-zoom-pill">🔍 Gross ansehen</span>
+            </button>
+            <div class="source-meta">
+              <div class="source-caption">${src.title}</div>
+              <div class="source-credit">${src.credit}</div>
+              <p class="source-hint">${src.hint}</p>
+            </div>
+          </article>
+        </div>
+      `;
+    }
+
+    function openSourceModal(chId) {
+      const src = HIST_SOURCES[chId];
+      if (!src) return;
+      document.getElementById("source-dlg-title").textContent = src.title;
+      const img = document.getElementById("source-dlg-img");
+      img.src = src.imgSrc;
+      img.alt = src.title;
+      document.getElementById("source-dlg-hint").textContent = src.hint;
+      document.getElementById("source-dlg-credit").textContent = "Quelle: " + src.credit;
+      const dlg = document.getElementById("source-dialog");
+      if (typeof dlg.showModal === "function") dlg.showModal();
+    }
+
+    function closeSourceModal() {
+      stopSpeech();
+      const dlg = document.getElementById("source-dialog");
+      if (dlg && dlg.open) dlg.close();
+    }
+
+    // =========================================================================
+    // 13. STORY-KAPITEL RENDERN (SCHRITTE 1–6)
+    // =========================================================================
+    function renderStoryChapter(chId) {
+      const ch = STORY_CHAPTERS[chId];
+      const answered = state.quizAnswers[chId];
+      const isDone = !!state.completed[chId];
+
+      const castHtml = (ch.cast || []).map(c => `
+        <div class="char-box">
+          ${getCharSVG(c.who, c.mood)}
+          <span class="char-name-tag">${c.name}</span>
+        </div>
+      `).join("");
+
+      const bubblesHtml = ch.panels.map((p, pIdx) => `
+        <div id="panel-${pIdx}" class="speech-bubble ${p.style}">
+          <div class="speech-speaker">
+            <span>${p.speaker}</span>
+            <button type="button" class="btn-speak" style="min-height:34px; padding:4px 10px; font-size:0.78rem;"
+              onclick="speakPanel(${chId}, ${pIdx}, this)">🔊</button>
+          </div>
+          <p class="speech-text">${formatRichText(p.text)}</p>
+        </div>
+      `).join("");
+
+      const optionsHtml = ch.quiz.options.map((opt, oIdx) => {
+        let cls = "quiz-option";
+        if (answered !== undefined) {
+          if (oIdx === ch.quiz.correct) cls += " correct";
+          else if (oIdx === answered) cls += " wrong";
+        }
+        const icon = answered !== undefined
+          ? (oIdx === ch.quiz.correct ? "✅" : (oIdx === answered ? "❌" : "⚪"))
+          : "👉";
+        return `<button type="button" class="${cls}" onclick="answerChapterQuiz(${chId}, ${oIdx})"><span>${icon}</span> <span>${opt}</span></button>`;
+      }).join("");
+
+      let feedbackHtml = "";
+      if (answered !== undefined) {
+        if (answered === ch.quiz.correct) {
+          feedbackHtml = `<div class="feedback-banner ok">⭐ ${ch.quiz.okMsg}</div>`;
+        } else {
+          feedbackHtml = `<div class="feedback-banner retry">💡 ${ch.quiz.retryMsg}</div>`;
+        }
+      }
+
+      const nextLabel = chId < 6
+        ? (isDone ? `Weiter zu Kapitel ${chId + 1} ▶` : "Löse zuerst den Mini-Check")
+        : (isDone ? "Weiter zu Auftrag A ▶" : "Löse zuerst den Mini-Check");
+
+      return `
+        <section class="comic-panel">
+          <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:8px;">
+            <span class="chapter-badge">${ch.badge}</span>
+            <span style="font-size:0.84rem; color:var(--ink-muted); font-weight:700;">💡 Tippe auf gelbe Wörter für Hilfe!</span>
+          </div>
+          <h2 class="chapter-heading font-title">${ch.title}</h2>
+
+          <div class="comic-stage ${ch.stageClass}">
+            <div class="stage-scene">
+              <div class="cast-row">${castHtml}</div>
+              <div class="dialogue-stack">${bubblesHtml}</div>
+            </div>
+          </div>
+
+          ${renderSourceSection(chId)}
+
+          <div class="interaction-box" style="background:#FFF9EC;">
+            <p style="margin:0 0 10px; font-weight:800; color:var(--ocean-deep);">${ch.quiz.question}</p>
+            <div style="display:flex; flex-direction:column; gap:8px;">${optionsHtml}</div>
+            ${feedbackHtml}
+          </div>
+
+          <details class="onenote-ref">
+            <summary>
+              <span>📄 Originaltext aus deinem OneNote aufklappen</span>
+              <span>▼</span>
+            </summary>
+            <div class="onenote-original-text">
+              <p style="margin:0 0 10px;">${ch.originalText}</p>
+              <button type="button" class="btn-speak" onclick="readOneNoteOriginal(${chId}, this)">
+                🔊 Originaltext vorlesen
+              </button>
+            </div>
+          </details>
+
+          <div class="nav-footer">
+            <button type="button" class="btn btn-soft" onclick="goToStep(${chId - 1})">
+              ◀ ${chId === 1 ? "Zur Übersichtskarte" : "Zurück"}
+            </button>
+            <button type="button" class="btn btn-gold" ${!isDone ? "disabled" : ""} onclick="goToStep(${chId + 1})">
+              ${nextLabel}
+            </button>
+          </div>
+        </section>
+      `;
+    }
+
+    function readOneNoteOriginal(chId, btnEl) {
+      const html = STORY_CHAPTERS[chId]?.originalText || "";
+      const tmp = document.createElement("div");
+      tmp.innerHTML = html.replace(/<br\s*\/?>/gi, ". ");
+      speakText(tmp.textContent || "", btnEl);
+    }
+
+    function answerChapterQuiz(chId, optIdx) {
+      state.quizAnswers[chId] = optIdx;
+      if (optIdx === STORY_CHAPTERS[chId].quiz.correct) {
+        markStepDone(chId);
+      } else {
+        saveState();
+      }
+      render();
+    }
+
+    // =========================================================================
+    // 14. SCHREIB-AUFTRÄGE A–D (SCHRITTE 7–10)
+    // =========================================================================
+    function getTaskFieldKey(stepIdx) {
+      return stepIdx === 7 ? "taskA" : stepIdx === 8 ? "taskB" : stepIdx === 9 ? "taskC" : "taskD";
+    }
+
+    function evaluateTaskChecks(stepIdx, text) {
+      const task = TASKS[stepIdx];
+      const low = text.toLowerCase();
+      return task.checks.map(c => ({ ...c, met: c.test(low) }));
+    }
+
+    function renderTaskScreen(stepIdx) {
+      const task = TASKS[stepIdx];
+      const fieldKey = getTaskFieldKey(stepIdx);
+      const val = state[fieldKey] || "";
+      const checkResults = evaluateTaskChecks(stepIdx, val);
+      const metCount = checkResults.filter(c => c.met).length;
+      const isDone = !!state.completed[stepIdx];
+      const canFinish = val.trim().length >= 25 && metCount >= 2;
+      const nextLabel = stepIdx < 10
+        ? (isDone ? `Weiter zu Auftrag ${TASKS[stepIdx + 1].letter} ▶` : "Zuerst Antwort speichern")
+        : (isDone ? "Weiter zur OneNote-Abgabe ▶" : "Zuerst Antwort speichern");
+
+      return `
+        <section class="comic-panel">
+          <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:8px;">
+            <span class="chapter-badge" style="background:var(--spice-red);">${task.badge}</span>
+            <button type="button" class="btn-speak" data-speech="${escapeHtml(task.question + " Tipp von Koko: " + task.kokoTip)}" onclick="speakFromBtn(this)">
+              🔊 Auftrag vorlesen
+            </button>
+          </div>
+          <h2 class="chapter-heading font-title">${task.title}</h2>
+
+          <div class="comic-stage" style="margin-bottom:14px;">
+            <div class="stage-scene">
+              <div class="cast-row">
+                <div class="char-box">${getCharSVG("timo", "happy")}<span class="char-name-tag">Timo</span></div>
+                <div class="char-box">${getCharSVG("koko", "happy")}<span class="char-name-tag">Koko</span></div>
+              </div>
+              <div class="dialogue-stack">
+                <div class="speech-bubble timo">
+                  <div class="speech-speaker"><span>Auftrag aus deinem OneNote</span></div>
+                  <p class="speech-text"><strong>${task.question}</strong></p>
+                </div>
+                <div class="speech-bubble koko">
+                  <div class="speech-speaker"><span>Tipp von Papagei Koko 🦜</span></div>
+                  <p class="speech-text">${task.kokoTip}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <details class="onenote-ref" style="margin-top:0; margin-bottom:14px;">
+            <summary>
+              <span>💡 Kurz spicken (Fakten aus den Kapiteln)</span>
+              <span>▼</span>
+            </summary>
+            <div class="onenote-original-text">${task.spickText}</div>
+          </details>
+
+          ${task.hasChoiceButtons ? `
+            <div style="font-weight:800; font-size:0.9rem; color:var(--ocean-deep);">1. Entscheide dich zuerst (Schnellstart):</div>
+            <div class="choice-pair">
+              <button type="button" class="choice-card-btn ${state.taskAChoice === "azteken" ? "selected-aztec" : ""}" onclick="pickTaskAChoice('azteken')">
+                <span style="font-size:1.4rem;">🔵</span>
+                <span>Lieber bei den <strong>Azteken</strong> (Mexiko)</span>
+              </button>
+              <button type="button" class="choice-card-btn ${state.taskAChoice === "inkas" ? "selected-inca" : ""}" onclick="pickTaskAChoice('inkas')">
+                <span style="font-size:1.4rem;">🟢</span>
+                <span>Lieber bei den <strong>Inkas</strong> (Anden)</span>
+              </button>
+            </div>
+          ` : ""}
+
+          <div style="font-weight:800; font-size:0.9rem; color:var(--ocean-deep);">📝 Satzstarter antippen (werden ins Textfeld eingefügt):</div>
+          <div class="chip-pool">
+            ${task.starters.map((s, i) => `
+              <button type="button" class="helper-chip" onclick="appendTaskText(${stepIdx}, ${i}, true)">+ ${escapeHtml(s)}</button>
+            `).join("")}
+          </div>
+
+          <div style="font-weight:800; font-size:0.9rem; color:var(--ocean-deep);">🔑 Nützliche Wörter zum Antippen:</div>
+          <div class="chip-pool">
+            ${task.keywords.map((w, i) => `
+              <button type="button" class="helper-chip word-variant" onclick="appendTaskText(${stepIdx}, ${i}, false)">+ ${escapeHtml(w)}</button>
+            `).join("")}
+          </div>
+
+          <label for="task-textarea" style="display:block; font-weight:800; margin-bottom:6px;">Deine Antwort für Auftrag ${task.letter}:</label>
+          <textarea id="task-textarea" class="ipad-textarea" placeholder="${escapeHtml(task.placeholder)}"
+            oninput="updateTaskText(${stepIdx}, this.value)">${escapeHtml(val)}</textarea>
+
+          <div class="checklist-grid" id="task-checklist">
+            ${checkResults.map(c => `
+              <div class="check-item ${c.met ? "met" : ""}">${c.met ? "✅" : "⬜"} ${c.label}</div>
+            `).join("")}
+          </div>
+
+          <div style="margin-top:14px; display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between;">
+            <button type="button" class="btn btn-soft btn-sm" onclick="clearTaskText(${stepIdx})">🗑️ Text leeren</button>
+            <button type="button" class="btn btn-emerald" onclick="completeTask(${stepIdx})">
+              ✅ Antwort speichern &amp; prüfen
+            </button>
+          </div>
+
+          <div id="task-feedback">
+            ${isDone
+              ? `<div class="feedback-banner ok">⭐ Super geschrieben! Deine Antwort ${task.letter} ist gespeichert und wartet gleich bei der OneNote-Abgabe.</div>`
+              : (!canFinish && val.trim().length > 0
+                ? `<div class="feedback-banner retry">💡 Tipp: Ergänze noch etwas mehr (mindestens 2 grüne Haken in der Checkliste oben).</div>`
+                : "")}
+          </div>
+
+          <div class="nav-footer">
+            <button type="button" class="btn btn-soft" onclick="goToStep(${stepIdx - 1})">
+              ◀ Zurück
+            </button>
+            <button type="button" class="btn btn-gold" ${!isDone ? "disabled" : ""} onclick="goToStep(${stepIdx + 1})">
+              ${nextLabel}
+            </button>
+          </div>
+        </section>
+      `;
+    }
+
+    function pickTaskAChoice(choice) {
+      state.taskAChoice = choice;
+      const starter = choice === "azteken"
+        ? "Ich hätte lieber bei den Azteken gelebt, weil "
+        : "Ich hätte lieber bei den Inkas gelebt, weil ";
+      if (!state.taskA.trim()) {
+        state.taskA = starter;
+      }
+      saveState();
+      render();
+      const ta = document.getElementById("task-textarea");
+      if (ta) {
+        ta.focus();
+        ta.selectionStart = ta.selectionEnd = ta.value.length;
+      }
+    }
+
+    function appendTaskText(stepIdx, itemIdx, isStarter) {
+      const task = TASKS[stepIdx];
+      const fieldKey = getTaskFieldKey(stepIdx);
+      const addition = isStarter ? task.starters[itemIdx] : task.keywords[itemIdx] + " ";
+      const current = state[fieldKey] || "";
+      const needsSpace = current.length > 0 && !current.endsWith(" ") && !current.endsWith("\n");
+      state[fieldKey] = current + (needsSpace ? " " : "") + addition;
+      saveState();
+      render();
+      const ta = document.getElementById("task-textarea");
+      if (ta) {
+        ta.focus();
+        ta.selectionStart = ta.selectionEnd = ta.value.length;
+      }
+    }
+
+    function updateTaskText(stepIdx, val) {
+      const fieldKey = getTaskFieldKey(stepIdx);
+      state[fieldKey] = val;
+      saveState();
+      const results = evaluateTaskChecks(stepIdx, val);
+      const items = document.querySelectorAll("#task-checklist .check-item");
+      results.forEach((res, i) => {
+        if (items[i]) {
+          items[i].className = "check-item " + (res.met ? "met" : "");
+          items[i].textContent = (res.met ? "✅ " : "⬜ ") + res.label;
+        }
+      });
+    }
+
+    function clearTaskText(stepIdx) {
+      const fieldKey = getTaskFieldKey(stepIdx);
+      state[fieldKey] = "";
+      if (stepIdx === 7) state.taskAChoice = "";
+      delete state.completed[stepIdx];
+      saveState();
+      render();
+    }
+
+    function completeTask(stepIdx) {
+      const fieldKey = getTaskFieldKey(stepIdx);
+      const val = state[fieldKey] || "";
+      const results = evaluateTaskChecks(stepIdx, val);
+      const metCount = results.filter(r => r.met).length;
+      if (val.trim().length < 25 || metCount < 2) {
+        const fb = document.getElementById("task-feedback");
+        if (fb) {
+          fb.innerHTML = `<div class="feedback-banner retry">💡 Bitte schreibe noch 1–2 Sätze mehr, sodass mindestens <strong>2 Punkte</strong> in der Checkliste grün werden!</div>`;
+        }
+        return;
+      }
+      markStepDone(stepIdx);
+      render();
+    }
+
+    // =========================================================================
+    // 15. SCHRITT 11: ONENOTE-ABGABE (KOPIEREN & PNG-EXPORT)
+    // =========================================================================
+    function renderSummaryScreen() {
+      const entries = [
+        { step: 7, letter: "A", q: TASKS[7].question, text: state.taskA },
+        { step: 8, letter: "B", q: TASKS[8].question, text: state.taskB },
+        { step: 9, letter: "C", q: TASKS[9].question, text: state.taskC },
+        { step: 10, letter: "D", q: TASKS[10].question, text: state.taskD }
+      ];
+
+      return `
+        <section class="comic-panel">
+          <span class="chapter-badge" style="background:var(--emerald);">🏆 Geschafft!</span>
+          <h2 class="chapter-heading font-title">Deine fertige OneNote-Abgabe</h2>
+
+          <div class="comic-stage">
+            <div class="stage-scene">
+              <div class="cast-row">
+                <div class="char-box">${getCharSVG("timo", "happy")}<span class="char-name-tag">Timo</span></div>
+                <div class="char-box">${getCharSVG("koko", "happy")}<span class="char-name-tag">Koko</span></div>
+              </div>
+              <div class="dialogue-stack">
+                <div class="speech-bubble timo">
+                  <div class="speech-speaker"><span>Herzlichen Glückwunsch! 🎉</span></div>
+                  <p class="speech-text">Du hast alle Kapitel zu den Azteken, Inkas und Spaniern gemeistert! Kopiere jetzt deine Antworten direkt in dein <strong>OneNote</strong> (oder speichere sie zusätzlich als Bild).</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="background:var(--gold-soft); border:2px solid var(--gold); border-radius:14px; padding:15px; margin-bottom:16px;">
+            <label for="student-name-input" style="font-weight:800; display:block; margin-bottom:6px;">👤 Dein Vorname (für das optionale Abgabe-Bild):</label>
+            <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:center;">
+              <input id="student-name-input" class="ipad-input" style="max-width:250px;" type="text"
+                placeholder="z. B. Alina" value="${escapeHtml(state.studentName)}" oninput="updateStudentName(this.value)">
+              <button type="button" class="btn btn-gold" onclick="copyAllAnswers()">
+                📋 Alle Antworten (A–D) kopieren
+              </button>
+              <button type="button" class="btn btn-emerald" onclick="downloadFullOneNoteSheet()">
+                📥 Als Bild (PNG) speichern
+              </button>
+            </div>
+            <div id="copy-toast" role="status" aria-live="polite" style="font-size:0.9rem; font-weight:800; color:var(--emerald); margin-top:8px; min-height:1.2em;"></div>
+            <p style="margin:6px 0 0; font-size:0.86rem; color:var(--ink-muted);">
+              <strong>Tipp fürs iPad:</strong> Tippe unten bei jeder Frage auf <strong>«Antwort kopieren»</strong> und füge den Text in OneNote direkt unter dem passenden Auftrag ein.
+            </p>
+          </div>
+
+          <div class="summary-card-list">
+            ${entries.map(item => `
+              <article class="summary-card">
+                <div class="summary-card-head">
+                  <strong style="color:var(--ocean-deep); flex:1;">${item.q}</strong>
+                  <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                    <button type="button" class="btn btn-soft btn-sm" onclick="goToStep(${item.step})">✏️ Bearbeiten</button>
+                    <button type="button" class="btn btn-primary btn-sm" onclick="copySingleAnswer('${item.letter}')">📋 Antwort ${item.letter} kopieren</button>
+                  </div>
+                </div>
+                <p class="summary-answer-box">${escapeHtml(item.text || "(Noch keine Antwort)")}</p>
+              </article>
+            `).join("")}
+          </div>
+
+          <div class="nav-footer">
+            <button type="button" class="btn btn-soft" onclick="goToStep(10)">◀ Zurück zu Auftrag D</button>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+              <button type="button" class="btn btn-soft" onclick="goToStep(0)">🗺️ Zur Karte</button>
+              <a href="index.html" class="btn btn-gold">🏠 Zur Themen-Übersicht</a>
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    function updateStudentName(val) {
+      state.studentName = val;
+      saveState();
+    }
+
+    function copySingleAnswer(letter) {
+      const map = { A: state.taskA, B: state.taskB, C: state.taskC, D: state.taskD };
+      const txt = (map[letter] || "").trim();
+      if (!txt) {
+        const toast = document.getElementById("copy-toast");
+        if (toast) toast.textContent = `Antwort ${letter} ist noch leer.`;
+        return;
+      }
+      copyTextToClipboard(txt, `✅ Antwort ${letter} wurde kopiert! Jetzt in OneNote einfügen.`);
+    }
+
+    function copyAllAnswers() {
+      const full = [
+        "A) " + (state.taskA.trim() || "(Keine Antwort)"),
+        "",
+        "B) " + (state.taskB.trim() || "(Keine Antwort)"),
+        "",
+        "C) " + (state.taskC.trim() || "(Keine Antwort)"),
+        "",
+        "D) " + (state.taskD.trim() || "(Keine Antwort)")
+      ].join("\n");
+      copyTextToClipboard(full, "✅ Alle Antworten A–D wurden kopiert! Jetzt in OneNote einfügen.");
+    }
+
+    function measureWrappedLines(ctx, text, maxWidth) {
+      const paragraphs = (text || "(Keine Antwort)").split(/\r?\n/);
+      const lines = [];
+      for (const para of paragraphs) {
+        const words = para.split(/\s+/).filter(Boolean);
+        if (!words.length) {
+          lines.push("");
+          continue;
+        }
+        let line = "";
+        for (const w of words) {
+          const test = line ? line + " " + w : w;
+          if (ctx.measureText(test).width > maxWidth && line) {
+            lines.push(line);
+            line = w;
+          } else {
+            line = test;
+          }
+        }
+        if (line) lines.push(line);
+      }
+      return lines.length ? lines : ["(Keine Antwort)"];
+    }
+
+    function downloadFullOneNoteSheet() {
+      const W = 1200;
+      const padX = 40;
+      const cardW = W - padX * 2;
+      const textMaxW = cardW - 48;
+      const lineH = 30;
+
+      const measureCanvas = document.createElement("canvas");
+      const mctx = measureCanvas.getContext("2d");
+      mctx.font = "20px Verdana, sans-serif";
+
+      const items = [
+        { letter: "A", heading: "A) Wo würdest du lieber gelebt haben: Bei den Azteken oder den Inkas? Warum?", text: state.taskA.trim() },
+        { letter: "B", heading: "B) Warum konnten Hernán Cortés und Francisco Pizarro die Einheimischen im Kampf besiegen?", text: state.taskB.trim() },
+        { letter: "C", heading: "C) Bewerte wie sich die Spanier gegenüber den einheimischen Azteken und Inkas verhalten haben.", text: state.taskC.trim() },
+        { letter: "D", heading: "D) Warum starben in Mittel- und Südamerika im 16. Jahrhundert über 60 Millionen Menschen?", text: state.taskD.trim() }
+      ];
+
+      let totalH = 140;
+      for (const it of items) {
+        mctx.font = "bold 20px Verdana, sans-serif";
+        it.headLines = measureWrappedLines(mctx, it.heading, textMaxW);
+        mctx.font = "20px Verdana, sans-serif";
+        it.bodyLines = measureWrappedLines(mctx, it.text || "(Keine Antwort)", textMaxW);
+        it.cardH = 26 + it.headLines.length * 26 + 14 + it.bodyLines.length * lineH + 22;
+        totalH += it.cardH + 22;
+      }
+      totalH += 24;
+
+      const sheet = document.createElement("canvas");
+      sheet.width = W;
+      sheet.height = totalH;
+      const ctx = sheet.getContext("2d");
+
+      ctx.fillStyle = "#FBF4E4";
+      ctx.fillRect(0, 0, W, totalH);
+
+      ctx.fillStyle = "#15324D";
+      ctx.fillRect(0, 0, W, 108);
+      ctx.fillStyle = "#F4C552";
+      ctx.fillRect(0, 104, W, 6);
+
+      ctx.fillStyle = "#FFFDF8";
+      ctx.font = "bold 30px Verdana, sans-serif";
+      ctx.textAlign = "left";
+      ctx.fillText("Entdeckungen: Azteken, Inkas & die Spanier", 40, 50);
+
+      ctx.fillStyle = "#FDF1CE";
+      ctx.font = "20px Verdana, sans-serif";
+      const nameTxt = state.studentName.trim() ? "Name: " + state.studentName.trim() : "1. Sekundarschule Niveau BC";
+      ctx.fillText(nameTxt + "  •  OneNote-Abgabe (Aufträge A–D)", 40, 84);
+
+      let curY = 136;
+      for (const it of items) {
+        ctx.fillStyle = "#FFFDF8";
+        ctx.strokeStyle = "#2A2018";
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.roundRect(padX, curY, cardW, it.cardH, 18);
+        ctx.fill();
+        ctx.stroke();
+
+        let textY = curY + 34;
+        ctx.fillStyle = "#B8402C";
+        ctx.font = "bold 20px Verdana, sans-serif";
+        for (const hl of it.headLines) {
+          ctx.fillText(hl, padX + 24, textY);
+          textY += 26;
+        }
+
+        textY += 12;
+        ctx.fillStyle = "#221A14";
+        ctx.font = "20px Verdana, sans-serif";
+        for (const bl of it.bodyLines) {
+          ctx.fillText(bl, padX + 24, textY);
+          textY += lineH;
+        }
+
+        curY += it.cardH + 22;
+      }
+
+      const a = document.createElement("a");
+      a.href = sheet.toDataURL("image/png");
+      a.download = "Entdeckungen_Azteken_Inkas_OneNote.png";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
+
+    // =========================================================================
+    // 16. GLOSSAR-DIALOG
+    // =========================================================================
+    const glossaryDialog = document.getElementById("glossary-dialog");
+    const glossTitle = document.getElementById("gloss-title");
+    const glossBody = document.getElementById("gloss-body");
+
+    function openSingleTerm(key) {
+      const item = GLOSSARY[key];
+      if (!item) return;
+      glossTitle.textContent = `📖 Begriff: ${item.word}`;
+      glossBody.innerHTML = `
+        <div style="font-size:0.9rem; font-weight:800; color:var(--spice-red); margin-bottom:4px;">${item.short}</div>
+        <p style="font-size:1.08rem; margin:0 0 14px 0;">${item.text}</p>
+        <div style="display:flex; gap:8px; flex-wrap:wrap; justify-content:space-between;">
+          <button type="button" class="btn-speak" data-speech="${escapeHtml(item.word + ": " + item.text)}" onclick="speakFromBtn(this)">
+            🔊 Erklärung vorlesen
+          </button>
+          <button type="button" class="btn btn-soft btn-sm" onclick="openGlossaryModal()">
+            Alle Wörter ansehen
+          </button>
+        </div>
+      `;
+      if (!glossaryDialog.open) glossaryDialog.showModal();
+    }
+
+    function openGlossaryModal() {
+      glossTitle.textContent = "📖 Alle wichtigen Wörter";
+      glossBody.innerHTML = Object.values(GLOSSARY).map(item => `
+        <div style="border-bottom:1.5px solid rgba(42,32,24,0.18); padding:10px 0;">
+          <div style="display:flex; justify-content:space-between; align-items:center; gap:8px;">
+            <strong style="font-size:1.05rem;">${item.word}</strong>
+            <button type="button" class="btn-speak" style="min-height:34px; padding:4px 10px;" data-speech="${escapeHtml(item.word + ": " + item.text)}" onclick="speakFromBtn(this)">🔊</button>
+          </div>
+          <div style="font-size:0.85rem; color:var(--spice-red); font-weight:700;">${item.short}</div>
+          <p style="margin:4px 0 0 0; font-size:0.95rem;">${item.text}</p>
+        </div>
+      `).join("");
+      if (!glossaryDialog.open) glossaryDialog.showModal();
+    }
+
+    function closeGlossary() {
+      stopSpeech();
+      if (glossaryDialog.open) glossaryDialog.close();
+    }
+
+    glossaryDialog.addEventListener("click", e => {
+      if (e.target === glossaryDialog) closeGlossary();
+    });
+
+    document.getElementById("source-dialog").addEventListener("click", e => {
+      if (e.target === document.getElementById("source-dialog")) closeSourceModal();
+    });
+
+    // =========================================================================
+    // 17. VORLESEFUNKTION (WEB SPEECH API)
+    // =========================================================================
+    let cachedVoice = null;
+
+    function pickGermanVoice() {
+      if (!("speechSynthesis" in window)) return null;
+      const voices = window.speechSynthesis.getVoices();
+      if (!voices.length) return null;
+      return (
+        voices.find(v => v.lang.toLowerCase().startsWith("de-ch")) ||
+        voices.find(v => v.lang.toLowerCase().startsWith("de")) ||
+        null
+      );
+    }
+
+    if ("speechSynthesis" in window) {
+      cachedVoice = pickGermanVoice();
+      window.speechSynthesis.onvoiceschanged = () => {
+        cachedVoice = pickGermanVoice();
+      };
+    }
+
+    function clearSpeechUI() {
+      document.querySelectorAll(".speaking").forEach(el => el.classList.remove("speaking"));
+      if (activeSpeakBtn) {
+        activeSpeakBtn.classList.remove("speaking-active");
+        if (activeSpeakBtn.dataset.origLabel) {
+          activeSpeakBtn.textContent = activeSpeakBtn.dataset.origLabel;
+        }
+      }
+      activeSpeakBtn = null;
+      const globalBtn = document.getElementById("global-speak-btn");
+      const globalLabel = document.getElementById("speak-label");
+      if (globalBtn) globalBtn.classList.remove("speaking-active");
+      if (globalLabel) globalLabel.textContent = "Vorlesen";
+    }
+
+    function stopSpeech() {
+      readingSequenceCancelled = true;
+      if ("speechSynthesis" in window) {
+        window.speechSynthesis.cancel();
+      }
+      clearSpeechUI();
+    }
+
+    function speakText(text, btnEl = null, highlightEl = null) {
+      if (!("speechSynthesis" in window)) {
+        alert("Dein Browser unterstützt leider keine Sprachausgabe.");
+        return;
+      }
+      const isSameBtn = btnEl && activeSpeakBtn === btnEl && window.speechSynthesis.speaking;
+      stopSpeech();
+      if (isSameBtn) return;
+
+      readingSequenceCancelled = false;
+      const utter = new SpeechSynthesisUtterance(text);
+      utter.lang = "de-CH";
+      utter.rate = 0.92;
+      if (cachedVoice) utter.voice = cachedVoice;
+
+      if (highlightEl) highlightEl.classList.add("speaking");
+      if (btnEl) {
+        btnEl.dataset.origLabel = btnEl.textContent.trim();
+        btnEl.classList.add("speaking-active");
+        btnEl.textContent = "⏹ Stopp";
+        activeSpeakBtn = btnEl;
+      }
+
+      utter.onend = clearSpeechUI;
+      utter.onerror = clearSpeechUI;
+      window.speechSynthesis.speak(utter);
+    }
+
+    function speakFromBtn(btnEl) {
+      speakText(btnEl.dataset.speech || "", btnEl);
+    }
+
+    function speakPanel(chId, panelIdx, btnEl) {
+      const ch = STORY_CHAPTERS[chId];
+      if (!ch || !ch.panels[panelIdx]) return;
+      const box = document.getElementById(`panel-${panelIdx}`);
+      const text = stripTokensForSpeech(ch.panels[panelIdx].text);
+      speakText(text, btnEl, box);
+    }
+
+    function speakCurrentSection() {
+      if (!("speechSynthesis" in window)) {
+        alert("Dein Browser unterstützt leider keine Sprachausgabe.");
+        return;
+      }
+      const globalBtn = document.getElementById("global-speak-btn");
+      const globalLabel = document.getElementById("speak-label");
+      if (window.speechSynthesis.speaking && !readingSequenceCancelled && globalBtn.classList.contains("speaking-active")) {
+        stopSpeech();
+        return;
+      }
+
+      stopSpeech();
+
+      if (state.currentStep === 0) {
+        const st = MAP_STATIONS.find(s => s.id === state.selectedPin) || MAP_STATIONS[0];
+        speakText(`Übersichtskarte zu Azteken, Inkas und den Spaniern. ${st.title}. ${st.desc}`);
+        globalBtn.classList.add("speaking-active");
+        globalLabel.textContent = "Stopp";
+        return;
+      }
+
+      if (state.currentStep >= 7 && state.currentStep <= 10) {
+        const t = TASKS[state.currentStep];
+        speakText(`${t.question} Tipp von Koko: ${t.kokoTip}`);
+        globalBtn.classList.add("speaking-active");
+        globalLabel.textContent = "Stopp";
+        return;
+      }
+
+      if (state.currentStep === 11) {
+        speakText("Geschafft! Hier ist deine fertige OneNote-Abgabe. Du kannst jede Antwort einzeln kopieren und in dein OneNote einfügen oder ein Bild speichern.");
+        globalBtn.classList.add("speaking-active");
+        globalLabel.textContent = "Stopp";
+        return;
+      }
+
+      const ch = STORY_CHAPTERS[state.currentStep];
+      if (!ch) return;
+
+      readingSequenceCancelled = false;
+      globalBtn.classList.add("speaking-active");
+      globalLabel.textContent = "Stopp";
+
+      let idx = 0;
+      function nextPanel() {
+        if (readingSequenceCancelled || idx >= ch.panels.length) {
+          clearSpeechUI();
+          return;
+        }
+        const panel = ch.panels[idx];
+        const box = document.getElementById(`panel-${idx}`);
+        document.querySelectorAll(".speaking").forEach(el => el.classList.remove("speaking"));
+        if (box) box.classList.add("speaking");
+
+        const utter = new SpeechSynthesisUtterance(stripTokensForSpeech(panel.text));
+        utter.lang = "de-CH";
+        utter.rate = 0.92;
+        if (cachedVoice) utter.voice = cachedVoice;
+
+        utter.onend = () => {
+          idx++;
+          nextPanel();
+        };
+        utter.onerror = clearSpeechUI;
+        window.speechSynthesis.speak(utter);
+      }
+
+      nextPanel();
+    }
+
+    // =========================================================================
+    // 18. HAUPT-RENDER
+    // =========================================================================
+    function render() {
+      renderHeaderStats();
+      renderStepper();
+      const main = document.getElementById("app-main");
+      const step = state.currentStep;
+
+      if (step === 0) {
+        main.innerHTML = renderOverviewScreen();
+      } else if (step >= 1 && step <= 6) {
+        main.innerHTML = renderStoryChapter(step);
+      } else if (step >= 7 && step <= 10) {
+        main.innerHTML = renderTaskScreen(step);
+      } else {
+        state.completed[11] = true;
+        saveState();
+        renderStepper();
+        main.innerHTML = renderSummaryScreen();
+      }
+    }
+
+    loadState();
+    render();
+  </script>
+</body>
+</html>
